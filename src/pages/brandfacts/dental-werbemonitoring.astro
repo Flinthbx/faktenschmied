@@ -1,0 +1,132 @@
+---
+import Base from '../../layouts/Base.astro';
+const jsonLd = [
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://www.faktenschmied.de/"},{"@type":"ListItem","position":2,"name":"BrandFacts","item":"https://www.faktenschmied.de/brandfacts"},{"@type":"ListItem","position":3,"name":"Dental-Werbemonitoring","item":"https://www.faktenschmied.de/brandfacts/dental-werbemonitoring"}]}
+];
+---
+<Base title='Dental-Werbemonitoring — Werbeanalyse im Dentalmarkt | FaktenSchmied' description='Dental-Werbemonitoring mit BrandFacts: 100 Dentalfachtitel und 50 Newsletter in der DACH-Region, eingeteilt in Standard-Produktkategorien. Anzeigen, PR-Texte und Werbespendings im Dentalmarkt analysieren.' path="/brandfacts/dental-werbemonitoring" active="branchen" jsonLd={jsonLd}>
+<!-- HERO -->
+<section class="hero interior home">
+  <div class="mesh"></div><div class="grain"></div>
+  <div class="wrap">
+    <div>
+      <div class="crumb reveal"><a href="/">Start</a><span class="sep">/</span><a href="/brandfacts">BrandFacts</a><span class="sep">/</span>Dental</div>
+      <div class="ey on-dark reveal">Branche · Dental</div>
+      <h1 class="reveal" style="transition-delay:.08s">Werbung, die <span class="serif-it o">auf den Zahn fühlt.</span></h1>
+      <p class="sub reveal" style="transition-delay:.16s">BrandFacts behält Ihre Konkurrenz in puncto Werbeanzeigen, Botschaften und Budgets im Blick — strukturiert nach den industrieüblichen Produktkategorien des Dentalmarkts, über Print und Digital.</p>
+      <div class="acts reveal" style="transition-delay:.24s">
+        <a class="btn btn-primary btn-lg" href="/demo" id="magnet"><span class="lbl">Dental-Demo anfragen <span class="ar">→</span></span></a>
+        <a class="btn btn-onnavy btn-lg" href="/brandfacts"><span class="lbl">BrandFacts im Überblick</span></a>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:.2s">
+      <div class="glass" id="tilt" aria-hidden="true">
+        <div class="gh"><i></i><i></i><i></i><span class="t">dental › produktkategorie · spendings</span></div>
+        <div class="gb">
+          <div class="gr"><span>Implantologie</span><span>36%</span></div><div class="gbar"><span data-w="80%" style="background:var(--brand)"></span></div>
+          <div class="gr"><span>Prophylaxe</span><span>28%</span></div><div class="gbar"><span data-w="62%" style="background:var(--viz-2)"></span></div>
+          <div class="gr"><span>Prothetik</span><span>21%</span></div><div class="gbar"><span data-w="48%" style="background:var(--viz-3)"></span></div>
+          <div class="gchart"><i class="c" data-h="46%"></i><i class="c" data-h="64%"></i><i class="c" data-h="58%"></i><i class="c" data-h="82%"></i><i class="c" data-h="90%"></i><i class="c" data-h="72%"></i></div>
+        </div>
+      </div>
+      <div class="chip"><span class="v">100</span><span class="k">Dentalfachtitel<br>+ 50 Newsletter</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="wrap">
+    <div class="it reveal"><div class="n"><span data-count="100">0</span></div><div class="l">Dentalfachtitel · DACH</div></div>
+    <div class="it reveal" style="transition-delay:.08s"><div class="n"><span data-count="50">0</span></div><div class="l">Verlags-Newsletter</div></div>
+    <div class="it reveal" style="transition-delay:.16s"><div class="n">Anzeigen<span class="u"> + </span>PR</div><div class="l">erfasste Werbeformen</div></div>
+    <div class="it reveal" style="transition-delay:.24s"><div class="n">Kategorien</div><div class="l">+ Untergruppen</div></div>
+  </div>
+</div>
+
+<!-- WHAT -->
+<section>
+  <div class="wrap split top">
+    <div class="reveal">
+      <div class="ey"><span class="ix">(01)</span> Die Datenbasis</div>
+      <h2 style="margin-top:18px">Die umfassendste Basis für Ihr Dental-Werbemonitoring in DACH.</h2>
+      <p class="big">Das FaktenSchmied-Team erfasst täglich Anzeigen und PR-Texte aus <b>100 Dentalfachtiteln</b> in der DACH-Region. Die <b>50 Verlags-Newsletter</b> werden digital erfasst; über die Mediadaten der Verlage lassen sich die Werbespendings analysieren.</p>
+      <p class="big">In einem gemeinsamen Teams-Meeting zeigen wir Ihnen die intuitive Nutzung von BrandFacts und ermitteln Ihren individuellen Bedarf.</p>
+      <a class="btn btn-line" style="margin-top:14px" href="/methodik"><span class="lbl">Wie wir erfassen <span class="ar">→</span></span></a>
+    </div>
+    <div class="reveal" style="transition-delay:.12s">
+      <div class="panel">
+        <div class="ph"><span class="t">dental · wettbewerb · produktkategorie</span><span class="seg"><b class="on">Print</b><b>Digital</b></span></div>
+        <table>
+          <thead><tr><th>Kategorie</th><th>Werbedruck</th><th style="text-align:right">Anteil</th><th style="text-align:right">Δ&nbsp;QoQ</th></tr></thead>
+          <tbody>
+            <tr><td>Implantologie</td><td><span class="tbar"><span style="width:80%"></span></span></td><td class="tnum">36&nbsp;%</td><td class="tnum up">▲&nbsp;3</td></tr>
+            <tr><td>Prophylaxe</td><td><span class="tbar"><span style="width:62%"></span></span></td><td class="tnum">28&nbsp;%</td><td class="tnum up">▲&nbsp;2</td></tr>
+            <tr><td>Prothetik</td><td><span class="tbar"><span style="width:48%"></span></span></td><td class="tnum">21&nbsp;%</td><td class="tnum dn">▼&nbsp;1</td></tr>
+            <tr><td>Übrige</td><td><span class="tbar"><span style="width:30%"></span></span></td><td class="tnum">15&nbsp;%</td><td class="tnum">—</td></tr>
+          </tbody>
+        </table>
+        <div class="cap">// anonymisiertes beispiel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section class="feat">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(02)</span> Klare Struktur</div>
+      <h2>Weniger Aufwand durch saubere Kategorien</h2>
+      <p>Alle analysierten Werbeanzeigen — analog und digital — werden in die industrieüblichen Standard-Produktkategorien und Untergruppen eingeteilt. Keine überflüssigen Daten, keine vergeudete Zeit.</p>
+    </div>
+    <div class="bento reveal cols-2">
+      <div class="cell"><div class="ix">01</div><div class="ic">▦</div><h4>Anzeigen</h4><p>Print-Werbung aus 100 Dentalfachtiteln, vollständig erfasst und kategorisiert.</p></div>
+      <div class="cell"><div class="ix">02</div><div class="ic">◰</div><h4>PR-Texte</h4><p>Redaktionelle Werbeformen, die Reichweite und Botschaft der Wettbewerber zeigen.</p></div>
+      <div class="cell"><div class="ix">03</div><div class="ic">✉</div><h4>Newsletter</h4><p>50 digital erfasste Verlags-Newsletter als Teil der durchgängigen Sicht.</p></div>
+      <div class="cell"><div class="ix">04</div><div class="ic">€</div><h4>Spendings</h4><p>Werbespendings über die Mediadaten der Verlage — Grundlage für die Budgetplanung.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(03)</span> Anwendungen im Dental-Marketing</div>
+      <h2>Wofür Dental-Teams BrandFacts nutzen</h2>
+    </div>
+    <div class="rows reveal">
+      <a class="ucrow" href="/#usecases"><div class="ix">01</div><div><h4>Wettbewerbsanalyse</h4><p>Relevante Werbeaktivitäten der Konkurrenz im Dentalmarkt auf einen Blick — transparent statt Bauchgefühl.</p></div><div class="go">→</div></a>
+      <a class="ucrow" href="/#usecases"><div class="ix">02</div><div><h4>Mediaplanung</h4><p>Budget passgenauer verteilen — auf Basis dessen, wo und wie Ihre Wettbewerber im Dentalmarkt werben.</p></div><div class="go">→</div></a>
+      <a class="ucrow" href="/#usecases"><div class="ix">03</div><div><h4>Kampagnenentwicklung</h4><p>Entwickeln Sie einzigartige Anzeigenschaltungen, die Ihre Zielgruppe im Dentalbereich wirklich ansprechen.</p></div><div class="go">→</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faqsec feat">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="ey"><span class="ix">(04)</span> FAQ</div>
+      <h2>Fragen zum Dental-Werbemonitoring</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>Wie viele Quellen sind im Dental-Bereich erfasst?<span class="pm">▾</span></summary><div class="a">100 Dentalfachtitel und 50 Verlags-Newsletter in der DACH-Region. Anzeigen und PR-Texte werden den Fachzeitschriften entnommen, die Newsletter digital erfasst.</div></details>
+      <details><summary>Wie werden die Werbeanzeigen strukturiert?<span class="pm">▾</span></summary><div class="a">Alle Anzeigen — analog und digital — werden in industrieübliche Standard-Produktkategorien und Untergruppen eingeteilt. So sehen Sie nur die für Sie relevanten Bereiche.</div></details>
+      <details><summary>Wie werden Werbespendings ermittelt?<span class="pm">▾</span></summary><div class="a">Über die Mediadaten der Verlage in Kombination mit den erfassten Anzeigen und PR-Texten.</div></details>
+      <details><summary>Wie läuft die Demo ab?<span class="pm">▾</span></summary><div class="a">In einem gemeinsamen Teams-Meeting zeigen wir Ihnen die intuitive Nutzung von BrandFacts und ermitteln Ihren individuellen Bedarf — kostenlos und unverbindlich.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final"><div class="wrap"><div class="cta reveal">
+  <div class="mesh"></div>
+  <h2>Behalten Sie den Dentalmarkt im Blick.</h2>
+  <p>In einer kostenlosen Demo zeigen wir BrandFacts an Ihren Produktkategorien und Ihrem Wettbewerbsumfeld.</p>
+  <div class="acts"><a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Dental-Demo anfragen <span class="ar">→</span></span></a></div>
+</div></div></div>
+
+<!-- FOOTER -->
+</Base>

@@ -1,0 +1,17 @@
+# Dependencies & Build
+node_modules/
+dist/
+.astro/
+
+# Vercel
+.vercel/
+
+# Versehentliche Mount-Restordner (Build nutzt nur src/pages bzw. public/*)
+src/src/
+public/public/
+
+# Sonstiges
+*.log
+.DS_Store
+.env
+.env.*

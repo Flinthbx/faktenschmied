@@ -1,0 +1,227 @@
+---
+import '../styles/global.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+import '@fontsource/inter/900.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '@fontsource/source-serif-4/400-italic.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  /** Pfad ohne Domain, z.B. "/brandfacts" */
+  path?: string;
+  jsonLd?: Record<string, unknown>[];
+  /** key der aktiven Navi: brandfacts | branchen | usecases | methodik | insights */
+  active?: string;
+}
+
+const { title, description, path = '/', jsonLd = [], active = '' } = Astro.props;
+const canonical = new URL(path, Astro.site ?? 'https://www.faktenschmied.de').href;
+const ogImage = 'https://www.faktenschmied.de/og-default.png';
+
+const nav = [
+  { key: 'brandfacts', label: 'BrandFacts', href: '/brandfacts' },
+  { key: 'branchen', label: 'Branchen', href: '/brandfacts/rx-werbemonitoring' },
+  { key: 'usecases', label: 'Use Cases', href: '/use-cases/wettbewerbsanalyse' },
+  { key: 'methodik', label: 'Methodik', href: '/methodik' },
+  { key: 'insights', label: 'Insights', href: '/insights' },
+];
+---
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="FaktenSchmied" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#15183B" />
+  {jsonLd.map((obj) => (
+    <script type="application/ld+json" set:html={JSON.stringify(obj)} />
+  ))}
+</head>
+<body>
+  <div id="prog"></div>
+
+  <header class="site" id="hdr">
+    <div class="wrap hd">
+      <a class="logo" href="/"><span class="mk">FS</span><span>FaktenSchmied<small>BRANDFACTS</small></span></a>
+      <nav class="main">
+        <ul>
+          {nav.map((n) => (
+            <li><a href={n.href} aria-current={active === n.key ? 'page' : undefined}>{n.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="hd-act">
+        <a class="btn btn-primary" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a>
+      </div>
+      <button class="burger" id="bg" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <nav class="mob" id="mob">
+    {nav.map((n, i) => (
+      <a href={n.href}><span class="ix">{String(i + 1).padStart(2, '0')}</span>{n.label}</a>
+    ))}
+    <a class="btn btn-primary" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <a class="logo" href="/"><span class="mk">FS</span><span style="color:#fff">FaktenSchmied</span></a>
+          <p class="desc">Healthcare-Werbemonitoring aus Ansbach. BrandFacts macht sichtbar, wie der Markt wirbt — über Print und Digital.</p>
+        </div>
+        <div>
+          <h5>Produkt</h5>
+          <ul>
+            <li><a href="/brandfacts">BrandFacts</a></li>
+            <li><a href="/brandfacts/rx-werbemonitoring">Rx-Werbemonitoring</a></li>
+            <li><a href="/brandfacts/dental-werbemonitoring">Dental-Werbemonitoring</a></li>
+            <li><a href="/brandfacts/veterinaer-werbemonitoring">Veterinär-Werbemonitoring</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Use Cases</h5>
+          <ul>
+            <li><a href="/use-cases/wettbewerbsanalyse">Wettbewerbsanalyse</a></li>
+            <li><a href="/use-cases/mediaplanung">Mediaplanung</a></li>
+            <li><a href="/use-cases/kampagnenentwicklung">Kampagnenentwicklung</a></li>
+            <li><a href="/methodik">Methodik</a></li>
+            <li><a href="/insights">Insights</a></li>
+          </ul>
+        </div>
+        <div class="nl">
+          <h5>Newsletter</h5>
+          <p class="desc" style="margin-bottom:14px">Marktbeobachtung, regelmäßig in Ihr Postfach.</p>
+          <form method="post" action="#" onsubmit="return false">
+            <input placeholder="Geschäftliche E-Mail" aria-label="E-Mail" type="email" />
+            <button class="btn btn-primary btn-block" style="margin-top:10px"><span class="lbl">Abonnieren <span class="ar">→</span></span></button>
+          </form>
+          <p style="font-family:var(--mono);font-size:10.5px;margin-top:10px;color:#838AC0">// double-opt-in · abmeldung jederzeit</p>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© 2026 FaktenSchmied GmbH · Bahnhofstraße 2, 91522 Ansbach · +49 (0) 981 208 6261-0</span>
+        <span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a> · <a href="/demo">Kontakt</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hdr = document.getElementById('hdr');
+    const prog = document.getElementById('prog');
+    function onScroll() {
+      const y = window.scrollY;
+      if (hdr) hdr.classList.toggle('scrolled', y > 40);
+      if (prog) {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const bg = document.getElementById('bg');
+    const mob = document.getElementById('mob');
+    if (bg && mob) {
+      bg.addEventListener('click', () => mob.classList.toggle('open'));
+      mob.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => mob.classList.remove('open')));
+    }
+
+    function count(el) {
+      if (el.dataset.done) return; el.dataset.done = '1';
+      const target = +el.dataset.count;
+      if (RM) { el.textContent = String(target); return; }
+      const dur = 1400, t0 = performance.now();
+      function step(t) {
+        const p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = String(Math.round(target * e));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    function activate(el) {
+      el.classList.add('in');
+      el.querySelectorAll('[data-count]').forEach(count);
+      if (el.matches('[data-count]')) count(el);
+      el.querySelectorAll('.gbar>span[data-w]').forEach((s) => (s.style.width = s.dataset.w));
+      el.querySelectorAll('.gchart .c[data-h]').forEach((s) => (s.style.height = s.dataset.h));
+    }
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting) { activate(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.18 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    window.addEventListener('load', () => setTimeout(() => {
+      document.querySelectorAll('.gbar>span[data-w]').forEach((s) => (s.style.width = s.dataset.w));
+      document.querySelectorAll('.gchart .c[data-h]').forEach((s) => (s.style.height = s.dataset.h));
+    }, 300));
+
+    const fine = matchMedia('(pointer:fine)').matches;
+    const mag = document.getElementById('magnet');
+    if (mag && !RM && fine) {
+      const str = 22;
+      mag.addEventListener('mousemove', (e) => {
+        const r = mag.getBoundingClientRect();
+        const x = ((e.clientX - r.left - r.width / 2) / r.width) * str;
+        const y = ((e.clientY - r.top - r.height / 2) / r.height) * str;
+        mag.style.transform = `translate(${x}px,${y}px)`;
+      });
+      mag.addEventListener('mouseleave', () => (mag.style.transform = ''));
+    }
+    const tilt = document.getElementById('tilt');
+    if (tilt && !RM && fine) {
+      const host = tilt.closest('section');
+      host.addEventListener('mousemove', (e) => {
+        const r = host.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        tilt.style.transform = `perspective(900px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg)`;
+      });
+      host.addEventListener('mouseleave', () => (tilt.style.transform = ''));
+    }
+  </script>
+  <div class="consent-bar" id="consentbar" hidden>
+    <div class="cb-inner">
+      <p>Wir verwenden nur technisch notwendige Cookies. Optionale Statistik-Cookies setzen wir erst nach Ihrer Einwilligung. <a href="/datenschutz">Mehr im Datenschutz</a>.</p>
+      <div class="cb-acts">
+        <button class="btn btn-line" id="cb-ess"><span class="lbl">Nur notwendige</span></button>
+        <button class="btn btn-primary" id="cb-all"><span class="lbl">Alle akzeptieren</span></button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var KEY = 'fs-consent';
+      var bar = document.getElementById('consentbar');
+      if (!bar) return;
+      try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+      bar.hidden = false;
+      function choose(v) { try { localStorage.setItem(KEY, v); } catch (e) {} bar.hidden = true; }
+      document.getElementById('cb-ess').addEventListener('click', function () { choose('essential'); });
+      document.getElementById('cb-all').addEventListener('click', function () { choose('all'); });
+    })();
+  </script>
+</body>
+</html>

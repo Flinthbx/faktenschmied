@@ -1,0 +1,158 @@
+---
+import Base from '../../layouts/Base.astro';
+const jsonLd = [
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://www.faktenschmied.de/"},{"@type":"ListItem","position":2,"name":"BrandFacts","item":"https://www.faktenschmied.de/brandfacts"},{"@type":"ListItem","position":3,"name":"Rx-Werbemonitoring","item":"https://www.faktenschmied.de/brandfacts/rx-werbemonitoring"}]}
+];
+---
+<Base title='Rx-Werbemonitoring — Pharma-Werbeanalyse mit ATC-Logik | FaktenSchmied' description='Rx-Werbemonitoring mit BrandFacts: über 700 Fachzeitschriften und 540 Verlags-Newsletter, täglich erfasst, nach ATC-Code zugeordnet und nach Indikation filterbar. Pharma-Werbedruck, -inhalte und -spendings analysieren.' path="/brandfacts/rx-werbemonitoring" active="branchen" jsonLd={jsonLd}>
+<!-- HERO -->
+<section class="hero interior home">
+  <div class="mesh"></div><div class="grain"></div>
+  <div class="wrap">
+    <div>
+      <div class="crumb reveal"><a href="/">Start</a><span class="sep">/</span><a href="/brandfacts">BrandFacts</a><span class="sep">/</span>Rx</div>
+      <div class="ey on-dark reveal">Branche · Rx / Pharma</div>
+      <h1 class="reveal" style="transition-delay:.08s">Pharma-Werbung — <span class="serif-it o">ATC-genau und indikationsscharf.</span></h1>
+      <p class="sub reveal" style="transition-delay:.16s">BrandFacts überwacht die Werbemaßnahmen Ihrer Wettbewerber im Rx-Markt präzise: täglich erfasst, nach ATC-Code zugeordnet und nach Indikation filterbar — über Print und Digital. So planen Sie Budgets effizienter und reagieren schneller.</p>
+      <div class="acts reveal" style="transition-delay:.24s">
+        <a class="btn btn-primary btn-lg" href="/demo" id="magnet"><span class="lbl">Rx-Demo anfragen <span class="ar">→</span></span></a>
+        <a class="btn btn-onnavy btn-lg" href="/brandfacts"><span class="lbl">BrandFacts im Überblick</span></a>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:.2s">
+      <div class="glass" id="tilt" aria-hidden="true">
+        <div class="gh"><i></i><i></i><i></i><span class="t">rx › werbedruck · indikation</span></div>
+        <div class="gb">
+          <div class="gr"><span>ATC A — Indikation X</span><span>41%</span></div><div class="gbar"><span data-w="88%" style="background:var(--brand)"></span></div>
+          <div class="gr"><span>ATC B — Indikation Y</span><span>29%</span></div><div class="gbar"><span data-w="64%" style="background:var(--viz-2)"></span></div>
+          <div class="gr"><span>ATC C — Indikation Z</span><span>17%</span></div><div class="gbar"><span data-w="42%" style="background:var(--viz-3)"></span></div>
+          <div class="gchart"><i class="c" data-h="50%"></i><i class="c" data-h="68%"></i><i class="c" data-h="62%"></i><i class="c" data-h="84%"></i><i class="c" data-h="96%"></i><i class="c" data-h="80%"></i></div>
+        </div>
+      </div>
+      <div class="chip"><span class="v">&gt;700</span><span class="k">Fachzeitschriften<br>täglich erfasst</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="wrap">
+    <div class="it reveal"><div class="n">&gt;<span data-count="700">0</span></div><div class="l">Fachzeitschriften · DACH</div></div>
+    <div class="it reveal" style="transition-delay:.08s"><div class="n">&gt;<span data-count="540">0</span></div><div class="l">pharm. Verlags-Newsletter</div></div>
+    <div class="it reveal" style="transition-delay:.16s"><div class="n">täglich</div><div class="l">Erfassungsrhythmus</div></div>
+    <div class="it reveal" style="transition-delay:.24s"><div class="n">ATC</div><div class="l">+ Indikationsfilter</div></div>
+  </div>
+</div>
+
+<!-- WHAT -->
+<section>
+  <div class="wrap split top">
+    <div class="reveal">
+      <div class="ey"><span class="ix">(01)</span> Strategischer Vorteil</div>
+      <h2 style="margin-top:18px">Den vollständigen Überblick behalten — bevor andere reagieren.</h2>
+      <p class="big">Täglich werden mehr als <b>700 Fachzeitschriften</b> aus dem D-A-CH-Raum analysiert: klassische Werbeanzeigen, bezahlte PR, Advertorials und Sonderveröffentlichungen fließen in die BrandFacts-Datenbank. Hinzu kommen mehr als <b>540 pharmazeutische und medizinische Verlags-Newsletter</b>.</p>
+      <p class="big">Damit erhalten Sie im Bereich Rx ein umfangreiches Monitoring über den Print- und Digital-Sektor — die Grundlage, um Werbedruck, Inhalte und Spendings Ihrer Mitbewerber belastbar zu vergleichen.</p>
+      <a class="btn btn-line" style="margin-top:14px" href="/methodik"><span class="lbl">Wie wir erfassen <span class="ar">→</span></span></a>
+    </div>
+    <div class="reveal" style="transition-delay:.12s">
+      <div class="panel">
+        <div class="ph"><span class="t">rx · share of voice · indikation</span><span class="seg"><b class="on">Print</b><b>Digital</b></span></div>
+        <table>
+          <thead><tr><th>Anbieter</th><th>Werbedruck</th><th style="text-align:right">Anteil</th><th style="text-align:right">Δ&nbsp;QoQ</th></tr></thead>
+          <tbody>
+            <tr><td>Anbieter A</td><td><span class="tbar"><span style="width:88%"></span></span></td><td class="tnum">41&nbsp;%</td><td class="tnum up">▲&nbsp;5</td></tr>
+            <tr><td>Anbieter B</td><td><span class="tbar"><span style="width:64%"></span></span></td><td class="tnum">29&nbsp;%</td><td class="tnum dn">▼&nbsp;3</td></tr>
+            <tr><td>Anbieter C</td><td><span class="tbar"><span style="width:42%"></span></span></td><td class="tnum">17&nbsp;%</td><td class="tnum up">▲&nbsp;2</td></tr>
+            <tr><td>Übrige</td><td><span class="tbar"><span style="width:28%"></span></span></td><td class="tnum">13&nbsp;%</td><td class="tnum">—</td></tr>
+          </tbody>
+        </table>
+        <div class="cap">// anonymisiertes beispiel · eine indikation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT TYPES -->
+<section class="feat">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(02)</span> Was erfasst wird</div>
+      <h2>Jede relevante Werbeform im Rx-Markt</h2>
+    </div>
+    <div class="bento reveal cols-2">
+      <div class="cell"><div class="ix">01</div><div class="ic">▦</div><h4>Klassische Werbeanzeigen</h4><p>Print-Anzeigen aus über 700 Fachzeitschriften — vollständig erfasst und kategorisiert.</p></div>
+      <div class="cell"><div class="ix">02</div><div class="ic">◰</div><h4>Bezahlte PR &amp; Advertorials</h4><p>Redaktionell anmutende Werbeformen sichtbar machen, die sonst unter dem Radar bleiben.</p></div>
+      <div class="cell"><div class="ix">03</div><div class="ic">✦</div><h4>Sonderveröffentlichungen</h4><p>Specials und Sonderformate als Teil der Wettbewerbsbeobachtung.</p></div>
+      <div class="cell"><div class="ix">04</div><div class="ic">✉</div><h4>Verlags-Newsletter</h4><p>Mehr als 540 pharmazeutische und medizinische Newsletter im digitalen Monitoring.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ATC LOGIC -->
+<section>
+  <div class="wrap split rev top">
+    <div class="reveal" style="transition-delay:.12s">
+      <div class="panel">
+        <div class="ph"><span class="t">brandfacts · personalisierte datenbank</span></div>
+        <table>
+          <thead><tr><th>ATC-Ebene</th><th>Indikation</th><th style="text-align:right">Motive</th></tr></thead>
+          <tbody>
+            <tr><td>A10 — Diabetes</td><td>Typ 2</td><td class="tnum">142</td></tr>
+            <tr><td>C09 — Kardio</td><td>Hypertonie</td><td class="tnum">98</td></tr>
+            <tr><td>R03 — Respiratorisch</td><td>Asthma</td><td class="tnum">76</td></tr>
+            <tr><td>N02 — Analgetika</td><td>Schmerz</td><td class="tnum">54</td></tr>
+          </tbody>
+        </table>
+        <div class="cap">// beispielhafte atc-/indikationsstruktur</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="ey"><span class="ix">(03)</span> Ihre Datenbank, Ihr Fokus</div>
+      <h2 style="margin-top:18px">Nur die Rx-Märkte, die für Sie zählen.</h2>
+      <p class="big">Mit BrandFacts konzentrieren Sie sich auf die Rx-Märkte und Produktsegmente, die für Ihr Unternehmen bedeutend sind. Alle analysierten Werbeanzeigen — analog und digital — werden den entsprechenden <b>ATC-Codes</b> zugeordnet.</p>
+      <p class="big">Zusätzlich filtern Sie nach <b>Indikationen</b>, um noch präzisere Einblicke zu erhalten. Ihr Werbemonitoring, unser Fokus: Erfolg im Pharmamarketing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="feat">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(04)</span> Anwendungen im Rx-Marketing</div>
+      <h2>Wofür Pharma-Teams BrandFacts nutzen</h2>
+    </div>
+    <div class="rows reveal">
+      <a class="ucrow" href="/#usecases"><div class="ix">01</div><div><h4>Wettbewerbsanalyse</h4><p>ATC-basiert sehen, wer in welcher Indikation wie stark wirbt — und mit welcher Botschaft.</p></div><div class="go">→</div></a>
+      <a class="ucrow" href="/#usecases"><div class="ix">02</div><div><h4>Mediaplanung</h4><p>Budgets und Kanäle anhand realer Wettbewerbsaktivität in Fachmedien und Newslettern planen.</p></div><div class="go">→</div></a>
+      <a class="ucrow" href="/#usecases"><div class="ix">03</div><div><h4>Kampagnenentwicklung</h4><p>Im Rx-Bereich sind gezielte, kreative Kampagnen ein Muss — entwickeln Sie unique Anzeigen auf Datenbasis.</p></div><div class="go">→</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faqsec">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="ey"><span class="ix">(05)</span> FAQ</div>
+      <h2>Fragen zum Rx-Werbemonitoring</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>Wie viele Quellen werden im Rx-Bereich erfasst?<span class="pm">▾</span></summary><div class="a">Täglich mehr als 700 Fachzeitschriften aus dem D-A-CH-Raum sowie mehr als 540 pharmazeutische und medizinische Verlags-Newsletter.</div></details>
+      <details><summary>Werden Anzeigen nach ATC zugeordnet?<span class="pm">▾</span></summary><div class="a">Ja. Alle analysierten Werbeanzeigen — analog und digital — werden den entsprechenden ATC-Codes zugeordnet. Zusätzlich können Sie nach Indikationen filtern.</div></details>
+      <details><summary>Welche Werbeformen sind enthalten?<span class="pm">▾</span></summary><div class="a">Klassische Werbeanzeigen, bezahlte PR, Advertorials und Sonderveröffentlichungen aus dem Print-Bereich sowie Anzeigen in Verlags-Newslettern.</div></details>
+      <details><summary>Wie schnell sehe ich Veränderungen im Markt?<span class="pm">▾</span></summary><div class="a">Durch die tägliche Erfassung erkennen Sie Verschiebungen im Werbedruck frühzeitig und können entsprechend reagieren.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final"><div class="wrap"><div class="cta reveal">
+  <div class="mesh"></div>
+  <h2>Sehen Sie den Rx-Werbemarkt klar.</h2>
+  <p>In einer kostenlosen Demo zeigen wir BrandFacts an Ihrer Indikation und Ihrem Wettbewerbsumfeld — unverbindlich.</p>
+  <div class="acts"><a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Rx-Demo anfragen <span class="ar">→</span></span></a></div>
+</div></div></div>
+
+<!-- FOOTER -->
+</Base>

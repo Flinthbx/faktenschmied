@@ -1,0 +1,195 @@
+---
+import Base from '../layouts/Base.astro';
+const jsonLd = [
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"BrandFacts","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Demo auf Anfrage"},"publisher":{"@type":"Organization","name":"FaktenSchmied GmbH","address":{"@type":"PostalAddress","streetAddress":"Bahnhofstraße 2","postalCode":"91522","addressLocality":"Ansbach","addressCountry":"DE"}},"description":"Healthcare-Werbemonitoring: Analyse von Werbedruck, Werbeinhalten und Werbespendings über Fachzeitschriften und Newsletter in Print und Digital."},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://www.faktenschmied.de/"},{"@type":"ListItem","position":2,"name":"BrandFacts","item":"https://www.faktenschmied.de/brandfacts"}]}
+];
+---
+<Base title='BrandFacts — Healthcare-Werbemonitoring in Print & Digital | FaktenSchmied' description='BrandFacts analysiert Werbedruck, Werbeinhalte und Werbespendings im Healthcare-Markt — über 830 Fachzeitschriften und 580 Newsletter, filterbar nach Medium, Branche und Zeitraum. Demo anfragen.' path="/brandfacts" active="brandfacts" jsonLd={jsonLd}>
+<!-- HERO -->
+<section class="hero interior home">
+  <div class="mesh"></div><div class="grain"></div>
+  <div class="wrap">
+    <div>
+      <div class="crumb reveal"><a href="/">Start</a><span class="sep">/</span>BrandFacts</div>
+      <div class="ey on-dark reveal">Die Produktplattform</div>
+      <h1 class="reveal" style="transition-delay:.08s">BrandFacts — <span class="serif-it o">sehen, wie der Markt wirbt.</span></h1>
+      <p class="sub reveal" style="transition-delay:.16s">Eine Plattform für Healthcare-Werbemonitoring: Werbedruck, Werbeinhalte und Werbespendings über Fachzeitschriften und Newsletter, in Print und Digital — filterbar nach Medium, Branche und Zeitraum.</p>
+      <div class="acts reveal" style="transition-delay:.24s">
+        <a class="btn btn-primary btn-lg" href="/demo" id="magnet"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a>
+        <a class="btn btn-onnavy btn-lg" href="/methodik"><span class="lbl">Zur Methodik</span></a>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:.2s">
+      <div class="glass" id="tilt" aria-hidden="true">
+        <div class="gh"><i></i><i></i><i></i><span class="t">brandfacts › spendings · zeitraum</span></div>
+        <div class="gb">
+          <div class="gr"><span>Print</span><span>62%</span></div><div class="gbar"><span data-w="62%" style="background:var(--brand)"></span></div>
+          <div class="gr"><span>Digital / Newsletter</span><span>38%</span></div><div class="gbar"><span data-w="38%" style="background:var(--viz-2)"></span></div>
+          <div class="gchart"><i class="c" data-h="48%"></i><i class="c" data-h="66%"></i><i class="c" data-h="58%"></i><i class="c" data-h="80%"></i><i class="c" data-h="92%"></i><i class="c" data-h="74%"></i></div>
+        </div>
+      </div>
+      <div class="chip"><span class="v">830</span><span class="k">Fachzeitschriften<br>+ 580 Newsletter</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="wrap">
+    <div class="it reveal"><div class="n"><span data-count="830">0</span></div><div class="l">Healthcare-Fachzeitschriften</div></div>
+    <div class="it reveal" style="transition-delay:.08s"><div class="n"><span data-count="580">0</span></div><div class="l">erfasste Newsletter</div></div>
+    <div class="it reveal" style="transition-delay:.16s"><div class="n">Print<span class="u">+</span>Digital</div><div class="l">durchgängige Abdeckung</div></div>
+    <div class="it reveal" style="transition-delay:.24s"><div class="n">DACH</div><div class="l">Rx · Dental · Veterinär</div></div>
+  </div>
+</div>
+
+<!-- WHAT IT IS -->
+<section>
+  <div class="wrap split top">
+    <div class="reveal">
+      <div class="ey"><span class="ix">(01)</span> Was BrandFacts ist</div>
+      <h2 style="margin-top:18px">Ein vollständiges Bild des Werbemarkts — an einer Stelle.</h2>
+      <p class="big">BrandFacts erfasst Anzeigenmotive, PR-Texte und Mediadaten systematisch, ordnet sie nach Markt und Kategorie zu und macht sie vergleichbar. Statt einzelner Beobachtungen entsteht eine belastbare Sicht auf <b>Werbedruck, Inhalte und Spendings</b> Ihrer Wettbewerber.</p>
+      <p class="big">Sie filtern auf das, was für Sie zählt — nach Branche, Produktkategorie, Indikation oder Zeitraum — und überführen die Ergebnisse direkt in Budget-, Media- und Kampagnenentscheidungen.</p>
+      <a class="btn btn-line" style="margin-top:14px" href="/methodik"><span class="lbl">Wie wir Daten erfassen <span class="ar">→</span></span></a>
+    </div>
+    <div class="reveal" style="transition-delay:.12s">
+      <div class="panel">
+        <div class="ph"><span class="t">brandfacts · mediaebene</span><span class="seg"><b class="on">Anzeigen</b><b>PR</b><b>Newsletter</b></span></div>
+        <table>
+          <thead><tr><th>Medium</th><th>Typ</th><th style="text-align:right">Motive</th><th style="text-align:right">Spendings</th></tr></thead>
+          <tbody>
+            <tr><td>Fachzeitschrift A</td><td>Anzeige</td><td class="tnum">128</td><td class="tnum">●●●●○</td></tr>
+            <tr><td>Newsletter B</td><td>Advertorial</td><td class="tnum">64</td><td class="tnum">●●●○○</td></tr>
+            <tr><td>Fachzeitschrift C</td><td>Sonderveröff.</td><td class="tnum">37</td><td class="tnum">●●○○○</td></tr>
+            <tr><td>Newsletter D</td><td>PR-Text</td><td class="tnum">22</td><td class="tnum">●○○○○</td></tr>
+          </tbody>
+        </table>
+        <div class="cap">// anonymisiertes beispiel · spendings als relative skala</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="feat">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(02)</span> Funktionen</div>
+      <h2>Alles, was Werbemonitoring belastbar macht</h2>
+      <p>Sechs Kernfunktionen, die Beobachtung in Entscheidungen übersetzen.</p>
+    </div>
+    <div class="bento reveal">
+      <div class="cell"><div class="ix">01</div><div class="ic">◧</div><h4>Werbedruck</h4><p>Präsenz der Wettbewerber über Fachzeitschriften und Newsletter, im Zeitverlauf und im Vergleich.</p></div>
+      <div class="cell"><div class="ix">02</div><div class="ic">€</div><h4>Werbespendings</h4><p>Berechnet über die Mediadaten der Verlage — als belastbare Grundlage für Budgetargumentation.</p></div>
+      <div class="cell"><div class="ix">03</div><div class="ic">◰</div><h4>Werbeinhalte &amp; Key Visuals</h4><p>Botschaften, Anzeigenmotive und Advertorials der Konkurrenz strukturiert auswerten.</p></div>
+      <div class="cell"><div class="ix">04</div><div class="ic">▤</div><h4>Mediaebene</h4><p>Anzeigenrecherche über eine durchsuchbare Medienebene statt manueller Sichtung — das spart Zeit.</p></div>
+      <div class="cell"><div class="ix">05</div><div class="ic">⛃</div><h4>Filter &amp; Kategorien</h4><p>Nach Markt, Produktkategorie, Indikation oder ATC-Code filtern — Sie sehen nur Relevantes.</p></div>
+      <div class="cell"><div class="ix">06</div><div class="ic">◇</div><h4>Print + Digital</h4><p>Eine durchgängige Sicht schließt die Lücke zwischen Fachmagazinen und Verlags-Newslettern.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(03)</span> Was enthalten ist</div>
+      <h2>Eine breite, gepflegte Datenbasis</h2>
+    </div>
+    <div class="tiles">
+      <div class="tile reveal"><div class="n">830</div><div class="l">Healthcare-Fachzeitschriften · DACH</div></div>
+      <div class="tile reveal" style="transition-delay:.08s"><div class="n">580</div><div class="l">erfasste Verlags-Newsletter</div></div>
+      <div class="tile reveal" style="transition-delay:.16s"><div class="n">Print<span class="u"> + </span>Digital</div><div class="l">Anzeigen · Advertorials · PR · Sonderveröffentlichungen</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY MODULES -->
+<section class="feat" id="branchen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(04)</span> Branchenmodule</div>
+      <h2>Eine Plattform, drei Datenlogiken</h2>
+      <p>Rx, Dental und Veterinär mit eigener Medien-, Kategorie- und Suchlogik.</p>
+    </div>
+    <div class="ind">
+      <div class="icard reveal"><div class="glow"></div>
+        <div class="ic-h"><span class="tg">Rx</span><h4>Rx-Werbemonitoring</h4></div>
+        <div class="ic-b"><dl>
+          <div class="row"><dt>Fachzeitschriften</dt><dd><span class="ac">&gt;700</span></dd></div>
+          <div class="row"><dt>Verlags-Newsletter</dt><dd><span class="ac">&gt;540</span></dd></div>
+          <div class="row"><dt>Zuordnung</dt><dd>ATC-Code</dd></div>
+          <div class="row"><dt>Filter</dt><dd>Indikation</dd></div>
+        </dl></div>
+        <div class="ic-f"><a href="/brandfacts/rx-werbemonitoring">Zur Rx-Lösung <span class="ar">→</span></a></div>
+      </div>
+      <div class="icard reveal" style="transition-delay:.1s"><div class="glow"></div>
+        <div class="ic-h"><span class="tg">Dental</span><h4>Dental-Werbemonitoring</h4></div>
+        <div class="ic-b"><dl>
+          <div class="row"><dt>Dentalfachtitel</dt><dd><span class="ac">100</span></dd></div>
+          <div class="row"><dt>Verlags-Newsletter</dt><dd><span class="ac">50</span></dd></div>
+          <div class="row"><dt>Inhalte</dt><dd>Anzeigen + PR</dd></div>
+          <div class="row"><dt>Struktur</dt><dd>Produktkategorien</dd></div>
+        </dl></div>
+        <div class="ic-f"><a href="/brandfacts/dental-werbemonitoring">Zur Dental-Lösung <span class="ar">→</span></a></div>
+      </div>
+      <div class="icard reveal" style="transition-delay:.2s"><div class="glow"></div>
+        <div class="ic-h"><span class="tg">Veterinär</span><h4>Veterinär-Werbemonitoring</h4></div>
+        <div class="ic-b"><dl>
+          <div class="row"><dt>Markt</dt><dd>Tiergesundheit</dd></div>
+          <div class="row"><dt>Methodik</dt><dd>wie Rx / Dental</dd></div>
+          <div class="row"><dt>Medien</dt><dd>Print + Digital</dd></div>
+          <div class="row"><dt>Datenabdeckung</dt><dd><span class="ac">auf Anfrage</span></dd></div>
+        </dl></div>
+        <div class="ic-f"><a href="/demo">Abdeckung anfragen <span class="ar">→</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW A DEMO WORKS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(05)</span> Ablauf</div>
+      <h2>Von der Anfrage zum Einblick</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="num"></div><h4>Anfrage</h4><p>Kurzes Formular — Branche und Anliegen genügen für den Start.</p></div>
+      <div class="step"><div class="num"></div><h4>Bedarf klären</h4><p>Wir verstehen Markt, Wettbewerber und Ihre konkreten Fragen.</p></div>
+      <div class="step"><div class="num"></div><h4>Live-Demo</h4><p>BrandFacts an Ihren Beispielen im kostenlosen Teams-Meeting.</p></div>
+      <div class="step"><div class="num"></div><h4>Zuschnitt</h4><p>Individuelle Auswahl der Segmente, die für Sie relevant sind.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faqsec feat">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="ey"><span class="ix">(06)</span> FAQ</div>
+      <h2>Häufige Fragen zu BrandFacts</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>Wie aktuell sind die Daten?<span class="pm">▾</span></summary><div class="a">Im Rx-Bereich werden Fachzeitschriften und Newsletter täglich erfasst. Den genauen Aktualisierungsrhythmus je Branche zeigen wir in der Demo und auf der Methodikseite.</div></details>
+      <details><summary>Welche Marktsegmente sind abgedeckt?<span class="pm">▾</span></summary><div class="a">Rx, Dental und Veterinär in der DACH-Region — insgesamt 830 Fachzeitschriften und 580 Newsletter, über Print und Digital.</div></details>
+      <details><summary>Kann ich die Auswahl auf meine Märkte begrenzen?<span class="pm">▾</span></summary><div class="a">Ja. BrandFacts lässt sich auf die Märkte, Produktkategorien und Indikationen zuschneiden, die für Ihr Unternehmen relevant sind — Sie erhalten nur relevante Daten.</div></details>
+      <details><summary>Wie werden Werbespendings ermittelt?<span class="pm">▾</span></summary><div class="a">Über die Mediadaten der Verlage in Kombination mit den erfassten Anzeigen. Die Berechnung und ihre Grenzen erläutern wir transparent auf der Methodikseite.</div></details>
+      <details><summary>Was kostet BrandFacts?<span class="pm">▾</span></summary><div class="a">Das Kostenmodell richtet sich nach Ihrem Bedarf und den gewählten Segmenten. In der Demo klären wir den passenden Zuschnitt — ein konkretes Angebot erhalten Sie auf Anfrage.</div></details>
+      <details><summary>Wie steht es um Datenschutz?<span class="pm">▾</span></summary><div class="a">Anfragen werden DSGVO-konform verarbeitet. Details finden Sie in unserer Datenschutzerklärung.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final"><div class="wrap"><div class="cta reveal">
+  <div class="mesh"></div>
+  <h2>Bereit, Ihren Markt zu sehen?</h2>
+  <p>In einer kostenlosen Demo zeigen wir Ihnen BrandFacts an Ihren Fragestellungen — unverbindlich, in rund 30 Minuten.</p>
+  <div class="acts"><a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a></div>
+</div></div></div>
+
+<!-- FOOTER -->
+</Base>

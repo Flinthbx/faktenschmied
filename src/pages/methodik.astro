@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+const jsonLd = [
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://www.faktenschmied.de/"},{"@type":"ListItem","position":2,"name":"Methodik","item":"https://www.faktenschmied.de/methodik"}]}
+];
+---
+<Base title='Methodik — Wie FaktenSchmied Werbung erfasst und prüft | BrandFacts' description='Die Methodik hinter BrandFacts: Wie Anzeigen, PR-Texte, Newsletter und Werbespendings erfasst, geprüft, kategorisiert und aktualisiert werden — inklusive Qualitätssicherung und Grenzen der Daten.' path="/methodik" active="methodik" jsonLd={jsonLd}>
+<!-- HERO -->
+<section class="hero interior">
+  <div class="mesh"></div><div class="grain"></div>
+  <div class="wrap">
+    <div class="crumb reveal"><a href="/">Start</a><span class="sep">/</span>Methodik</div>
+    <div class="ey on-dark reveal">Methodik &amp; Datenqualität</div>
+    <h1 class="reveal" style="transition-delay:.08s">Nachvollziehbar <span class="serif-it o">statt behauptet.</span></h1>
+    <p class="sub reveal" style="transition-delay:.16s">Vertrauen entsteht durch Nachvollziehbarkeit. Hier zeigen wir, wie Anzeigen, PR-Texte, Newsletter und Werbespendings erfasst, geprüft, kategorisiert und aktualisiert werden — und wo die Grenzen der Daten liegen.</p>
+    <div class="acts reveal" style="transition-delay:.24s">
+      <a class="btn btn-primary btn-lg" href="/demo" id="magnet"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a>
+      <a class="btn btn-onnavy btn-lg" href="/brandfacts"><span class="lbl">BrandFacts im Überblick</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="ey"><span class="ix">(01)</span> Der Prozess</div>
+      <h2>Vier Schritte von der Anzeige zum Datenpunkt</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="num"></div><h4>Erfassen</h4><p>Anzeigen, bezahlte PR, Advertorials und Sonderveröffentlichungen aus Fachzeitschriften; Verlags-Newsletter werden digital erfasst.</p></div>
+      <div class="step"><div class="num"></div><h4>Kategorisieren</h4><p>Zuordnung nach Markt, Produktkategorie und — im Rx-Bereich — nach ATC-Code und Indikation.</p></div>
+      <div class="step"><div class="num"></div><h4>Prüfen</h4><p>Qualitätssicherung der erfassten Motive und Metadaten, bevor sie in die Auswertung einfließen.</p></div>
+      <div class="step"><div class="num"></div><h4>Aktualisieren</h4><p>Laufende Pflege — im Rx-Bereich erfolgt die Erfassung täglich.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE CAPTURE -->
+<section class="feat">
+  <div class="wrap split top">
+    <div class="reveal">
+      <div class="ey"><span class="ix">(02)</span> Was wir erfassen</div>
+      <h2 style="margin-top:18px">Print und Digital — als durchgängige Sicht.</h2>
+      <p class="big">BrandFacts schließt die Lücke zwischen Print und Digital: Werbeanzeigen in Fachmagazinen ebenso wie Anzeigen, Advertorials und PR in Verlags-Newslettern. So entsteht ein vergleichbares Bild über Medienarten hinweg.</p>
+      <p class="big">Insgesamt umfasst die Datenbasis <b>830 Healthcare-Fachzeitschriften</b> und <b>580 Newsletter</b> in der DACH-Region.</p>
+    </div>
+    <div class="reveal" style="transition-delay:.12s">
+      <div class="tiles" style="grid-template-columns:1fr 1fr">
+        <div class="tile"><div class="n">830</div><div class="l">Fachzeitschriften</div></div>
+        <div class="tile"><div class="n">580</div><div class="l">Newsletter</div></div>
+        <div class="tile"><div class="n">4</div><div class="l">Werbeformen: Anzeige · PR · Advertorial · Sonderveröff.</div></div>
+        <div class="tile"><div class="n">DACH</div><div class="l">Marktraum</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPENDINGS -->
+<section>
+  <div class="wrap split rev top">
+    <div class="reveal" style="transition-delay:.12s">
+      <div class="panel">
+        <div class="ph"><span class="t">spendings · berechnungslogik</span></div>
+        <table>
+          <thead><tr><th>Eingang</th><th>Quelle</th><th style="text-align:right">→ Ergebnis</th></tr></thead>
+          <tbody>
+            <tr><td>Erfasste Anzeigen</td><td>Fachmedien</td><td class="tnum">Motiv-Anzahl</td></tr>
+            <tr><td>Mediadaten</td><td>Verlage</td><td class="tnum">Preisbasis</td></tr>
+            <tr><td>Kategorie / ATC</td><td>BrandFacts</td><td class="tnum">Zuordnung</td></tr>
+            <tr><td>Kombination</td><td>—</td><td class="tnum up">Werbespendings</td></tr>
+          </tbody>
+        </table>
+        <div class="cap">// vereinfachte darstellung der berechnung</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="ey"><span class="ix">(03)</span> Werbespendings</div>
+      <h2 style="margin-top:18px">Wie aus Anzeigen Spendings werden.</h2>
+      <p class="big">Die Werbespendings werden über die <b>Mediadaten der Verlage</b> in Kombination mit den erfassten Anzeigen berechnet. Das macht Budgets der Wettbewerber vergleichbar — als belastbare Grundlage für Ihre eigene Argumentation.</p>
+      <p class="big">Wie bei jeder Hochrechnung gilt: Es handelt sich um eine modellierte Annäherung auf Basis öffentlich beobachtbarer Werbung, nicht um interne Ist-Ausgaben der Wettbewerber.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LIMITS -->
+<section class="method dark">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:820px">
+      <div class="ey on-dark"><span class="ix" style="color:var(--brand)">(04)</span> Transparenz</div>
+      <h2 style="margin-top:18px">Auch die Grenzen gehören dazu.</h2>
+      <p class="big" style="color:#C2C6E8">Belastbare Daten bedeuten auch, ihre Reichweite ehrlich zu benennen.</p>
+    </div>
+    <div class="ind reveal">
+      <div class="icard"><div class="glow"></div><div class="ic-h"><span class="tg">Umfang</span><h4>Beobachtbare Werbung</h4></div><div class="ic-b"><p style="color:#C2C6E8;font-size:14.5px">Erfasst wird, was in den abgedeckten Fachmedien und Newslettern öffentlich erscheint — nicht jede denkbare Werbeform.</p></div></div>
+      <div class="icard"><div class="glow"></div><div class="ic-h"><span class="tg">Spendings</span><h4>Modellierte Werte</h4></div><div class="ic-b"><p style="color:#C2C6E8;font-size:14.5px">Spendings sind über Verlags-Mediadaten hochgerechnet und damit Annäherungen, keine internen Ist-Zahlen.</p></div></div>
+      <div class="icard"><div class="glow"></div><div class="ic-h"><span class="tg">Aktualität</span><h4>Rhythmus je Branche</h4></div><div class="ic-b"><p style="color:#C2C6E8;font-size:14.5px">Der Aktualisierungsrhythmus unterscheidet sich je Bereich; im Rx-Bereich erfolgt die Erfassung täglich.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faqsec feat">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="ey"><span class="ix">(05)</span> FAQ</div>
+      <h2>Fragen zur Methodik</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>Welche Werbeformen werden erfasst?<span class="pm">▾</span></summary><div class="a">Klassische Anzeigen, bezahlte PR, Advertorials und Sonderveröffentlichungen aus Fachzeitschriften sowie Werbung in Verlags-Newslettern — über Print und Digital.</div></details>
+      <details><summary>Wie werden Spendings berechnet?<span class="pm">▾</span></summary><div class="a">Über die Mediadaten der Verlage in Kombination mit den erfassten Anzeigen. Es handelt sich um modellierte Annäherungen, nicht um interne Ist-Ausgaben.</div></details>
+      <details><summary>Wie oft werden die Daten aktualisiert?<span class="pm">▾</span></summary><div class="a">Der Rhythmus unterscheidet sich je Branche. Im Rx-Bereich erfolgt die Erfassung täglich; den genauen Stand zeigen wir in der Demo.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final"><div class="wrap"><div class="cta reveal">
+  <div class="mesh"></div>
+  <h2>Sehen Sie die Methodik in Aktion.</h2>
+  <p>In einer kostenlosen Demo zeigen wir, wie Erfassung, Kategorisierung und Auswertung an Ihren Fragestellungen zusammenspielen.</p>
+  <div class="acts"><a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a></div>
+</div></div></div>
+
+<!-- FOOTER -->
+</Base>
