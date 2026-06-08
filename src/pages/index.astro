@@ -194,7 +194,7 @@ const jsonLd = [
       </div>
       <div class="reveal" style="transition-delay:.12s">
         <div class="qforge">
-          <img src="/img/forge-jennifer.webp" alt="FaktenSchmied — am Amboss wird aus glühendem Material Form geschmiedet, sinnbildlich für die Veredelung von Rohdaten zu belastbaren Fakten." width="1100" height="1100" loading="lazy" />
+          <img src="/img/forge-jennifer.webp" data-fixed alt="FaktenSchmied — am Amboss wird aus glühendem Material Form geschmiedet, sinnbildlich für die Veredelung von Rohdaten zu belastbaren Fakten." width="880" height="1100" loading="lazy" />
           <div class="q-ov">
             <p class="q">„Klarheit statt Bauchgefühl. BrandFacts analysiert, Sie entscheiden datenbasiert."</p>
             <div class="who">FaktenSchmied-Team · Ansbach</div>
@@ -238,21 +238,23 @@ const jsonLd = [
         </div>
       </div>
       <div class="reveal" style="transition-delay:.12s">
-        <form class="form" method="post" action="#" onsubmit="return false">
+        <form class="form js-demo" novalidate>
           <h3>Demo anfragen</h3>
           <div class="fsub">// antwort i. d. r. innerhalb eines werktags</div>
           <div class="grid2">
-            <div class="fld"><input id="vn" placeholder=" " /><label for="vn">Vorname</label></div>
-            <div class="fld"><input id="nn" placeholder=" " /><label for="nn">Nachname <span class="req">*</span></label></div>
+            <div class="fld"><input id="vn" name="vorname" placeholder=" " /><label for="vn">Vorname</label></div>
+            <div class="fld"><input id="nn" name="nachname" placeholder=" " /><label for="nn">Nachname <span class="req">*</span></label></div>
           </div>
-          <div class="fld"><input id="em" type="email" placeholder=" " /><label for="em">Geschäftliche E-Mail <span class="req">*</span></label></div>
+          <div class="fld"><input id="em" name="email" type="email" placeholder=" " /><label for="em">Geschäftliche E-Mail <span class="req">*</span></label></div>
           <div class="grid2">
-            <div class="fld"><input id="fa" placeholder=" " /><label for="fa">Unternehmen</label></div>
-            <div class="fld"><select id="br" required><option value="" selected disabled hidden></option><option>Rx / Pharma</option><option>Dental</option><option>Veterinär</option><option>Agentur</option><option>Sonstiges</option></select><label for="br">Branche</label></div>
+            <div class="fld"><input id="fa" name="unternehmen" placeholder=" " /><label for="fa">Unternehmen</label></div>
+            <div class="fld"><select id="br" name="branche" required><option value="" selected disabled hidden></option><option>Rx / Pharma</option><option>Dental</option><option>Veterinär</option><option>Agentur</option><option>Sonstiges</option></select><label for="br">Branche</label></div>
           </div>
-          <div class="fld"><textarea id="ms" placeholder=" "></textarea><label for="ms">Ihr Anliegen</label></div>
+          <div class="fld"><textarea id="ms" name="nachricht" placeholder=" "></textarea><label for="ms">Ihr Anliegen</label></div>
           <div class="consent"><input type="checkbox" id="cs" /><label for="cs">Ich habe die <a href="/datenschutz">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu. <span class="req">*</span></label></div>
-          <button class="btn btn-primary btn-block btn-lg"><span class="lbl">Demo anfragen <span class="ar">→</span></span></button>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp" />
+        <div class="form-status" role="status" aria-live="polite"></div>
+        <button class="btn btn-primary btn-block btn-lg" type="submit"><span class="lbl">Demo anfragen <span class="ar">→</span></span></button>
           <div class="trustline"><span>DSGVO-konform</span><span>Spam-Schutz</span><span>kein Verkaufsdruck</span></div>
         </form>
       </div>

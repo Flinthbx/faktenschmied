@@ -60,7 +60,7 @@ const nav = [
 
   <header class="site" id="hdr">
     <div class="wrap hd">
-      <a class="logo" href="/" aria-label="FaktenSchmied — zur Startseite"><img class="logo-light" src="/img/logo-white.png" alt="FaktenSchmied" width="167" height="96" /><img class="logo-color" src="/img/logo.png" alt="" aria-hidden="true" width="167" height="96" /></a>
+      <a class="logo" href="/" aria-label="FaktenSchmied — zur Startseite"><img src="/img/logo.png" alt="FaktenSchmied" width="167" height="96" /></a>
       <nav class="main">
         <ul>
           {nav.map((n) => (
@@ -90,7 +90,7 @@ const nav = [
     <div class="wrap">
       <div class="top">
         <div>
-          <a class="logo" href="/"><img src="/img/logo-white.png" alt="FaktenSchmied" width="167" height="96" /></a>
+          <a class="logo" href="/"><img src="/img/logo.png" alt="FaktenSchmied" width="167" height="96" /></a>
           <p class="desc">Healthcare-Werbemonitoring aus Ansbach. BrandFacts macht sichtbar, wie der Markt wirbt — über Print und Digital.</p>
         </div>
         <div>
@@ -224,6 +224,26 @@ const nav = [
       document.getElementById('cb-ess').addEventListener('click', function () { choose('essential'); });
       document.getElementById('cb-all').addEventListener('click', function () { choose('all'); });
     })();
+  </script>
+  <script>
+    document.querySelectorAll('form.js-demo').forEach((f) => {
+      f.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const status = f.querySelector('.form-status');
+        const btn = f.querySelector('button[type="submit"], button');
+        const cs = f.querySelector('#cs');
+        if (cs && !cs.checked) { status.textContent = 'Bitte bestätigen Sie die Datenschutzerklärung.'; status.className = 'form-status err'; return; }
+        const data = Object.fromEntries(new FormData(f).entries());
+        btn.disabled = true; status.textContent = 'Wird gesendet …'; status.className = 'form-status';
+        try {
+          const r = await fetch('/api/demo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+          const j = await r.json().catch(() => ({ ok: false }));
+          if (r.ok && j.ok) { f.reset(); status.textContent = 'Vielen Dank! Wir melden uns in der Regel innerhalb eines Werktags.'; status.className = 'form-status ok'; }
+          else { status.textContent = (j && j.error) || 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut.'; status.className = 'form-status err'; }
+        } catch { status.textContent = 'Netzwerkfehler. Bitte später erneut versuchen.'; status.className = 'form-status err'; }
+        btn.disabled = false;
+      });
+    });
   </script>
 </body>
 </html>

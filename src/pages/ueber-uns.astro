@@ -1,11 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 const team = [
-  { img: '/img/team-jennifer.webp', name: 'Jennifer Raidel', role: 'Geschäftsführerin', lead: true },
-  { img: '/img/team-bernhard.webp', name: 'Bernhard Hebel', role: 'Geschäftsführung' },
-  { img: '/img/team-jana.webp', name: 'Jana', role: 'FaktenSchmied-Team' },
-  { img: '/img/team-kerstin.webp', name: 'Kerstin', role: 'FaktenSchmied-Team' },
-  { img: '/img/team-silvia.webp', name: 'Silvia', role: 'FaktenSchmied-Team' },
+  { name: 'Bernhard Hebel', role: 'Gründer & Geschäftsführer', img: '/img/team-bernhard.webp', email: 'bernhard.hebel@faktenschmied.de', tel: '+49 981 208 6261-0', telLink: '+4998120862610', linkedin: 'https://www.linkedin.com/in/bernhard-hebel/', lead: true },
+  { name: 'Jennifer Raidel', role: 'Consultant', img: '/img/team-jennifer.webp', email: 'jennifer.raidel@faktenschmied.de', tel: '+49 981 208 6261-18', telLink: '+499812086261-18', linkedin: 'https://www.linkedin.com/in/jennifer-raidel-574272231/' },
+  { name: 'Silvia Kressel', role: 'Projektleiterin Pharma', img: '/img/team-silvia.webp', email: 'silvia.kressel@faktenschmied.de', tel: '+49 981 208 6261-16', telLink: '+499812086261-16' },
+  { name: 'Kerstin Brehm', role: 'Projektleiterin Veterinär', img: '/img/team-kerstin.webp', email: 'kerstin.brehm@faktenschmied.de', tel: '+49 981 208 6261-12', telLink: '+499812086261-12' },
+  { name: 'Jana Stöber', role: 'Projektleiterin Dental', img: '/img/team-jana.webp', email: 'jana.stoeber@faktenschmied.de', tel: '+49 981 208 6261-14', telLink: '+499812086261-14' },
+  { name: 'Nina Fischer', role: 'Projektassistentin Dental', img: null, initials: 'NF', email: 'nina.fischer@faktenschmied.de', tel: '+49 981 208 6261-14', telLink: '+499812086261-14' },
 ];
 ---
 <Base title="Über uns | FaktenSchmied GmbH, Ansbach" description="FaktenSchmied aus Ansbach: spezialisiert auf Healthcare-Werbemonitoring. Aus Rohdaten schmieden wir belastbare Fakten — mit persönlichen Ansprechpartnern für Rx, Dental und Veterinär." path="/ueber-uns" active="">
@@ -22,7 +23,7 @@ const team = [
   <section>
     <div class="wrap split top">
       <div class="reveal forge-frame">
-        <img src="/img/forge-jennifer.webp" alt="FaktenSchmied — am Amboss wird aus glühendem Material Form geschmiedet, sinnbildlich für die Aufbereitung von Rohdaten zu Fakten." width="1100" height="1100" loading="lazy" />
+        <img src="/img/forge-jennifer.webp" alt="FaktenSchmied — am Amboss wird aus glühendem Material Form geschmiedet, sinnbildlich für die Aufbereitung von Rohdaten zu Fakten." width="880" height="1100" loading="lazy" />
         <div class="cap">// aus Rohdaten wird Form — das Prinzip FaktenSchmied</div>
       </div>
       <div class="reveal" style="transition-delay:.1s">
@@ -48,8 +49,16 @@ const team = [
       <div class="team reveal">
         {team.map((m) => (
           <div class={"tcard" + (m.lead ? " lead" : "")}>
-            <img src={m.img} alt={"Porträt von " + m.name} width="640" height="640" loading="lazy" />
-            <div class="tb"><b>{m.name}</b><span>{m.role}</span></div>
+            {m.img ? <img src={m.img} alt={"Porträt von " + m.name} width="640" height="640" loading="lazy" /> : <div class="ph-init">{m.initials}</div>}
+            <div class="tb">
+              <b>{m.name}</b>
+              <span class="role">{m.role}</span>
+              <div class="tc">
+                <a href={"mailto:" + m.email}>{m.email}</a>
+                <a href={"tel:" + m.telLink}>{m.tel}</a>
+                {m.linkedin && <a href={m.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>}
+              </div>
+            </div>
           </div>
         ))}
       </div>
