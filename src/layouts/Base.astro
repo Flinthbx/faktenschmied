@@ -49,6 +49,8 @@ const nav = [
   <meta property="og:site_name" content="FaktenSchmied" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#15183B" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   {jsonLd.map((obj) => (
     <script type="application/ld+json" set:html={JSON.stringify(obj)} />
   ))}
@@ -58,7 +60,7 @@ const nav = [
 
   <header class="site" id="hdr">
     <div class="wrap hd">
-      <a class="logo" href="/" aria-label="FaktenSchmied — zur Startseite"><img src="/img/logo.png" alt="FaktenSchmied" width="167" height="96" /></a>
+      <a class="logo" href="/" aria-label="FaktenSchmied — zur Startseite"><img class="logo-light" src="/img/logo-white.png" alt="FaktenSchmied" width="167" height="96" /><img class="logo-color" src="/img/logo.png" alt="" aria-hidden="true" width="167" height="96" /></a>
       <nav class="main">
         <ul>
           {nav.map((n) => (
@@ -88,7 +90,7 @@ const nav = [
     <div class="wrap">
       <div class="top">
         <div>
-          <a class="logo" href="/"><img src="/img/logo.png" alt="FaktenSchmied" width="167" height="96" /></a>
+          <a class="logo" href="/"><img src="/img/logo-white.png" alt="FaktenSchmied" width="167" height="96" /></a>
           <p class="desc">Healthcare-Werbemonitoring aus Ansbach. BrandFacts macht sichtbar, wie der Markt wirbt — über Print und Digital.</p>
         </div>
         <div>
