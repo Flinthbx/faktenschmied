@@ -1,29 +1,65 @@
 ---
 import Base from '../layouts/Base.astro';
+const team = [
+  { img: '/img/team-jennifer.webp', name: 'Jennifer Raidel', role: 'Geschäftsführerin', lead: true },
+  { img: '/img/team-bernhard.webp', name: 'Bernhard Hebel', role: 'FaktenSchmied-Team' },
+  { img: '/img/team-jana.webp', name: 'Jana', role: 'FaktenSchmied-Team' },
+  { img: '/img/team-kerstin.webp', name: 'Kerstin', role: 'FaktenSchmied-Team' },
+  { img: '/img/team-silvia.webp', name: 'Silvia', role: 'FaktenSchmied-Team' },
+];
 ---
-<Base title='Über uns | FaktenSchmied GmbH, Ansbach' description='FaktenSchmied aus Ansbach: spezialisiert auf Healthcare-Werbemonitoring. Persönliche Ansprechpartner für Rx, Dental und Veterinär.' path="/ueber-uns" active="">
+<Base title="Über uns | FaktenSchmied GmbH, Ansbach" description="FaktenSchmied aus Ansbach: spezialisiert auf Healthcare-Werbemonitoring. Aus Rohdaten schmieden wir belastbare Fakten — mit persönlichen Ansprechpartnern für Rx, Dental und Veterinär." path="/ueber-uns" active="">
   <section class="hero interior">
     <div class="mesh"></div><div class="grain"></div>
     <div class="wrap">
+      <div class="crumb reveal"><a href="/">Start</a><span class="sep">/</span>Über uns</div>
       <div class="ey on-dark reveal">Über uns</div>
-      <h1 class="reveal" style="transition-delay:.08s">Spezialisiert auf <span class="serif-it o">Healthcare-Werbemonitoring.</span></h1>
-      <p class="sub reveal" style="transition-delay:.16s">FaktenSchmied entwickelt mit BrandFacts Werbemonitoring für den Healthcare-Markt — mit persönlichen Ansprechpartnern und fachlicher Nähe zu Rx, Dental und Veterinär.</p>
-      <div class="acts reveal" style="transition-delay:.24s">
-        <a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a>
-        <a class="btn btn-onnavy btn-lg" href="/brandfacts"><span class="lbl">BrandFacts</span></a>
+      <h1 class="reveal" style="transition-delay:.08s">Aus Rohdaten <span class="serif-it o">schmieden wir Fakten.</span></h1>
+      <p class="sub reveal" style="transition-delay:.16s">FaktenSchmied steht für genau das, was der Name sagt: Wir verwandeln die unübersichtliche Werbelandschaft des Healthcare-Markts in belastbare, vergleichbare Fakten — mit Sorgfalt, Methode und persönlicher Nähe.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split top">
+      <div class="reveal forge-frame">
+        <img src="/img/forge-jennifer.webp" alt="FaktenSchmied — am Amboss wird aus glühendem Material Form geschmiedet, sinnbildlich für die Aufbereitung von Rohdaten zu Fakten." width="1100" height="1100" loading="lazy" />
+        <div class="cap">// aus Rohdaten wird Form — das Prinzip FaktenSchmied</div>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="ey"><span class="ix">(01)</span> Wer wir sind</div>
+        <h2 style="margin-top:18px">Spezialisiert, beständig, persönlich.</h2>
+        <p class="big">Wir sind ein eingespieltes Team aus Ansbach, das sich ganz auf Healthcare-Werbemonitoring konzentriert. Statt anonymer Datenlieferung setzen wir auf feste Ansprechpartner, fachliche Nähe und Methoden, die nachvollziehbar bleiben.</p>
+        <p class="big">Mit BrandFacts machen wir sichtbar, wie der Markt wirbt — über Rx, Dental und Veterinär hinweg, in Print und Digital.</p>
+        <div class="tiles" style="grid-template-columns:1fr 1fr;margin-top:8px">
+          <div class="tile"><div class="n">Ansbach</div><div class="l">Bahnhofstraße 2 · 91522</div></div>
+          <div class="tile"><div class="n">DACH</div><div class="l">Rx · Dental · Veterinär</div></div>
+        </div>
       </div>
     </div>
   </section>
-  <section><div class="wrap">
-    <div class="tiles reveal">
-      <div class="tile"><div class="n">Ansbach</div><div class="l">Bahnhofstraße 2 · 91522</div></div>
-      <div class="tile"><div class="n">DACH</div><div class="l">Marktraum Rx · Dental · Veterinär</div></div>
-      <div class="tile"><div class="n">Persönlich</div><div class="l">feste Ansprechpartner je Branche</div></div>
-    </div></div></section>
+
+  <section class="feat">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="ey"><span class="ix">(02)</span> Das Team</div>
+        <h2>Persönliche Ansprechpartner</h2>
+        <p>Bei komplexen Datenprodukten zählt der direkte Draht. Diese Menschen stehen hinter FaktenSchmied.</p>
+      </div>
+      <div class="team reveal">
+        {team.map((m) => (
+          <div class={"tcard" + (m.lead ? " lead" : "")}>
+            <img src={m.img} alt={"Porträt von " + m.name} width="640" height="640" loading="lazy" />
+            <div class="tb"><b>{m.name}</b><span>{m.role}</span></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <div class="final"><div class="wrap"><div class="cta reveal">
     <div class="mesh"></div>
-    <h2>Sehen Sie BrandFacts in Aktion.</h2>
-    <p>In einer kostenlosen Demo zeigen wir Ihnen BrandFacts an Ihren Fragestellungen — unverbindlich.</p>
+    <h2>Lernen Sie uns kennen.</h2>
+    <p>In einer kostenlosen Demo zeigen wir Ihnen BrandFacts an Ihren Fragestellungen — persönlich und unverbindlich.</p>
     <div class="acts"><a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a></div>
   </div></div></div>
 </Base>
