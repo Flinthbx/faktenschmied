@@ -388,3 +388,22 @@ nav.main a[aria-current="page"]::after{width:100%}
 .legal-doc{max-width:800px;font-size:15.5px;line-height:1.72;color:var(--graphite)}
 .legal-doc h2{font-size:1.45rem;margin:34px 0 12px;color:var(--ink)}
 .legal-doc p{margin-bottom:14px}.legal-doc a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--brand)}
+
+
+/* ===== Hero-Redesign: klassisch, strukturiert (kein generativer Verlauf/Grain) ===== */
+.hero{background:linear-gradient(180deg,#191c44 0%,#13163a 55%,#0c0e24 100%)}
+.hero .mesh{background-image:
+  linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:54px 54px;animation:none;opacity:1;
+  -webkit-mask-image:radial-gradient(125% 105% at 50% 0%,#000 52%,transparent 100%);
+  mask-image:radial-gradient(125% 105% at 50% 0%,#000 52%,transparent 100%)}
+.hero .grain{display:none!important}
+.hero::before{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(239,120,0,.55),transparent);z-index:2}
+
+/* Schmiede-Bildband (Branchenseiten) */
+.forge-band{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -38px rgba(20,24,59,.42)}
+.forge-band img{width:100%;height:auto;display:block}
+.forge-band .cap{position:absolute;left:0;right:0;bottom:0;padding:30px;background:linear-gradient(transparent,rgba(12,14,36,.88))}
+.forge-band .cap .t{font-family:var(--serif);font-style:italic;font-size:24px;color:#fff;line-height:1.3}
+.forge-band .cap .s{font-family:var(--mono);font-size:12px;color:#C7CAE6;margin-top:10px}
