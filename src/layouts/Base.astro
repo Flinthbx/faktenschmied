@@ -58,30 +58,56 @@ const nav = [
 <body>
   <div id="prog"></div>
 
-  <header class="site" id="hdr">
-    <div class="wrap hd">
-      <a class="logo" href="/" aria-label="FaktenSchmied — zur Startseite"><img src="/img/logo.png" alt="FaktenSchmied" width="167" height="96" /></a>
-      <nav class="main">
-        <ul>
-          {nav.map((n) => (
-            <li><a href={n.href} aria-current={active === n.key ? 'page' : undefined}>{n.label}</a></li>
-          ))}
-        </ul>
-      </nav>
-      <div class="hd-act">
-        <a class="btn btn-primary" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a>
-      </div>
-      <button class="burger" id="bg" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  <nav class="site-menu" id="siteMenu" aria-label="Hauptnavigation">
+    <div class="menu-bar" id="hdr">
+      <a class="logo" href="/" aria-label="FaktenSchmied — zur Startseite">
+        <img class="logo-light" src="/img/logo-white.png" alt="FaktenSchmied" width="167" height="96" />
+        <img class="logo-dark" src="/img/logo.png" alt="" aria-hidden="true" width="167" height="96" />
+      </a>
+      <button class="menu-toggle-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="menuOverlay" aria-label="Menü öffnen">
+        <span class="menu-toggle-label">
+          <span class="ml ml-open">Menü</span>
+          <span class="ml ml-close">Schließen</span>
+        </span>
+        <span class="menu-hamburger-icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
     </div>
-  </header>
 
-  <nav class="mob" id="mob">
-    {nav.map((n, i) => (
-      <a href={n.href}><span class="ix">{String(i + 1).padStart(2, '0')}</span>{n.label}</a>
-    ))}
-    <a class="btn btn-primary" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a>
+    <div class="menu-overlay" id="menuOverlay">
+      <div class="menu-overlay-content">
+        <div class="menu-media-wrapper">
+          <img src="/img/forge-jennifer.webp" alt="" loading="lazy" />
+        </div>
+        <div class="menu-content-wrapper">
+          <div class="menu-content-main">
+            <div class="menu-col menu-col-main">
+              {nav.map((n) => (
+                <div class="menu-link"><a href={n.href} aria-current={active === n.key ? 'page' : undefined}>{n.label}</a></div>
+              ))}
+            </div>
+            <div class="menu-col menu-col-sub">
+              <div class="menu-tag"><a href="/brandfacts/rx-werbemonitoring">Rx-Werbemonitoring</a></div>
+              <div class="menu-tag"><a href="/brandfacts/dental-werbemonitoring">Dental-Werbemonitoring</a></div>
+              <div class="menu-tag"><a href="/brandfacts/veterinaer-werbemonitoring">Veterinär-Werbemonitoring</a></div>
+              <div class="menu-cta"><a class="btn btn-primary" href="/demo"><span class="lbl">Demo anfragen <span class="ar">→</span></span></a></div>
+            </div>
+          </div>
+          <div class="menu-footer">
+            <div class="menu-col">
+              <p>FaktenSchmied GmbH</p>
+              <p>Bahnhofstraße 2 · 91522 Ansbach</p>
+            </div>
+            <div class="menu-col">
+              <p><a href="tel:+4998120862610">+49 (0) 981 208 6261-0</a></p>
+              <p><a href="mailto:Jennifer.Raidel@faktenschmied.de">Jennifer.Raidel@faktenschmied.de</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </nav>
 
+  <div class="page-container" id="pageContainer">
   <main>
     <slot />
   </main>
@@ -128,6 +154,7 @@ const nav = [
       </div>
     </div>
   </footer>
+  </div>
 
   <script>
     const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -143,13 +170,6 @@ const nav = [
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-
-    const bg = document.getElementById('bg');
-    const mob = document.getElementById('mob');
-    if (bg && mob) {
-      bg.addEventListener('click', () => mob.classList.toggle('open'));
-      mob.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => mob.classList.remove('open')));
-    }
 
     function count(el) {
       if (el.dataset.done) return; el.dataset.done = '1';
@@ -244,6 +264,150 @@ const nav = [
         btn.disabled = false;
       });
     });
+  </script>
+
+  <!-- Full-screen overlay menu (GSAP) -->
+  <script>
+    import gsap from 'gsap';
+    import { SplitText } from 'gsap/SplitText';
+    import { CustomEase } from 'gsap/CustomEase';
+
+    const RMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const menu = document.getElementById('siteMenu');
+    const toggle = document.getElementById('menuToggle');
+    const overlay = document.getElementById('menuOverlay');
+
+    if (menu && toggle && overlay) {
+      const overlayContent = menu.querySelector('.menu-overlay-content');
+      const mediaWrapper = menu.querySelector('.menu-media-wrapper');
+      const pageContainer = document.getElementById('pageContainer');
+      const splitTargets = menu.querySelectorAll('.menu-link a, .menu-tag a, .menu-footer p');
+
+      let isOpen = false;
+      let isAnimating = false;
+
+      const lockScroll = (lock) => {
+        document.documentElement.classList.toggle('no-scroll', lock);
+        document.body.classList.toggle('no-scroll', lock);
+      };
+      const setState = (open) => {
+        isOpen = open;
+        menu.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+      };
+
+      if (RMq.matches) {
+        // Reduced motion: instant open/close, no animation.
+        const open = () => { setState(true); menu.classList.add('rm-open'); lockScroll(true); };
+        const close = () => { setState(false); menu.classList.remove('rm-open'); lockScroll(false); };
+        toggle.addEventListener('click', () => (isOpen ? close() : open()));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen) { close(); toggle.focus(); } });
+      } else {
+        gsap.registerPlugin(SplitText, CustomEase);
+        CustomEase.create('hop', '.87,0,.13,1');
+
+        // Initial (closed) states owned by GSAP so they don't clash with CSS transforms.
+        gsap.set(overlay, { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)' });
+        gsap.set(overlayContent, { yPercent: -50 });
+        gsap.set(mediaWrapper, { opacity: 0 });
+
+        let splits = [];
+        const buildSplits = () => {
+          splits.forEach((s) => s.revert());
+          splits = [];
+          splitTargets.forEach((el) => {
+            const split = SplitText.create(el, { type: 'lines', mask: 'lines', linesClass: 'split-line' });
+            gsap.set(split.lines, { yPercent: -110 });
+            splits.push(split);
+          });
+        };
+        buildSplits();
+        let rt;
+        window.addEventListener('resize', () => {
+          clearTimeout(rt);
+          rt = setTimeout(() => { if (!isOpen && !isAnimating) buildSplits(); }, 200);
+        });
+        const allLines = () => splits.flatMap((s) => s.lines);
+
+        const open = () => {
+          if (isAnimating || isOpen) return;
+          isAnimating = true;
+          setState(true);
+          lockScroll(true);
+          const tl = gsap.timeline({ onComplete: () => { isAnimating = false; } });
+          tl.to(pageContainer, { y: () => window.innerHeight, duration: 1, ease: 'hop' }, 0)
+            .to(overlay, { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 1, ease: 'hop' }, 0)
+            .to(overlayContent, { yPercent: 0, duration: 1, ease: 'hop' }, 0)
+            .to(mediaWrapper, { opacity: 1, duration: 0.75, ease: 'power2.out' }, 0.5)
+            .to(allLines(), { yPercent: 0, duration: 1.3, ease: 'hop', stagger: 0.05 }, 0.25);
+        };
+        const close = () => {
+          if (isAnimating || !isOpen) return;
+          isAnimating = true;
+          setState(false);
+          const tl = gsap.timeline({
+            onComplete: () => {
+              gsap.set(allLines(), { yPercent: -110 });
+              gsap.set(mediaWrapper, { opacity: 0 });
+              // Remove the inline transform entirely: an identity transform on the
+              // page wrapper still creates a containing block, which breaks
+              // ScrollTrigger's position:fixed pin (e.g. the homepage spotlight).
+              gsap.set(pageContainer, { clearProps: 'transform' });
+              lockScroll(false);
+              isAnimating = false;
+            },
+          });
+          tl.to(pageContainer, { y: 0, duration: 0.9, ease: 'hop' }, 0)
+            .to(overlay, { clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)', duration: 0.9, ease: 'hop' }, 0)
+            .to(overlayContent, { yPercent: -50, duration: 0.9, ease: 'hop' }, 0)
+            .to(allLines(), { yPercent: -110, duration: 0.5, ease: 'hop' }, 0);
+        };
+
+        toggle.addEventListener('click', () => (isOpen ? close() : open()));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen) { close(); toggle.focus(); } });
+      }
+    }
+  </script>
+
+  <!-- Scribble hover (GSAP) — strokes draw on over [data-scribble] cards -->
+  <script>
+    import gsap from 'gsap';
+
+    const fine = window.matchMedia('(pointer:fine)').matches;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cards = document.querySelectorAll('[data-scribble]');
+
+    if (cards.length && fine && !reduce) {
+      cards.forEach((card) => {
+        const paths = card.querySelectorAll('.scribble-layer path');
+        if (!paths.length) return;
+
+        const lengths = [];
+        paths.forEach((p) => {
+          const len = p.getTotalLength();
+          lengths.push(len);
+          p.style.strokeDasharray = String(len);
+          p.style.strokeDashoffset = String(len); // hidden until hover
+        });
+
+        let tl = null;
+        card.addEventListener('mouseenter', () => {
+          tl?.kill();
+          tl = gsap.timeline();
+          paths.forEach((p) => {
+            tl.to(p, { strokeDashoffset: 0, attr: { 'stroke-width': 110 }, duration: 1.4, ease: 'power2.out' }, 0);
+          });
+        });
+        card.addEventListener('mouseleave', () => {
+          tl?.kill();
+          tl = gsap.timeline();
+          paths.forEach((p, i) => {
+            tl.to(p, { strokeDashoffset: lengths[i], attr: { 'stroke-width': 40 }, duration: 0.9, ease: 'power2.out' }, 0);
+          });
+        });
+      });
+    }
   </script>
 </body>
 </html>
