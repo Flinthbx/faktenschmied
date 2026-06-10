@@ -1,4 +1,4 @@
-# FaktenSchmied — Website (Astro)
+# FaktenSchmied — Website  (Astro)
 
 Produktionsnahe Umsetzung des Relaunches. Premium-Designsprache, datenorientiert, SEO-stark, WCAG-2.2-AA-orientiert, DSGVO-vorbereitet.
 
