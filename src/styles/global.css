@@ -10,7 +10,7 @@
   --success:#1F7A4D;--danger:#B23A3A;
   --viz-1:#15183B;--viz-2:#33407E;--viz-3:#6F79B4;--viz-4:#EF7800;--viz-5:#F4A83D;
   --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --mono:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --serif:'Source Serif 4',Georgia,serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --maxw:1240px;

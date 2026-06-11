@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import SpotlightScroll from '../components/SpotlightScroll.astro';
-import ScribbleHover from '../components/ScribbleHover.astro';
 import HeroLoader from '../components/HeroLoader.astro';
 
 const jsonLd = [
@@ -56,22 +55,9 @@ const jsonLd = [
           <img src="/img/forge-jennifer.webp" alt="FaktenSchmied — am Amboss wird aus glühendem Material Form geschmiedet: aus Rohdaten werden belastbare Fakten." width="880" height="1100" loading="eager" fetchpriority="high" />
           <span class="hv-badge">Aus Rohdaten Fakten schmieden</span>
         </div>
-        <div class="hv-card">
-          <div class="hv-top"><span class="hv-dot"></span> brandfacts · werbedruck</div>
-          <div class="hv-stat"><span class="v">+<span data-count="18">0</span>%</span><span class="k">Werbedruck<br>QoQ <span class="up">▲</span></span></div>
-          <div class="hv-bars"><i style="--h:46%"></i><i style="--h:64%"></i><i style="--h:56%"></i><i style="--h:82%"></i><i style="--h:96%"></i><i style="--h:72%"></i></div>
-        </div>
       </div>
     </div>
   </section>
-
-  <!-- TICKER -->
-  <div class="ticker" aria-hidden="true">
-    <div class="run">
-      <span>Fachzeitschriften · Verlags-Newsletter · <b>Print</b> · Digital · Werbedruck · <b>Werbespendings</b> · Anzeigenmotive · ATC-Codes · <b>Indikationen</b> · Advertorials · PR-Texte · <b>Share of Voice</b> · Mediaplanung · </span>
-      <span>Fachzeitschriften · Verlags-Newsletter · <b>Print</b> · Digital · Werbedruck · <b>Werbespendings</b> · Anzeigenmotive · ATC-Codes · <b>Indikationen</b> · Advertorials · PR-Texte · <b>Share of Voice</b> · Mediaplanung · </span>
-    </div>
-  </div>
 
   <!-- PROOF -->
   <div class="proof">
@@ -123,12 +109,12 @@ const jsonLd = [
         <p>Minimierter Aufwand, belegbare Argumente, eine smarte Investition.</p>
       </div>
       <div class="bento reveal">
-        <div class="cell"><div class="ix">01</div><div class="ic">◧</div><h4>Werbedruck</h4><p>Sehen Sie, wer wie präsent ist — über Fachzeitschriften und Newsletter hinweg, im Zeitverlauf.</p></div>
-        <div class="cell"><div class="ix">02</div><div class="ic">€</div><h4>Werbespendings</h4><p>Spendings der Wettbewerber über die Mediadaten der Verlage analysieren und Budgets belastbar planen.</p></div>
-        <div class="cell"><div class="ix">03</div><div class="ic">◰</div><h4>Werbeinhalte &amp; Key Visuals</h4><p>Botschaften und Anzeigenmotive der Konkurrenz auswerten — Grundlage für klare Differenzierung.</p></div>
-        <div class="cell"><div class="ix">04</div><div class="ic">▤</div><h4>Mediaebene</h4><p>Anzeigenrecherche über die BrandFacts-Mediaebene statt manueller Sichtung — das spart Zeit.</p></div>
-        <div class="cell"><div class="ix">05</div><div class="ic">⛃</div><h4>Filterlogik</h4><p>Nach Markt, Produktkategorie, Indikation oder ATC-Code filtern — nur relevante Daten.</p></div>
-        <div class="cell"><div class="ix">06</div><div class="ic">◇</div><h4>Print + Digital</h4><p>Durchgängige Sicht zwischen Anzeigen in Fachmagazinen und Verlags-Newslettern.</p></div>
+        <div class="cell"><div class="ix">01</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 11l-6.6 6.6a2 2 0 1 0 2.8 2.8L15 14"/><path d="M10 8l5-5 4 4-5 5z"/><path d="M14.5 5.5l4 4"/></svg></div><h4>Werbedruck</h4><p>Sehen Sie, wer wie präsent ist — über Fachzeitschriften und Newsletter hinweg, im Zeitverlauf.</p></div>
+        <div class="cell"><div class="ix">02</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h8l2.5 4h-13z"/><path d="M4 11h16l-2.5 4h-11z"/></svg></div><h4>Werbespendings</h4><p>Spendings der Wettbewerber über die Mediadaten der Verlage analysieren und Budgets belastbar planen.</p></div>
+        <div class="cell"><div class="ix">03</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1.8 2.6 .6 4.6 0 5.6 .9-.4 1.8-1.6 2-2.6 1.8 1.8 3 4 3 6.4a5 5 0 0 1-10 0c0-2 1-3.8 2.4-5.2C11 7 11.7 4.6 12 3z"/></svg></div><h4>Werbeinhalte &amp; Key Visuals</h4><p>Botschaften und Anzeigenmotive der Konkurrenz auswerten — Grundlage für klare Differenzierung.</p></div>
+        <div class="cell"><div class="ix">04</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h13a4 4 0 0 1-4 4h-1l1.4 4h-4.8L9 12a4 4 0 0 1-4-4z"/><path d="M16 8h4l-1.2 3"/><path d="M7.5 20h7"/></svg></div><h4>Mediaebene</h4><p>Anzeigenrecherche über die BrandFacts-Mediaebene statt manueller Sichtung — das spart Zeit.</p></div>
+        <div class="cell"><div class="ix">05</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.6M12 18.4V21M4.2 7l2.3 1.3M17.5 15.7 19.8 17M4.2 17l2.3-1.3M17.5 8.3 19.8 7"/></svg></div><h4>Filterlogik</h4><p>Nach Markt, Produktkategorie, Indikation oder ATC-Code filtern — nur relevante Daten.</p></div>
+        <div class="cell"><div class="ix">06</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3l5 7 5-7"/><path d="M9.5 8.5V14a2.5 2.5 0 0 0 5 0V8.5"/><path d="M9 21h6"/></svg></div><h4>Print + Digital</h4><p>Durchgängige Sicht zwischen Anzeigen in Fachmagazinen und Verlags-Newslettern.</p></div>
       </div>
     </div>
   </section>
@@ -142,7 +128,7 @@ const jsonLd = [
         <p>Rx, Dental und Veterinär unterscheiden sich in Medien, Kategorien und Suchlogik. BrandFacts bildet das präzise ab.</p>
       </div>
       <div class="ind">
-        <div class="icard reveal" data-scribble><div class="glow"></div><ScribbleHover />
+        <div class="icard reveal"><div class="glow"></div>
           <div class="ic-h"><span class="tg">Rx</span><h4>Rx-Werbemonitoring</h4></div>
           <div class="ic-b"><dl>
             <div class="row"><dt>Fachzeitschriften</dt><dd><span class="ac">&gt;700</span></dd></div>
@@ -152,7 +138,7 @@ const jsonLd = [
           </dl></div>
           <div class="ic-f"><a href="/brandfacts/rx-werbemonitoring">Zur Rx-Lösung <span class="ar">→</span></a></div>
         </div>
-        <div class="icard reveal" style="transition-delay:.1s" data-scribble><div class="glow"></div><ScribbleHover />
+        <div class="icard reveal" style="transition-delay:.1s"><div class="glow"></div>
           <div class="ic-h"><span class="tg">Dental</span><h4>Dental-Werbemonitoring</h4></div>
           <div class="ic-b"><dl>
             <div class="row"><dt>Dentalfachtitel</dt><dd><span class="ac">100</span></dd></div>
@@ -162,7 +148,7 @@ const jsonLd = [
           </dl></div>
           <div class="ic-f"><a href="/brandfacts/dental-werbemonitoring">Zur Dental-Lösung <span class="ar">→</span></a></div>
         </div>
-        <div class="icard reveal" style="transition-delay:.2s" data-scribble><div class="glow"></div><ScribbleHover />
+        <div class="icard reveal" style="transition-delay:.2s"><div class="glow"></div>
           <div class="ic-h"><span class="tg">Veterinär</span><h4>Veterinär-Werbemonitoring</h4></div>
           <div class="ic-b"><dl>
             <div class="row"><dt>Markt</dt><dd>Tiergesundheit</dd></div>

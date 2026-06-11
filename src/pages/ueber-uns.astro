@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import ScribbleHover from '../components/ScribbleHover.astro';
 const team = [
   { name: 'Bernhard Hebel', role: 'Gründer & Geschäftsführer', img: '/img/team-bernhard.webp', email: 'bernhard.hebel@faktenschmied.de', tel: '+49 981 208 6261-0', telLink: '+4998120862610', linkedin: 'https://www.linkedin.com/in/bernhard-hebel/', lead: true },
   { name: 'Jennifer Raidel', role: 'Consultant', img: '/img/team-jennifer.webp', email: 'jennifer.raidel@faktenschmied.de', tel: '+49 981 208 6261-18', telLink: '+499812086261-18', linkedin: 'https://www.linkedin.com/in/jennifer-raidel-574272231/' },
@@ -49,10 +48,9 @@ const team = [
       </div>
       <div class="team reveal">
         {team.map((m) => (
-          <div class={"tcard" + (m.lead ? " lead" : "")} data-scribble>
+          <div class={"tcard" + (m.lead ? " lead" : "")}>
             <div class="tcard-media">
               {m.img ? <img src={m.img} alt={"Porträt von " + m.name} width="640" height="640" loading="lazy" /> : <div class="ph-init">{m.initials}</div>}
-              <ScribbleHover />
             </div>
             <div class="tb">
               <b>{m.name}</b>
