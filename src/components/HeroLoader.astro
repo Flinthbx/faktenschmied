@@ -1,0 +1,82 @@
+---
+/**
+ * HeroLoader — keyword-grid intro preloader (adapted from PRO Pack "hero-9").
+ * Five columns of keyword tiles cascade in, the grid zooms toward the centre
+ * tile ("Faktenschmied"), a crisp wordmark reveals, then it wipes up to show
+ * the homepage hero. Plays once per session; skipped under reduced motion / no-JS.
+ *
+ * The inline guard runs synchronously and adds `hl-active` to <html> so the
+ * (otherwise display:none) overlay covers the page before the hero paints.
+ */
+const brand = 'Faktenschmied';
+const columns = [
+  ['Werbedruck', 'Print', 'Anzeigenmotive', 'ATC-Code', 'Wettbewerb'],
+  ['Werbespendings', 'Digital', 'Advertorials', 'Indikationen', 'Mediaplanung'],
+  ['Fachzeitschriften', 'Newsletter', brand, 'Share of Voice', 'Kampagnen'],
+  ['Healthcare', 'Rx', 'Dental', 'Veterinär', 'Marktbeobachtung'],
+  ['Key Visuals', 'PR-Texte', 'Reichweite', 'Monitoring', 'BrandFacts'],
+];
+---
+<script is:inline>
+  (function () {
+    try {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var seen = sessionStorage.getItem('fs-intro');
+      if (!reduce && !seen) {
+        document.documentElement.classList.add('hl-active');
+        sessionStorage.setItem('fs-intro', '1');
+        // failsafe: never leave the overlay covering the page if the timeline fails to run
+        setTimeout(function () { document.documentElement.classList.remove('hl-active'); }, 10000);
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<div class="hero-loader" id="heroLoader" aria-hidden="true">
+  <div class="hl-grid">
+    {columns.map((col, ci) => (
+      <div class={`hl-col hl-c${ci + 1}`}>
+        {col.map((kw) => (
+          <div class={'hl-item' + (kw === brand ? ' hl-brand' : '')}><span>{kw}</span></div>
+        ))}
+      </div>
+    ))}
+  </div>
+  <div class="hl-final"><span>Fakten<span class="o">schmied</span></span></div>
+</div>
+
+<script>
+  import gsap from 'gsap';
+
+  const loader = document.getElementById('heroLoader');
+  const root = document.documentElement;
+
+  if (loader && root.classList.contains('hl-active')) {
+    const finish = () => {
+      root.classList.remove('hl-active');
+      loader.remove();
+    };
+    const ease = 'power4.inOut';
+    const tl = gsap.timeline({ onComplete: finish });
+    tl.timeScale(1.3); // keep the cascade feel but ~30% snappier (~4.3s total)
+
+    // 1) columns slide into place
+    tl.to('.hl-col', { top: '0%', duration: 1.3, ease });
+    // 2) tiles cascade within each column (alternating direction)
+    tl.to('.hl-c1 .hl-item', { top: '0%', stagger: 0.1, duration: 1.2, ease }, '-=0.9');
+    tl.to('.hl-c2 .hl-item', { top: '0%', stagger: -0.1, duration: 1.2, ease }, '-=1.6');
+    tl.to('.hl-c3 .hl-item', { top: '0%', stagger: 0.1, duration: 1.2, ease }, '-=1.6');
+    tl.to('.hl-c4 .hl-item', { top: '0%', stagger: -0.1, duration: 1.2, ease }, '-=1.6');
+    tl.to('.hl-c5 .hl-item', { top: '0%', stagger: 0.1, duration: 1.2, ease }, '-=1.6');
+    // 3) zoom toward the centre ("Faktenschmied") tile
+    tl.to('.hl-grid', { scale: 6, duration: 1.5, ease }, '-=0.35');
+    // 4) fully fade the (now blurred) zoomed grid out — finishes exactly as the zoom ends,
+    //    so the blurry tile is gone before the crisp wordmark appears (no ghost behind it)
+    tl.to('.hl-grid', { opacity: 0, duration: 0.4, ease: 'power1.in' }, '-=0.4');
+    // 5) crisp brand wordmark reveals on the clean navy backdrop (starts after the grid is gone)
+    tl.to('.hl-final', { opacity: 1, duration: 0.5, ease: 'power2.out' });
+    tl.to('.hl-final span', { scale: 1, duration: 0.9, ease: 'power3.out' }, '<');
+    // 6) hold, then wipe up to reveal the hero
+    tl.to(loader, { yPercent: -100, duration: 0.9, ease: 'power4.inOut' }, '+=0.45');
+  }
+</script>

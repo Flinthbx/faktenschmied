@@ -389,7 +389,6 @@ nav.main a[aria-current="page"]::after{width:100%}
 .legal-doc h2{font-size:1.45rem;margin:34px 0 12px;color:var(--ink)}
 .legal-doc p{margin-bottom:14px}.legal-doc a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--brand)}
 
-
 /* ===== Hero-Redesign: klassisch, strukturiert (kein generativer Verlauf/Grain) ===== */
 .hero{background:linear-gradient(180deg,#191c44 0%,#13163a 55%,#0c0e24 100%)}
 .hero .mesh{background-image:
@@ -407,7 +406,6 @@ nav.main a[aria-current="page"]::after{width:100%}
 .forge-band .cap{position:absolute;left:0;right:0;bottom:0;padding:30px;background:linear-gradient(transparent,rgba(12,14,36,.88))}
 .forge-band .cap .t{font-family:var(--serif);font-style:italic;font-size:24px;color:#fff;line-height:1.3}
 .forge-band .cap .s{font-family:var(--mono);font-size:12px;color:#C7CAE6;margin-top:10px}
-
 
 /* ===== Hero — foto-geführt, premium ===== */
 .hero.home .wrap{align-items:center}
@@ -438,3 +436,118 @@ nav.main a[aria-current="page"]::after{width:100%}
   radial-gradient(95% 120% at 18% 0%, #1d2152, transparent 60%),
   linear-gradient(165deg, #171a42 0%, #0b0d22 78%)}
 .hero .mesh{display:none}
+
+/* =============================================================
+   FULL-SCREEN OVERLAY MENU (GSAP) — replaces top-bar nav site-wide
+   ============================================================= */
+html.no-scroll,body.no-scroll{overflow:hidden}
+
+.site-menu{position:fixed;top:0;left:0;width:100vw;height:100svh;overflow:hidden;pointer-events:none;z-index:90}
+
+/* --- top bar --- */
+.menu-bar{position:fixed;top:0;left:0;width:100vw;display:flex;align-items:center;justify-content:space-between;pointer-events:auto;z-index:92;padding:18px 28px;color:#fff;transition:background .4s,border-color .4s,box-shadow .4s,color .4s;border-bottom:1px solid transparent}
+.menu-bar.scrolled{background:rgba(255,255,255,.82);backdrop-filter:saturate(1.4) blur(14px);border-color:var(--line);box-shadow:0 1px 24px rgba(20,24,59,.05);color:var(--ink)}
+.site-menu.is-open .menu-bar{background:transparent;border-color:transparent;box-shadow:none;color:#fff}
+.menu-bar .logo{display:flex;align-items:center}
+.menu-bar .logo img{height:30px;width:auto;display:block}
+/* logo swap — selectors include `img` so they outrank the `.logo img` sizing rule */
+.menu-bar .logo img.logo-dark{display:none}
+.menu-bar.scrolled .logo img.logo-light{display:none}
+.menu-bar.scrolled .logo img.logo-dark{display:block}
+.site-menu.is-open .menu-bar .logo img.logo-light{display:block}
+.site-menu.is-open .menu-bar .logo img.logo-dark{display:none}
+
+/* --- toggle button --- */
+.menu-toggle-btn{display:flex;align-items:center;gap:14px;cursor:pointer;background:none;border:0;padding:0;color:inherit;font-family:var(--mono)}
+.menu-toggle-label{position:relative;overflow:hidden;display:inline-block;height:1.15em;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.menu-toggle-label .ml{display:block;transition:transform .55s var(--ease)}
+.menu-toggle-label .ml-close{position:absolute;top:0;left:0;transform:translateY(110%)}
+.site-menu.is-open .menu-toggle-label .ml{transform:translateY(-110%)}
+.menu-hamburger-icon{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,255,255,.28);transition:border-color .4s}
+.menu-bar.scrolled .menu-hamburger-icon{border-color:var(--line-2)}
+.site-menu.is-open .menu-hamburger-icon{border-color:rgba(255,255,255,.28)}
+.menu-hamburger-icon span{position:absolute;width:15px;height:1.5px;background:currentColor;transform-origin:center;transition:transform .5s var(--ease)}
+.menu-hamburger-icon span:nth-child(1){transform:translateY(-3px)}
+.menu-hamburger-icon span:nth-child(2){transform:translateY(3px)}
+.site-menu.is-open .menu-hamburger-icon span:nth-child(1){transform:translateY(0) rotate(45deg)}
+.site-menu.is-open .menu-hamburger-icon span:nth-child(2){transform:translateY(0) rotate(-45deg)}
+
+/* --- overlay --- */
+.menu-overlay{position:fixed;top:0;left:0;width:100vw;height:100svh;overflow:hidden;z-index:91;background:var(--navy-deep);color:#fff;clip-path:polygon(0% 0%,100% 0%,100% 0%,0% 0%);will-change:clip-path}
+.menu-overlay-content{position:absolute;inset:0;display:flex;pointer-events:auto;transform:translateY(-50%);will-change:transform}
+.menu-media-wrapper{flex:2;overflow:hidden;opacity:0;will-change:opacity}
+.menu-media-wrapper img{width:100%;height:100%;object-fit:cover;opacity:.32;filter:grayscale(.2)}
+.menu-content-wrapper{position:relative;flex:3;display:grid;grid-template-rows:1fr auto;gap:32px;padding:120px 6vw 44px}
+.menu-content-main{align-self:center;display:flex;gap:5vw;align-items:flex-end}
+.menu-col{display:flex;flex-direction:column;gap:.6rem}
+.menu-col-main{flex:3}.menu-col-sub{flex:2}
+.menu-link a{display:inline-block;font-family:var(--sans);font-size:clamp(2.1rem,4.6vw,3.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;color:#fff;text-decoration:none;transition:color .3s}
+.menu-link a:hover,.menu-link a[aria-current="page"]{color:var(--brand)}
+.menu-tag a{display:inline-block;font-family:var(--mono);font-size:.92rem;letter-spacing:.02em;color:#9FA4CB;text-decoration:none;transition:color .3s}
+.menu-tag a:hover{color:var(--brand)}
+.menu-cta{margin-top:20px}
+.menu-footer{display:flex;gap:5vw;border-top:1px solid rgba(255,255,255,.12);padding-top:22px}
+.menu-footer p{font-size:.92rem;color:#838AC0;margin:0;line-height:1.5}
+.menu-footer a{color:#9FA4CB;text-decoration:none;transition:color .3s}
+.menu-footer a:hover{color:var(--brand)}
+
+/* reduced motion: instant open, no slide/morph timeline */
+.site-menu.rm-open .menu-overlay{clip-path:none}
+.site-menu.rm-open .menu-overlay-content{transform:none}
+.site-menu.rm-open .menu-media-wrapper{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .menu-toggle-label .ml,.menu-hamburger-icon span{transition:none}
+}
+
+@media (max-width:900px){
+  .menu-media-wrapper{display:none}
+  .menu-content-wrapper{padding:104px 28px 36px}
+  .menu-content-main{flex-direction:column;align-items:flex-start;gap:2.4rem}
+  .menu-footer{flex-direction:column;gap:.4rem}
+}
+
+/* =============================================================
+   SCRIBBLE HOVER (PRO Pack hover-10) — strokes draw on over cards
+   ============================================================= */
+.scribble-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit;z-index:1}
+.scribble-layer .svg-stroke{position:absolute;top:50%;left:50%;width:100%;height:100%;transform:translate(-50%,-50%) scale(1.4);opacity:.62}
+.scribble-layer svg{width:100%;height:100%;display:block}
+.scribble-layer .svg-stroke path{fill:none;stroke-linecap:round}
+.scribble-layer .svg-stroke-1 path{stroke:var(--brand)}
+.scribble-layer .svg-stroke-2 path{stroke:var(--viz-2)}
+
+/* team portrait: wrap that hosts the scribble over the image only */
+.tcard-media{position:relative;overflow:hidden;aspect-ratio:1}
+.tcard-media img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;display:block}
+
+/* dark Branchen cards: lighten the secondary stroke, keep content above scribble */
+.icard .scribble-layer .svg-stroke-2 path{stroke:rgba(255,255,255,.55)}
+.icard .ic-h,.icard .ic-b,.icard .ic-f{z-index:2}
+
+@media (prefers-reduced-motion:reduce){
+  .scribble-layer{display:none}
+}
+
+/* =============================================================
+   HERO LOADER (PRO Pack hero-9) — keyword-grid intro, plays once/session
+   ============================================================= */
+.hero-loader{display:none}
+html.hl-active .hero-loader{display:block;position:fixed;inset:0;z-index:9999;background:var(--navy-deep);overflow:hidden}
+html.hl-active,html.hl-active body{overflow:hidden;height:100%}
+.hl-grid{position:absolute;inset:0;display:flex;gap:12px;padding:12px;z-index:1;will-change:transform}
+.hl-col{position:relative;flex:1;display:flex;flex-direction:column;gap:12px}
+.hl-col.hl-c1,.hl-col.hl-c3,.hl-col.hl-c5{top:100%}
+.hl-col.hl-c2,.hl-col.hl-c4{top:-100%}
+.hl-item{position:relative;flex:1;display:grid;place-items:center;text-align:center;padding:8px;border:1px solid rgba(255,255,255,.07);border-radius:10px;background:var(--navy-2);overflow:hidden}
+.hl-c1 .hl-item,.hl-c3 .hl-item,.hl-c5 .hl-item{top:100%}
+.hl-c2 .hl-item,.hl-c4 .hl-item{top:-100%}
+.hl-item span{font-family:var(--mono);font-size:clamp(.6rem,1.05vw,.92rem);letter-spacing:.04em;text-transform:uppercase;color:#9FA4CB;line-height:1.15}
+.hl-item.hl-brand{background:var(--brand);border-color:var(--brand)}
+.hl-item.hl-brand span{font-family:var(--sans);font-weight:800;text-transform:none;letter-spacing:-.01em;color:var(--ink);font-size:clamp(.9rem,1.5vw,1.3rem)}
+.hl-final{position:absolute;inset:0;z-index:2;display:grid;place-items:center;opacity:0;pointer-events:none}
+.hl-final span{font-family:var(--sans);font-weight:800;letter-spacing:-.03em;color:#fff;font-size:clamp(2.4rem,7vw,6rem);transform:scale(.92);will-change:transform,opacity}
+.hl-final span.o{color:var(--brand)}
+@media (max-width:700px){
+  .hl-grid{gap:7px;padding:7px}
+  .hl-item span{font-size:.58rem}
+}

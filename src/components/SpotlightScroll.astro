@@ -1,0 +1,213 @@
+---
+/**
+ * SpotlightScroll — pinned scroll-storytelling section (GSAP ScrollTrigger).
+ * Adapted from PRO Pack "scroll-4", re-skinned to the FaktenSchmied brand.
+ * Floating Werbe-signale converge into a single BrandFacts lens.
+ */
+const features = [
+  'Werbedruck',
+  'Werbespendings',
+  'Anzeigenmotive',
+  'Newsletter',
+  'Fachzeitschriften',
+  'Share of Voice',
+  'Indikationen',
+];
+---
+<div class="spotlight-scroll" data-spotlight>
+  <section class="sp-intro">
+    <h1 class="serif-it">Hunderte Werbesignale, <br />verstreut über den Markt.</h1>
+  </section>
+
+  <section class="sp-spotlight">
+    <div class="sp-spotlight-content">
+      <div class="sp-bg"><img src="/img/spotlight-mesh.png" alt="" /></div>
+      <h1 class="serif-it">Print, Digital, hunderte Fachtitel — überall Signale.</h1>
+    </div>
+
+    <div class="sp-header">
+      <div class="sp-header-content">
+        <h1 class="serif-it">BrandFacts bündelt sie zu einer Sicht.</h1>
+        <p>Werbedruck, Inhalte und Spendings — systematisch erfasst, zugeordnet und vergleichbar. Filterbar nach Medium, Branche und Zeitraum.</p>
+      </div>
+    </div>
+
+    <div class="sp-features">
+      {features.map((f) => (
+        <div class="sp-feature">
+          <div class="sp-feature-bg"></div>
+          <div class="sp-feature-content"><p>{f}</p></div>
+        </div>
+      ))}
+    </div>
+
+    <div class="sp-searchbar"><p>BrandFacts · eine Sicht auf den Markt</p></div>
+  </section>
+
+  <section class="sp-outro">
+    <h1 class="serif-it">( Markt im Blick )</h1>
+  </section>
+</div>
+
+<style>
+  .spotlight-scroll{background:var(--navy-deep);color:#fff}
+  .spotlight-scroll section{position:relative;width:100%;height:100svh;overflow:hidden}
+  .sp-intro,.sp-outro{display:flex;justify-content:center;align-items:center;padding:2rem}
+  .spotlight-scroll h1{text-align:center;font-size:clamp(2.2rem,5vw,4.6rem);font-weight:400;line-height:1.02;letter-spacing:-.02em;color:#fff}
+  .sp-intro h1,.sp-outro h1{max-width:18ch}
+  .spotlight-scroll p{font-family:var(--sans);color:#C7CBE6}
+
+  .sp-spotlight-content,.sp-header{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;will-change:transform}
+  .sp-spotlight-content h1{max-width:16ch}
+  .sp-bg{position:absolute;inset:0;transform:scale(.85);opacity:.22;mix-blend-mode:screen}
+  .sp-bg img{width:100%;height:100%;object-fit:cover}
+
+  /* final message — hidden by default, revealed by the timeline */
+  .sp-header-content{width:min(60%,720px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.6rem;opacity:0;transform:translateY(-100px);will-change:transform,opacity}
+  .sp-header-content p{font-size:1.05rem;line-height:1.6;max-width:52ch}
+
+  /* floating pills */
+  .sp-features{position:absolute;inset:0;opacity:0}
+  .sp-feature{position:absolute;width:max-content;height:max-content;padding:.85rem 1.4rem;transform:translate(-50%,-50%);will-change:top,left}
+  .sp-feature-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;background:rgba(255,255,255,.03);border:2px solid rgba(255,255,255,.14);border-radius:.5rem;will-change:width,height,border-radius,border-width}
+  .sp-feature-content{position:relative}
+  .sp-feature-content p{font-family:var(--mono);text-transform:uppercase;font-weight:500;font-size:.8rem;letter-spacing:.04em;color:#fff;line-height:1}
+
+  /* the lens / search bar */
+  .sp-searchbar{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:3rem;height:3rem;border-radius:25rem;border:.35rem solid var(--brand);background:rgba(239,120,0,.12);opacity:0;display:flex;align-items:center;will-change:opacity,width,height,transform}
+  .sp-searchbar p{position:relative;opacity:0;transform:translateX(2rem);white-space:nowrap;padding-left:1.6rem;font-family:var(--mono);font-size:.85rem;letter-spacing:.03em;color:#fff;will-change:opacity}
+
+  /* reduced-motion / no-pin fallback: show only the final message */
+  .spotlight-scroll.rm .sp-spotlight-content{display:none}
+  .spotlight-scroll.rm .sp-header-content{opacity:1;transform:none}
+
+  @media (max-width:900px){
+    .sp-header-content{width:90%}
+    .sp-feature{padding:.7rem 1rem}
+    .sp-feature-content p{font-size:.68rem}
+    .sp-bg{transform:scale(1.8)}
+    .sp-searchbar p{font-size:.68rem;letter-spacing:0;padding-left:1.2rem}
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const root = document.querySelector('.spotlight-scroll');
+  if (root) {
+    const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (RM) {
+      // Static, readable fallback — no pinning, no scrub.
+      root.classList.add('rm');
+    } else {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const spotlight = root.querySelector('.sp-spotlight');
+      const spotlightContent = root.querySelector('.sp-spotlight-content');
+      const headerContent = root.querySelector('.sp-header-content');
+      const featuresWrap = root.querySelector('.sp-features');
+      const searchBar = root.querySelector('.sp-searchbar');
+      const features = Array.from(root.querySelectorAll('.sp-feature'));
+      const featureBgs = Array.from(root.querySelectorAll('.sp-feature-bg'));
+      const featureContents = Array.from(root.querySelectorAll('.sp-feature-content'));
+
+      const startPositions = [
+        { top: 25, left: 15 },
+        { top: 12.5, left: 50 },
+        { top: 22.5, left: 75 },
+        { top: 30, left: 82.5 },
+        { top: 50, left: 20 },
+        { top: 80, left: 20 },
+        { top: 75, left: 75 },
+      ];
+
+      // Reveal pills and place them at their start positions before measuring.
+      gsap.set(featuresWrap, { opacity: 1 });
+      features.forEach((feature, i) => {
+        const pos = startPositions[i] || { top: 50, left: 50 };
+        gsap.set(feature, { top: `${pos.top}%`, left: `${pos.left}%` });
+      });
+
+      const startDims = featureBgs.map((bg) => {
+        const r = bg.getBoundingClientRect();
+        return { width: r.width, height: r.height };
+      });
+
+      const remPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const targetW = 3 * remPx;
+      const targetH = 3 * remPx;
+      const barFinalWidth = () => (window.innerWidth < 1000 ? 20 : 26);
+      let searchBarFinalWidth = barFinalWidth();
+
+      ScrollTrigger.create({
+        trigger: spotlight,
+        start: 'top top',
+        end: () => `+=${window.innerHeight * 3}`,
+        pin: true,
+        pinSpacing: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        onRefresh: () => { searchBarFinalWidth = barFinalWidth(); },
+        onUpdate: (self) => {
+          const p = self.progress;
+
+          // 1) transitional headline scrolls up (first third)
+          gsap.set(spotlightContent, { yPercent: p <= 0.3333 ? -100 * (p / 0.3333) : -100 });
+
+          // 2) pills converge to centre + shrink to dots (first half)
+          if (p <= 0.5) {
+            const fp = p / 0.5;
+            features.forEach((feature, i) => {
+              const o = startPositions[i] || { top: 50, left: 50 };
+              gsap.set(feature, {
+                top: `${o.top + (50 - o.top) * fp}%`,
+                left: `${o.left + (50 - o.left) * fp}%`,
+              });
+            });
+            featureBgs.forEach((bg, i) => {
+              const s = startDims[i];
+              gsap.set(bg, {
+                width: `${s.width + (targetW - s.width) * fp}px`,
+                height: `${s.height + (targetH - s.height) * fp}px`,
+                borderRadius: `${0.5 + (25 - 0.5) * fp}rem`,
+                borderWidth: `${0.125 + (0.35 - 0.125) * fp}rem`,
+              });
+            });
+            const cOp = p <= 0.1 ? 1 - p / 0.1 : 0;
+            featureContents.forEach((c) => gsap.set(c, { opacity: cOp }));
+          }
+
+          gsap.set(featuresWrap, { opacity: p >= 0.5 ? 0 : 1 });
+          gsap.set(searchBar, { opacity: p >= 0.5 ? 1 : 0 });
+
+          // 3) lens expands (50%–75%)
+          if (p >= 0.5 && p <= 0.75) {
+            const lp = (p - 0.5) / 0.25;
+            gsap.set(searchBar, {
+              width: `${3 + (searchBarFinalWidth - 3) * lp}rem`,
+              height: `${3 + (5 - 3) * lp}rem`,
+              transform: `translate(-50%, ${-50 + 250 * lp}%)`,
+            });
+            gsap.set(searchBar.querySelector('p'), { opacity: 0 });
+          } else if (p > 0.75) {
+            gsap.set(searchBar, { width: `${searchBarFinalWidth}rem`, height: '5rem', transform: 'translate(-50%, 200%)' });
+          }
+
+          // 4) final message + lens label fade in (last quarter)
+          if (p >= 0.75) {
+            const hp = (p - 0.75) / 0.25;
+            gsap.set(searchBar.querySelector('p'), { opacity: hp });
+            gsap.set(headerContent, { y: -50 + 50 * hp, opacity: hp });
+          } else {
+            gsap.set(searchBar.querySelector('p'), { opacity: 0 });
+            gsap.set(headerContent, { y: -50, opacity: 0 });
+          }
+        },
+      });
+
+      window.addEventListener('load', () => ScrollTrigger.refresh());
+    }
+  }
+</script>
