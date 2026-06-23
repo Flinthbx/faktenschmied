@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import HomeBody from '../../components/HomeBody.astro';
+import VariantSwitcher from '../../components/VariantSwitcher.astro';
+import VariantStyles from '../../components/VariantStyles.astro';
+---
+<Base title="Variante 3 · Zentriert | FaktenSchmied" description="Startseiten-Variante 3 — zentrierte Bühne mit Bildstreifen." path="/varianten/v3" active="">
+  <VariantStyles />
+  <section class="vh3">
+    <div class="glow"></div>
+    <div class="top">
+      <div class="ey on-dark reveal">Healthcare-Werbemonitoring</div>
+      <h1 class="reveal" style="transition-delay:.08s">Sehen Sie, <span class="serif-it o">wie Ihr Markt wirbt</span> — bevor es Ihre Wettbewerber tun.</h1>
+      <p class="sub reveal" style="transition-delay:.16s">BrandFacts analysiert Werbedruck, Werbeinhalte und Werbespendings im Healthcare-Sektor für D-A-CH — über Fachzeitschriften und Verlags-Newsletter.</p>
+      <div class="acts reveal" style="transition-delay:.24s">
+        <a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Kostenlose Demo anfragen <span class="ar">→</span></span></a>
+        <a class="btn btn-onnavy btn-lg" href="/brandfacts"><span class="lbl">BrandFacts entdecken</span></a>
+      </div>
+      <div class="vh-micro reveal" style="transition-delay:.32s"><span class="dot"></span>Kostenloses Teams-Meeting · Bedarf klären · unverbindlich</div>
+    </div>
+    <div class="strip reveal">
+      <div class="ov"></div>
+      <img src="/img/forge-rx.webp" alt="" />
+      <img src="/img/forge-jennifer.webp" alt="" />
+      <img src="/img/forge-dental.webp" alt="" />
+    </div>
+  </section>
+  <HomeBody />
+  <VariantSwitcher active="3" />
+</Base>

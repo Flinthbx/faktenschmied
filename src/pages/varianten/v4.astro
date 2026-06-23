@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import HomeBody from '../../components/HomeBody.astro';
+import VariantSwitcher from '../../components/VariantSwitcher.astro';
+import VariantStyles from '../../components/VariantStyles.astro';
+---
+<Base title="Variante 4 · Produkt | FaktenSchmied" description="Startseiten-Variante 4 — produktorientiert mit Daten-Panel." path="/varianten/v4" active="">
+  <VariantStyles />
+  <section class="vh4">
+    <div class="mesh"></div>
+    <div class="wrap">
+      <div>
+        <div class="ey on-dark reveal">Healthcare-Werbemonitoring</div>
+        <h1 class="reveal" style="transition-delay:.08s">Sehen Sie, <span class="serif-it o">wie Ihr Markt wirbt</span> — bevor es Ihre Wettbewerber tun.</h1>
+        <p class="sub reveal" style="transition-delay:.16s">BrandFacts macht Werbedruck, Werbeinhalte und Werbespendings im Healthcare-Sektor messbar — über Fachzeitschriften und Verlags-Newsletter, in Print und Digital.</p>
+        <div class="acts reveal" style="transition-delay:.24s">
+          <a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Kostenlose Demo anfragen <span class="ar">→</span></span></a>
+          <a class="btn btn-onnavy btn-lg" href="/brandfacts"><span class="lbl">BrandFacts entdecken</span></a>
+        </div>
+        <div class="vh-micro reveal" style="transition-delay:.32s"><span class="dot"></span>Kostenloses Teams-Meeting · Bedarf klären · unverbindlich</div>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="glass">
+          <div class="gh"><i></i><i></i><i></i><span class="t">brandfacts · werbedruck-monitor</span></div>
+          <div class="gb">
+            <div class="gr"><span>Ihre Marke</span><span>Share of Voice</span></div>
+            <div class="gbar"><span style="width:64%;background:linear-gradient(90deg,var(--brand-alt),var(--brand))"></span></div>
+            <div class="gr"><span>Wettbewerber A</span><span></span></div>
+            <div class="gbar"><span style="width:48%;background:rgba(255,255,255,.4)"></span></div>
+            <div class="gr"><span>Wettbewerber B</span><span></span></div>
+            <div class="gbar"><span style="width:33%;background:rgba(255,255,255,.28)"></span></div>
+            <div class="gchart">
+              <div class="c" style="height:46%"></div><div class="c" style="height:58%"></div><div class="c" style="height:42%"></div>
+              <div class="c" style="height:70%"></div><div class="c" style="height:60%"></div><div class="c" style="height:86%"></div>
+              <div class="c" style="height:74%"></div><div class="c" style="height:96%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <HomeBody />
+  <VariantSwitcher active="4" />
+</Base>

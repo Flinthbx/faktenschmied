@@ -1,0 +1,36 @@
+---
+const { active = 0 } = Astro.props;
+const items = [
+  { n: '1', href: '/varianten/v1', t: 'Bühne' },
+  { n: '2', href: '/varianten/v2', t: 'Editorial' },
+  { n: '3', href: '/varianten/v3', t: 'Zentriert' },
+  { n: '4', href: '/varianten/v4', t: 'Produkt' },
+  { n: '5', href: '/varianten/v5', t: 'Split' },
+];
+---
+<div class="vswitch" role="navigation" aria-label="Hero-Varianten">
+  <a class="vs-home" href="/varianten" title="Übersicht aller Varianten">Vorschau</a>
+  <div class="vs-items">
+    {items.map((it) => (
+      <a href={it.href} class={`vs-it${String(active) === it.n ? ' on' : ''}`}>
+        <b>{it.n}</b><span>{it.t}</span>
+      </a>
+    ))}
+  </div>
+</div>
+<style>
+  .vswitch{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:120;display:flex;align-items:center;gap:6px;
+    background:rgba(12,14,36,.86);backdrop-filter:saturate(1.4) blur(14px);border:1px solid rgba(255,255,255,.14);
+    border-radius:100px;padding:6px 8px;box-shadow:0 18px 50px -16px rgba(0,0,0,.6)}
+  .vs-home{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff;
+    text-decoration:none;padding:8px 14px;border-radius:100px;background:var(--brand);font-weight:700}
+  .vs-home:hover{background:var(--brand-strong)}
+  .vs-items{display:flex;gap:2px}
+  .vs-it{display:flex;align-items:center;gap:7px;text-decoration:none;color:#C7CAE6;padding:8px 13px;border-radius:100px;transition:.2s;font-size:13px}
+  .vs-it b{font-weight:800;color:#fff}
+  .vs-it span{font-size:12.5px}
+  .vs-it:hover{background:rgba(255,255,255,.08);color:#fff}
+  .vs-it.on{background:#fff;color:var(--ink)}
+  .vs-it.on b{color:var(--brand-strong)}
+  @media(max-width:620px){.vs-it span{display:none}.vs-it{padding:9px 12px}}
+</style>

@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import HomeBody from '../../components/HomeBody.astro';
+import VariantSwitcher from '../../components/VariantSwitcher.astro';
+import VariantStyles from '../../components/VariantStyles.astro';
+---
+<Base title="Variante 1 · Vollbild-Bühne | FaktenSchmied" description="Startseiten-Variante 1 — cinematische Vollbild-Bühne." path="/varianten/v1" active="">
+  <VariantStyles />
+  <section class="vh1">
+    <div class="bg"><img src="/img/forge-home.webp" alt="FaktenSchmied — Blick in die Schmiede, sinnbildlich für das Schmieden belastbarer Fakten aus Rohdaten." /></div>
+    <div class="scrim"></div><div class="glow"></div>
+    <div class="wrap"><div class="inner">
+      <div class="ey on-dark reveal">Healthcare-Werbemonitoring</div>
+      <h1 class="reveal" style="transition-delay:.08s">Sehen Sie, <span class="serif-it o">wie Ihr Markt wirbt</span> — bevor es Ihre Wettbewerber tun.</h1>
+      <p class="sub reveal" style="transition-delay:.16s">BrandFacts analysiert Werbedruck, Werbeinhalte und Werbespendings im Healthcare-Sektor für D-A-CH — über Fachzeitschriften und Verlags-Newsletter, in Print und Digital.</p>
+      <div class="acts reveal" style="transition-delay:.24s">
+        <a class="btn btn-primary btn-lg" href="/demo"><span class="lbl">Kostenlose Demo anfragen <span class="ar">→</span></span></a>
+        <a class="btn btn-onnavy btn-lg" href="/brandfacts"><span class="lbl">BrandFacts entdecken</span></a>
+      </div>
+      <div class="vh-micro reveal" style="transition-delay:.32s"><span class="dot"></span>Kostenloses Teams-Meeting · Bedarf klären · unverbindlich</div>
+    </div></div>
+  </section>
+  <HomeBody />
+  <VariantSwitcher active="1" />
+</Base>
