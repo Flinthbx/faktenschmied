@@ -598,3 +598,27 @@ html:not(.intro-on) .intro{display:none}
 .flow-step span{font-size:12.5px;color:var(--slate)}
 .flow-step.result{background:var(--brand-tint);border-color:var(--brand-soft)}
 .flow-step.result .fs-n{background:var(--brand);color:var(--ink)}
+
+/* CTA-Kachel (füllt das Bento-Raster sinnvoll statt leerer Lücke) */
+.bento .cta-tile{background:var(--ink);text-decoration:none;display:flex;flex-direction:column}
+.bento .cta-tile::before{display:none}
+.bento .cta-tile:hover{background:var(--navy-2)}
+.bento .cta-tile h4{color:#fff}
+.bento .cta-tile p{color:#C2C6E8}
+.bento .cta-tile .ix{color:var(--brand)}
+.bento .cta-tile .ic{background:var(--brand);color:var(--ink)}
+.bento .cta-tile .cta-go{margin-top:auto;padding-top:16px;color:var(--brand);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+
+/* Mediamix-Balken (Use Case Mediaplanung, evergreen) */
+.mixbar{padding:30px 22px}
+.mixbar .bar{display:flex;height:26px;border-radius:8px;overflow:hidden}
+.mixbar .bar span{display:block}
+.mixbar .bar .s1{background:var(--brand);flex:48}
+.mixbar .bar .s2{background:var(--viz-2);flex:32}
+.mixbar .bar .s3{background:var(--viz-3);flex:20}
+.mixbar .mleg{display:flex;gap:18px;margin-top:16px;font-size:12.5px;color:var(--slate);flex-wrap:wrap}
+.mixbar .mleg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.mixbar .mleg i.s1{background:var(--brand)}.mixbar .mleg i.s2{background:var(--viz-2)}.mixbar .mleg i.s3{background:var(--viz-3)}
+
+/* Menü-Sublabel (Branchen unter BrandFacts) */
+.menu-sublabel{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6B70A0;margin-bottom:4px}
