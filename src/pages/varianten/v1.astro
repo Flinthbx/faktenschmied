@@ -3,9 +3,10 @@ import Base from '../../layouts/Base.astro';
 import HomeBody from '../../components/HomeBody.astro';
 import VariantSwitcher from '../../components/VariantSwitcher.astro';
 import VariantStyles from '../../components/VariantStyles.astro';
+import FontSwitcher from '../../components/FontSwitcher.astro';
 ---
 <Base title="Variante 1 · Vollbild-Bühne | FaktenSchmied" description="Startseiten-Variante 1 — cinematische Vollbild-Bühne." path="/varianten/v1" active="">
-  <VariantStyles />
+  <VariantStyles /><FontSwitcher />
   <section class="vh1">
     <div class="bg"><img src="/img/forge-home.webp" alt="FaktenSchmied — Blick in die Schmiede, sinnbildlich für das Schmieden belastbarer Fakten aus Rohdaten." /></div>
     <div class="scrim"></div><div class="glow"></div>

@@ -1,0 +1,26 @@
+---
+// Sanfter 3D-Tilt/Parallax auf Elementen mit Klasse .fx-tilt (reagiert auf Mausbewegung).
+---
+<script is:global>
+  (function () {
+    function init(){
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia && matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.fx-tilt').forEach(function (el){
+        if (el.dataset.tilt) return; el.dataset.tilt = '1';
+        var par = el.parentElement; if (!par) return;
+        par.style.perspective = '1100px';
+        el.style.transition = 'transform .3s cubic-bezier(.22,1,.36,1)';
+        el.style.willChange = 'transform';
+        par.addEventListener('pointermove', function (e){
+          var r = el.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width - 0.5;
+          var py = (e.clientY - r.top) / r.height - 0.5;
+          el.style.transform = 'rotateY(' + (px*7).toFixed(2) + 'deg) rotateX(' + (-py*7).toFixed(2) + 'deg)';
+        });
+        par.addEventListener('pointerleave', function (){ el.style.transform = ''; });
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  })();
+</script>

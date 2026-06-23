@@ -3,10 +3,13 @@ import Base from '../../layouts/Base.astro';
 import HomeBody from '../../components/HomeBody.astro';
 import VariantSwitcher from '../../components/VariantSwitcher.astro';
 import VariantStyles from '../../components/VariantStyles.astro';
+import FontSwitcher from '../../components/FontSwitcher.astro';
+import FxEmber from '../../components/FxEmber.astro';
 ---
 <Base title="Variante 3 · Zentriert | FaktenSchmied" description="Startseiten-Variante 3 — zentrierte Bühne mit Bildstreifen." path="/varianten/v3" active="">
-  <VariantStyles />
+  <VariantStyles /><FontSwitcher />
   <section class="vh3">
+    <FxEmber />
     <div class="glow"></div>
     <div class="top">
       <div class="ey on-dark reveal">Healthcare-Werbemonitoring</div>

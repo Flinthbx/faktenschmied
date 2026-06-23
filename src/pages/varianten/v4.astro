@@ -3,9 +3,12 @@ import Base from '../../layouts/Base.astro';
 import HomeBody from '../../components/HomeBody.astro';
 import VariantSwitcher from '../../components/VariantSwitcher.astro';
 import VariantStyles from '../../components/VariantStyles.astro';
+import FontSwitcher from '../../components/FontSwitcher.astro';
+import FxDataRing from '../../components/FxDataRing.astro';
+import FxTilt from '../../components/FxTilt.astro';
 ---
 <Base title="Variante 4 · Produkt | FaktenSchmied" description="Startseiten-Variante 4 — produktorientiert mit Daten-Panel." path="/varianten/v4" active="">
-  <VariantStyles />
+  <VariantStyles /><FontSwitcher />
   <section class="vh4">
     <div class="mesh"></div>
     <div class="wrap">
@@ -19,8 +22,9 @@ import VariantStyles from '../../components/VariantStyles.astro';
         </div>
         <div class="vh-micro reveal" style="transition-delay:.32s"><span class="dot"></span>Kostenloses Teams-Meeting · Bedarf klären · unverbindlich</div>
       </div>
-      <div class="reveal" style="transition-delay:.2s">
-        <div class="glass">
+      <div class="reveal" style="transition-delay:.2s;position:relative">
+        <FxDataRing />
+        <div class="glass fx-tilt">
           <div class="gh"><i></i><i></i><i></i><span class="t">brandfacts · werbedruck-monitor</span></div>
           <div class="gb">
             <div class="gr"><span>Ihre Marke</span><span>Share of Voice</span></div>
@@ -40,5 +44,6 @@ import VariantStyles from '../../components/VariantStyles.astro';
     </div>
   </section>
   <HomeBody />
+  <FxTilt />
   <VariantSwitcher active="4" />
 </Base>

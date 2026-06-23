@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import VariantSwitcher from '../../components/VariantSwitcher.astro';
 import VariantStyles from '../../components/VariantStyles.astro';
+import FontSwitcher from '../../components/FontSwitcher.astro';
 const variants = [
   { n: '01', href: '/varianten/v1', t: 'Vollbild-Bühne', d: 'Cinematisch: das Schmiede-Foto füllt den ganzen Hero, Text auf dunklem Verlauf. Maximale Wirkung & Premium-Look.', cls: 'p1', img: '/img/forge-home.webp' },
   { n: '02', href: '/varianten/v2', t: 'Editorial / typografisch', d: 'Hell und ruhig wie ein Fachmagazin. Dominante Schrift mit Serif-Akzent, kein großes Foto. Seriös & klar.', cls: 'p2', img: '' },
@@ -11,7 +12,7 @@ const variants = [
 ];
 ---
 <Base title="Startseiten-Varianten | FaktenSchmied" description="Fünf Startseiten-Varianten zur Auswahl." path="/varianten" active="">
-  <VariantStyles />
+  <VariantStyles /><FontSwitcher />
   <section class="vov">
     <div class="wrap">
       <div class="head reveal">

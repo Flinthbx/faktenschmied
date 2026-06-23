@@ -1,0 +1,38 @@
+---
+// Langsam rotierender Daten-Ring (Canvas2D) als dezentes Daten-Motiv hinter dem Produkt-Panel.
+---
+<canvas class="fx-ring" aria-hidden="true"></canvas>
+<style is:global>
+  .fx-ring{position:absolute;inset:-12% -8% -12% -8%;width:116%;height:124%;pointer-events:none;z-index:0;opacity:.85}
+</style>
+<script is:global>
+  (function () {
+    function init(){ document.querySelectorAll('canvas.fx-ring').forEach(setup); }
+    function setup(c){
+      if (c.dataset.on) return; c.dataset.on = '1';
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var ctx = c.getContext('2d'), W=0, H=0, dpr = Math.min(window.devicePixelRatio || 1, 2), t = 0, bars = 54;
+      function resize(){ var r=c.getBoundingClientRect(); W=c.width=Math.max(1,r.width*dpr); H=c.height=Math.max(1,r.height*dpr); }
+      function draw(){
+        ctx.clearRect(0,0,W,H);
+        var cx=W/2, cy=H/2, inner=Math.min(W,H)*0.30, max=Math.min(W,H)*0.16;
+        ctx.save(); ctx.translate(cx,cy); ctx.rotate(t);
+        for (var i=0;i<bars;i++){
+          var ang = i/bars*Math.PI*2;
+          var h = max*(0.35 + 0.65*Math.abs(Math.sin(i*0.6 + t*2.2)));
+          var a = 0.14 + 0.32*Math.abs(Math.sin(i*0.6 + t*2.2));
+          ctx.save(); ctx.rotate(ang);
+          var grd = ctx.createLinearGradient(0,-inner,0,-inner-h);
+          grd.addColorStop(0,'rgba(239,120,0,'+a+')'); grd.addColorStop(1,'rgba(255,176,72,'+(a*0.4)+')');
+          ctx.fillStyle = grd; ctx.fillRect(-2.2*dpr, -inner-h, 4.4*dpr, h);
+          ctx.restore();
+        }
+        ctx.restore();
+        if (!reduce){ t += 0.0042; requestAnimationFrame(draw); }
+      }
+      resize(); draw();
+      var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(function(){ resize(); if(reduce) draw(); },150); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  })();
+</script>

@@ -3,9 +3,11 @@ import Base from '../../layouts/Base.astro';
 import HomeBody from '../../components/HomeBody.astro';
 import VariantSwitcher from '../../components/VariantSwitcher.astro';
 import VariantStyles from '../../components/VariantStyles.astro';
+import FontSwitcher from '../../components/FontSwitcher.astro';
+import FxTilt from '../../components/FxTilt.astro';
 ---
 <Base title="Variante 5 · Split | FaktenSchmied" description="Startseiten-Variante 5 — heller Split mit Orange-Block." path="/varianten/v5" active="">
-  <VariantStyles />
+  <VariantStyles /><FontSwitcher />
   <section class="vh5">
     <div class="wrap">
       <div>
@@ -19,7 +21,7 @@ import VariantStyles from '../../components/VariantStyles.astro';
         <div class="vh-micro reveal" style="transition-delay:.32s"><span class="dot"></span>Kostenloses Teams-Meeting · Bedarf klären · unverbindlich</div>
       </div>
       <div class="reveal" style="transition-delay:.2s">
-        <div class="shot">
+        <div class="shot fx-tilt">
           <div class="blk"></div>
           <img src="/img/forge-jennifer.webp" alt="FaktenSchmied — am Amboss wird aus glühendem Material Form geschmiedet: aus Rohdaten werden belastbare Fakten." width="880" height="1100" loading="eager" />
           <span class="badge">Aus Rohdaten Fakten schmieden</span>
@@ -28,5 +30,6 @@ import VariantStyles from '../../components/VariantStyles.astro';
     </div>
   </section>
   <HomeBody />
+  <FxTilt />
   <VariantSwitcher active="5" />
 </Base>
