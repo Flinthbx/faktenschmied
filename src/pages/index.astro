@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import SpotlightScroll from '../components/SpotlightScroll.astro';
 import HeroLoader from '../components/HeroLoader.astro';
 
 const jsonLd = [
@@ -43,7 +42,7 @@ const jsonLd = [
       <div>
         <div class="ey on-dark reveal">Healthcare-Werbemonitoring</div>
         <h1 class="reveal" style="transition-delay:.08s">Sehen Sie, <span class="serif-it o">wie Ihr Markt wirbt</span> — bevor es Ihre Wettbewerber tun.</h1>
-        <p class="sub reveal" style="transition-delay:.16s">BrandFacts analysiert Werbedruck, Werbeinhalte und Werbespendings im Healthcare-Umfeld — über Fachzeitschriften und Newsletter hinweg, in Print und Digital. Aus Beobachtung werden bessere Budget-, Kampagnen- und Positionierungsentscheidungen.</p>
+        <p class="sub reveal" style="transition-delay:.16s">BrandFacts analysiert den Werbedruck, Werbeinhalte und Werbespendings im Healthcare-Sektor für die Region D-A-CH. Erfasst werden die Fachzeitschriften sowie die Newsletter der Verlage. Mithilfe dieser Werbe-Beobachtung treffen Sie bessere Budget-, Kampagnen- und Positionierungsentscheidungen.</p>
         <div class="acts reveal" style="transition-delay:.24s">
           <a class="btn btn-primary btn-lg" href="/demo" id="magnet"><span class="lbl">Kostenlose Demo anfragen <span class="ar">→</span></span></a>
           <a class="btn btn-onnavy btn-lg" href="/brandfacts"><span class="lbl">BrandFacts entdecken</span></a>
@@ -74,47 +73,45 @@ const jsonLd = [
     <div class="wrap split top">
       <div class="reveal">
         <div class="ey"><span class="ix">(01)</span> Das Problem</div>
-        <h2 style="margin-top:18px">Budgetentscheidungen — ohne den Werbemarkt vollständig zu sehen.</h2>
-        <p class="big">Anzeigen verteilen sich über hunderte Fachtitel und Newsletter, Print und Digital. Wer wo wie viel investiert und mit welcher Botschaft, bleibt im Tagesgeschäft unsichtbar — und damit auch die eigene Position.</p>
-        <p class="big"><b>BrandFacts schließt diese Lücke.</b> Anzeigenmotive und Mediadaten werden systematisch erfasst, zugeordnet und vergleichbar gemacht — Werbedruck, Inhalte und Spendings, filterbar nach Medium, Branche und Zeitraum.</p>
+        <h2 style="margin-top:18px">Budgetentscheidungen — ohne Transparenz auf dem Werbemarkt</h2>
+        <p class="big">Für einen umfassenden Blick über den Markt müssen Tausende Werbeplatzierungen in Fachzeitschriften und Verlags-Newslettern für die Region D-A-CH gescreent, verglichen und analysiert werden.</p>
+        <p class="big"><b>BrandFacts schließt diese Lücke.</b> Anzeigenmotive und Mediadaten werden systematisch erfasst, zugeordnet und dadurch vergleichbar gemacht.</p>
         <a class="btn btn-line" style="margin-top:14px" href="/methodik"><span class="lbl">Wie wir Daten erfassen <span class="ar">→</span></span></a>
       </div>
       <div class="reveal" style="transition-delay:.12s">
         <div class="panel">
-          <div class="ph"><span class="t">werbespendings · wettbewerbsvergleich</span><span class="seg"><b class="on">Print</b><b>Digital</b></span></div>
-          <table>
-            <thead><tr><th>Wettbewerber</th><th>Werbedruck</th><th style="text-align:right">Anteil</th><th style="text-align:right">Δ&nbsp;QoQ</th></tr></thead>
-            <tbody>
-              <tr><td>Marke A</td><td><span class="tbar"><span style="width:84%"></span></span></td><td class="tnum">34&nbsp;%</td><td class="tnum up">▲&nbsp;4</td></tr>
-              <tr><td>Marke B</td><td><span class="tbar"><span style="width:62%"></span></span></td><td class="tnum">26&nbsp;%</td><td class="tnum dn">▼&nbsp;2</td></tr>
-              <tr><td>Marke C</td><td><span class="tbar"><span style="width:44%"></span></span></td><td class="tnum">18&nbsp;%</td><td class="tnum up">▲&nbsp;1</td></tr>
-              <tr><td>Übrige</td><td><span class="tbar"><span style="width:32%"></span></span></td><td class="tnum">22&nbsp;%</td><td class="tnum">—</td></tr>
-            </tbody>
-          </table>
-          <div class="cap">// anonymisiertes beispiel</div>
+          <div class="ph"><span class="t">werbedruck · wettbewerbsvergleich</span><span class="seg"><b class="on">Print</b><b>Digital</b></span></div>
+          <div class="schem">
+            <div class="schem-plot">
+              <div class="schem-grp"><span class="sb b" style="height:40%"></span><span class="sb a" style="height:55%"></span></div>
+              <div class="schem-grp"><span class="sb b" style="height:52%"></span><span class="sb a" style="height:47%"></span></div>
+              <div class="schem-grp"><span class="sb b" style="height:46%"></span><span class="sb a" style="height:64%"></span></div>
+              <div class="schem-grp"><span class="sb b" style="height:60%"></span><span class="sb a" style="height:72%"></span></div>
+              <div class="schem-grp"><span class="sb b" style="height:54%"></span><span class="sb a" style="height:86%"></span></div>
+              <div class="schem-grp"><span class="sb b" style="height:66%"></span><span class="sb a" style="height:96%"></span></div>
+            </div>
+            <div class="schem-foot"><span class="schem-leg"><i class="a"></i>Ihre Marke</span><span class="schem-leg"><i class="b"></i>Wettbewerb</span><span class="schem-time">Zeitverlauf →</span></div>
+          </div>
+          <div class="cap">// schematische Darstellung</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SPOTLIGHT STORYTELLING (PRO Pack scroll effect, re-skinned) -->
-  <SpotlightScroll />
-
   <!-- FEATURES -->
   <section class="feat">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div class="ey"><span class="ix">(02)</span> Was BrandFacts leistet</div>
+        <div class="ey"><span class="ix">(02)</span> Was BrandFacts möglich macht</div>
         <h2>Fundierte Werbeanalysen in einem Tool</h2>
         <p>Minimierter Aufwand, belegbare Argumente, eine smarte Investition.</p>
       </div>
       <div class="bento reveal">
-        <div class="cell"><div class="ix">01</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586z"/></svg></div><h4>Werbedruck</h4><p>Sehen Sie, wer wie präsent ist — über Fachzeitschriften und Newsletter hinweg, im Zeitverlauf.</p></div>
-        <div class="cell"><div class="ix">02</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></div><h4>Werbespendings</h4><p>Spendings der Wettbewerber über die Mediadaten der Verlage analysieren und Budgets belastbar planen.</p></div>
-        <div class="cell"><div class="ix">03</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1.8 2.6 .6 4.6 0 5.6 .9-.4 1.8-1.6 2-2.6 1.8 1.8 3 4 3 6.4a5 5 0 0 1-10 0c0-2 1-3.8 2.4-5.2C11 7 11.7 4.6 12 3z"/></svg></div><h4>Werbeinhalte &amp; Key Visuals</h4><p>Botschaften und Anzeigenmotive der Konkurrenz auswerten — Grundlage für klare Differenzierung.</p></div>
-        <div class="cell"><div class="ix">04</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M4.5 7h12a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><path d="M4.5 7.4 2 8.6l2.5 1.2z"/><path d="M16.5 7.2h2.3l-1 2.6h-1.3z"/><path d="M9 10h6l-1.2 5h-3.6z"/><path d="M6 15h9a1 1 0 0 1 1 1v1.3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V16a1 1 0 0 1 1-1z"/></svg></div><h4>Mediaebene</h4><p>Anzeigenrecherche über die BrandFacts-Mediaebene statt manueller Sichtung — das spart Zeit.</p></div>
-        <div class="cell"><div class="ix">05</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></div><h4>Filterlogik</h4><p>Nach Markt, Produktkategorie, Indikation oder ATC-Code filtern — nur relevante Daten.</p></div>
-        <div class="cell"><div class="ix">06</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20v-7a5 5 0 0 1 10 0v7"/><path d="M5.5 20H8M16 20h2.5"/><circle cx="8.2" cy="11" r=".6"/><circle cx="8.5" cy="14.5" r=".6"/><circle cx="15.8" cy="11" r=".6"/><circle cx="15.5" cy="14.5" r=".6"/></svg></div><h4>Print + Digital</h4><p>Durchgängige Sicht zwischen Anzeigen in Fachmagazinen und Verlags-Newslettern.</p></div>
+        <div class="cell"><div class="ix">01</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586z"/></svg></div><h4>Werbedruck</h4><p>Sehen Sie, wann Ihre Konkurrenten in welchem Medium präsent sind — und das über die letzten fünf Jahre.</p></div>
+        <div class="cell"><div class="ix">02</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></div><h4>Werbespendings</h4><p>Mithilfe der hinterlegten Mediadaten der Verlage die Werbeausgaben Ihrer Wettbewerber analysieren und Budgets effektiv planen.</p></div>
+        <div class="cell"><div class="ix">03</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1.8 2.6 .6 4.6 0 5.6 .9-.4 1.8-1.6 2-2.6 1.8 1.8 3 4 3 6.4a5 5 0 0 1-10 0c0-2 1-3.8 2.4-5.2C11 7 11.7 4.6 12 3z"/></svg></div><h4>Werbeinhalte &amp; Key Visuals</h4><p>Botschaften und Anzeigenmotive der Mitbewerber auswerten und die Grundlage für eine klare Differenzierung schaffen.</p></div>
+        <div class="cell"><div class="ix">04</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg></div><h4>Prozessoptimierung</h4><p>Genau die Daten, die Sie brauchen: Filtern Sie nach Präparaten, ATC-Codes oder Indikationen — und erhalten eine Datenbank nach Ihren Wünschen.</p></div>
+        <div class="cell"><div class="ix">05</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20v-7a5 5 0 0 1 10 0v7"/><path d="M5.5 20H8M16 20h2.5"/><circle cx="8.2" cy="11" r=".6"/><circle cx="8.5" cy="14.5" r=".6"/><circle cx="15.8" cy="11" r=".6"/><circle cx="15.5" cy="14.5" r=".6"/></svg></div><h4>Print + Digital</h4><p>Konstante Analyse der Anzeigen, PR- &amp; CP-Texte sowie der Verlags-Newsletter.</p></div>
       </div>
     </div>
   </section>
@@ -130,32 +127,17 @@ const jsonLd = [
       <div class="ind">
         <div class="icard reveal"><div class="glow"></div>
           <div class="ic-h"><span class="tg">Rx</span><h4>Rx-Werbemonitoring</h4></div>
-          <div class="ic-b"><dl>
-            <div class="row"><dt>Fachzeitschriften</dt><dd><span class="ac">&gt;700</span></dd></div>
-            <div class="row"><dt>Verlags-Newsletter</dt><dd><span class="ac">&gt;540</span></dd></div>
-            <div class="row"><dt>Erfassung</dt><dd>täglich</dd></div>
-            <div class="row"><dt>Zuordnung</dt><dd>ATC-Code</dd></div>
-          </dl></div>
+          <div class="ic-b ic-stat"><div class="big"><span class="ac">&gt;700</span><small>Fachzeitschriften</small></div><div class="sub2">+ &gt;540 Verlags-Newsletter</div></div>
           <div class="ic-f"><a href="/brandfacts/rx-werbemonitoring">Zur Rx-Lösung <span class="ar">→</span></a></div>
         </div>
         <div class="icard reveal" style="transition-delay:.1s"><div class="glow"></div>
           <div class="ic-h"><span class="tg">Dental</span><h4>Dental-Werbemonitoring</h4></div>
-          <div class="ic-b"><dl>
-            <div class="row"><dt>Dentalfachtitel</dt><dd><span class="ac">100</span></dd></div>
-            <div class="row"><dt>Verlags-Newsletter</dt><dd><span class="ac">50</span></dd></div>
-            <div class="row"><dt>Inhalte</dt><dd>Anzeigen + PR</dd></div>
-            <div class="row"><dt>Struktur</dt><dd>Produktkategorien</dd></div>
-          </dl></div>
+          <div class="ic-b ic-stat"><div class="big"><span class="ac">100</span><small>Dentalfachtitel</small></div><div class="sub2">+ 50 Verlags-Newsletter</div></div>
           <div class="ic-f"><a href="/brandfacts/dental-werbemonitoring">Zur Dental-Lösung <span class="ar">→</span></a></div>
         </div>
         <div class="icard reveal" style="transition-delay:.2s"><div class="glow"></div>
           <div class="ic-h"><span class="tg">Veterinär</span><h4>Veterinär-Werbemonitoring</h4></div>
-          <div class="ic-b"><dl>
-            <div class="row"><dt>Markt</dt><dd>Tiergesundheit</dd></div>
-            <div class="row"><dt>Methodik</dt><dd>wie Rx / Dental</dd></div>
-            <div class="row"><dt>Medien</dt><dd>Print + Digital</dd></div>
-            <div class="row"><dt>Datenabdeckung</dt><dd><span class="ac">auf Anfrage</span></dd></div>
-          </dl></div>
+          <div class="ic-b ic-stat"><div class="big sm"><span class="ac">auf Anfrage</span><small>Datenabdeckung</small></div><div class="sub2">Methodik wie Rx &amp; Dental</div></div>
           <div class="ic-f"><a href="/demo">Abdeckung anfragen <span class="ar">→</span></a></div>
         </div>
       </div>
@@ -182,8 +164,8 @@ const jsonLd = [
     <div class="wrap split">
       <div class="reveal">
         <div class="ey on-dark"><span class="ix" style="color:var(--brand)">(05)</span> Vertrauen durch Methodik</div>
-        <h2 style="margin-top:18px">Nachvollziehbar statt behauptet</h2>
-        <p class="big">Das FaktenSchmied-Team erfasst Anzeigen, PR-Texte und Newsletter systematisch, prüft und kategorisiert sie und berechnet Werbespendings über die Mediadaten der Verlage. Auf der Methodikseite zeigen wir Erfassung, Qualitätssicherung, Aktualisierungsrhythmus — und die Grenzen der Daten.</p>
+        <h2 style="margin-top:18px">Datenbasierte Entscheidungen statt Behauptungen</h2>
+        <p class="big">Das FaktenSchmied-Team erfasst Anzeigen, PR-Texte und Newsletter systematisch, prüft und kategorisiert sie und hinterlegt die Mediadaten der Verlage.</p>
         <a class="btn btn-line" href="/methodik"><span class="lbl">Zur Methodik <span class="ar">→</span></span></a>
       </div>
       <div class="reveal" style="transition-delay:.12s">
@@ -224,11 +206,11 @@ const jsonLd = [
     <div class="wrap split">
       <div class="lead reveal">
         <div class="ey"><span class="ix">(06)</span> Demo</div>
-        <h2 style="margin-top:18px">Sehen Sie BrandFacts an Ihren Fragestellungen.</h2>
+        <h2 style="margin-top:18px">Lösen Sie mit BrandFacts Ihre Fragestellungen.</h2>
         <div class="exp">
-          <div class="li"><span class="b">1</span><span><b>Bedarf klären</b><span>Wir verstehen Ihren Markt, Ihre Branche und Ihre Fragen.</span></span></div>
-          <div class="li"><span class="b">2</span><span><b>Tool live erleben</b><span>BrandFacts an realen Beispielen — kein Verkaufstheater.</span></span></div>
-          <div class="li"><span class="b">3</span><span><b>Nächste Schritte</b><span>Individueller Zuschnitt auf Ihren Bedarf, unverbindlich.</span></span></div>
+          <div class="li"><span class="b">1</span><span><b>Individuellen Bedarf klären</b><span>Wir gehen gezielt auf Ihren Markt, Ihre Branche und Ihre Fragen ein.</span></span></div>
+          <div class="li"><span class="b">2</span><span><b>Tool live erleben</b><span>BrandFacts anhand Ihrer Beispiele.</span></span></div>
+          <div class="li"><span class="b">3</span><span><b>Nächste Schritte</b><span>Zugeschnittene Betreuung nach Ihrem Bedarf.</span></span></div>
         </div>
       </div>
       <div class="reveal" style="transition-delay:.12s">
@@ -251,22 +233,6 @@ const jsonLd = [
         <button class="btn btn-primary btn-block btn-lg" type="submit"><span class="lbl">Demo anfragen <span class="ar">→</span></span></button>
           <div class="trustline"><span>DSGVO-konform</span><span>Spam-Schutz</span><span>kein Verkaufsdruck</span></div>
         </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faqsec" id="insights">
-    <div class="wrap">
-      <div class="sec-head center reveal">
-        <div class="ey"><span class="ix">(07)</span> Häufige Fragen</div>
-        <h2>Bevor Sie anfragen</h2>
-      </div>
-      <div class="faq reveal">
-        <details open><summary>Wie aktuell sind die Daten?<span class="pm">▾</span></summary><div class="a">Im Rx-Bereich werden Fachzeitschriften und Newsletter täglich erfasst. Den konkreten Aktualisierungsrhythmus je Branche zeigen wir in der Demo und auf der Methodikseite.</div></details>
-        <details><summary>Welche Märkte deckt BrandFacts ab?<span class="pm">▾</span></summary><div class="a">Rx, Dental und Veterinär in der DACH-Region — über Print- und Digital-Medien hinweg. Insgesamt 830 Fachzeitschriften und 580 Newsletter.</div></details>
-        <details><summary>Wie werden die Werbespendings ermittelt?<span class="pm">▾</span></summary><div class="a">Über die Mediadaten der Verlage in Kombination mit den erfassten Anzeigen. Die genaue Methodik erläutern wir transparent.</div></details>
-        <details><summary>Wie läuft eine Demo ab?<span class="pm">▾</span></summary><div class="a">Als kostenloses Teams-Meeting: Wir klären Ihren individuellen Bedarf und zeigen BrandFacts an Ihren Fragestellungen — ohne Verpflichtung.</div></details>
       </div>
     </div>
   </section>

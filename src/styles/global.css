@@ -551,3 +551,35 @@ html.hl-active,html.hl-active body{overflow:hidden;height:100%}
   .hl-grid{gap:7px;padding:7px}
   .hl-item span{font-size:.58rem}
 }
+
+/* ===== schematische Grafik (ersetzt Datentabellen, pflegefrei) ===== */
+.schem{padding:24px 22px 16px}
+.schem-plot{display:flex;align-items:flex-end;gap:16px;height:176px;border-bottom:1px solid var(--line)}
+.schem-grp{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}
+.schem-grp .sb{width:12px;border-radius:3px 3px 0 0}
+.schem-grp .sb.a{background:linear-gradient(var(--brand-alt),var(--brand-strong))}
+.schem-grp .sb.b{background:var(--viz-2)}
+.schem-foot{display:flex;align-items:center;gap:18px;padding-top:12px;font-size:12px;color:var(--slate)}
+.schem-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.schem-leg i.a{background:var(--brand)}.schem-leg i.b{background:var(--viz-2)}
+.schem-time{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--slate)}
+
+/* ===== reduzierte Branchen-Karten (nur Fachmedien) ===== */
+.icard .ic-stat{padding:8px 26px 24px}
+.icard .ic-stat .big{font-size:2.6rem;font-weight:800;letter-spacing:-.03em;line-height:1.04}
+.icard .ic-stat .big.sm{font-size:1.6rem}
+.icard .ic-stat .big .ac{color:var(--brand)}
+.icard .ic-stat .big small{display:block;font-size:.78rem;font-weight:500;color:#A9AEDC;font-family:var(--mono);letter-spacing:.03em;margin-top:6px}
+.icard .ic-stat .sub2{margin-top:12px;font-size:13px;color:#C2C6E8}
+
+/* ===== Intro-Loader (vereinfacht: Navy + Wortmarke) ===== */
+.intro{position:fixed;inset:0;z-index:9999;background:var(--navy-deep);display:grid;place-items:center;transition:opacity .6s ease,visibility .6s}
+.intro.done{opacity:0;visibility:hidden}
+.intro img{height:64px;width:auto;opacity:0;transform:translateY(8px);animation:introIn .8s var(--ease) forwards}
+@keyframes introIn{to{opacity:1;transform:none}}
+html.intro-lock,html.intro-lock body{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.intro img{animation:none;opacity:1;transform:none}}
+.intro-word{font-family:var(--sans);font-size:clamp(2.4rem,7vw,5rem);font-weight:800;letter-spacing:-.035em;color:#fff;opacity:0;transform:translateY(10px);animation:introIn .9s var(--ease) forwards}
+.intro-word .o{color:var(--brand)}
+.intro.hide{opacity:0;visibility:hidden}
+html:not(.intro-on) .intro{display:none}
