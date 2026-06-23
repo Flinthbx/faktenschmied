@@ -5,19 +5,42 @@ const posts = [
   { href: '/insights/werbedruck-richtig-lesen', n: '02', tag: 'Analyse', title: 'Werbedruck richtig lesen', ex: 'Wie sich Werbedruck und Share of Voice interpretieren und in Budgetentscheidungen übersetzen lassen.' },
   { href: '/insights/glossar', n: '03', tag: 'Nachschlagen', title: 'Glossar: Begriffe im Werbemonitoring', ex: 'Werbedruck, Werbespendings, Share of Voice, ATC-Code, Advertorial und mehr.' },
 ];
+const faqs = [
+  { q: 'Wie aktuell sind die Daten?', a: 'Im Rx-Bereich werden Fachzeitschriften und Newsletter täglich erfasst. Den genauen Aktualisierungsrhythmus je Branche zeigen wir in der Demo.' },
+  { q: 'Welche Marktsegmente sind abgedeckt?', a: 'Rx, Dental und Veterinär in der Region D-A-CH — über Print- und Digital-Medien hinweg, insgesamt 830 Fachzeitschriften und 580 Newsletter.' },
+  { q: 'Welche Werbeformen sind enthalten?', a: 'Klassische Werbeanzeigen, bezahlte PR, Advertorials und Sonderveröffentlichungen aus dem Print-Bereich sowie Anzeigen und PR in Verlags-Newslettern.' },
+  { q: 'Wie werden die Werbespendings ermittelt?', a: 'Über die Mediadaten der Verlage in Kombination mit den erfassten Anzeigen. Es handelt sich um eine modellierte Annäherung, keine internen Ist-Ausgaben.' },
+  { q: 'Kann ich die Auswahl auf meine Märkte begrenzen?', a: 'Ja. BrandFacts lässt sich auf die Märkte, Produktkategorien, ATC-Codes und Indikationen zuschneiden, die für Ihr Unternehmen relevant sind.' },
+  { q: 'Was kostet BrandFacts?', a: 'Das Kostenmodell richtet sich nach Ihrem Bedarf und den gewählten Segmenten. In der Demo klären wir den passenden Zuschnitt — ein konkretes Angebot erhalten Sie auf Anfrage.' },
+  { q: 'Wie läuft eine Demo ab?', a: 'Als kostenloses Teams-Meeting: Wir klären Ihren individuellen Bedarf und zeigen BrandFacts an Ihren Fragestellungen — ohne Verpflichtung.' },
+  { q: 'Wie steht es um den Datenschutz?', a: 'Ihre Anfragen werden DSGVO-konform verarbeitet. Details finden Sie in unserer Datenschutzerklärung.' },
+];
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
 ---
-<Base title="Insights | Marktbeobachtung Healthcare-Werbung | FaktenSchmied" description="Insights von FaktenSchmied: Marktbeobachtung, Methodenwissen und Analysebeispiele aus dem Healthcare-Werbemarkt." path="/insights" active="insights">
+<Base title="Insights & FAQ | Healthcare-Werbemonitoring | FaktenSchmied" description="Insights von FaktenSchmied: Marktbeobachtung, Glossar und Antworten auf häufige Fragen rund um Healthcare-Werbemonitoring mit BrandFacts." path="/insights" active="insights" jsonLd={jsonLd}>
   <section class="hero interior">
     <div class="mesh"></div><div class="grain"></div>
     <div class="wrap">
       <div class="crumb reveal"><a href="/">Start</a><span class="sep">/</span>Insights</div>
-      <div class="ey on-dark reveal">Insights</div>
+      <div class="ey on-dark reveal">Insights &amp; Wissen</div>
       <h1 class="reveal" style="transition-delay:.08s">Marktbeobachtung, <span class="serif-it o">frisch aus den Daten.</span></h1>
-      <p class="sub reveal" style="transition-delay:.16s">Analysen, Methodenwissen und ein Glossar rund um Healthcare-Werbemonitoring. Wir bauen den Insights-Bereich kontinuierlich aus.</p>
+      <p class="sub reveal" style="transition-delay:.16s">Analysen, ein Glossar und Antworten auf häufige Fragen rund um Healthcare-Werbemonitoring. Wir bauen den Insights-Bereich kontinuierlich aus.</p>
     </div>
   </section>
+
   <section>
     <div class="wrap">
+      <div class="sec-head reveal"><div class="ey"><span class="ix">(01)</span> Beiträge &amp; Glossar</div><h2>Wissen, geordnet</h2></div>
       <div class="rows reveal">
         {posts.map((p) => (
           <a class="ucrow" href={p.href}><div class="ix">{p.n}</div><div><span class="ey" style="margin-bottom:8px">{p.tag}</span><h4>{p.title}</h4><p>{p.ex}</p></div><div class="go">→</div></a>
@@ -25,6 +48,18 @@ const posts = [
       </div>
     </div>
   </section>
+
+  <section class="faqsec feat">
+    <div class="wrap">
+      <div class="sec-head center reveal"><div class="ey" style="justify-content:center"><span class="ix">(02)</span> FAQ</div><h2>Häufige Fragen</h2></div>
+      <div class="faq reveal">
+        {faqs.map((f, i) => (
+          <details open={i === 0}><summary>{f.q}<span class="pm">▾</span></summary><div class="a">{f.a}</div></details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <div class="final"><div class="wrap"><div class="cta reveal">
     <div class="mesh"></div>
     <h2>Aus Beobachtung werden Entscheidungen.</h2>

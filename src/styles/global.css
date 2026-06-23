@@ -583,3 +583,18 @@ html.intro-lock,html.intro-lock body{overflow:hidden}
 .intro-word .o{color:var(--brand)}
 .intro.hide{opacity:0;visibility:hidden}
 html:not(.intro-on) .intro{display:none}
+
+/* Filter-Chips (ersetzt ATC-Tabelle, pflegefrei) */
+.panel .chips{display:flex;flex-wrap:wrap;gap:10px;padding:24px 22px}
+.fchip{font-size:13px;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:100px;padding:8px 14px}
+.fchip b{color:var(--brand-strong);font-weight:700;margin-right:5px}
+.fchip.on{background:var(--brand-soft);border-color:var(--brand-soft);color:var(--ink)}
+
+/* Ablauf-Flow (ersetzt Berechnungslogik-Tabelle) */
+.panel .flow{padding:22px;display:flex;flex-direction:column;gap:10px}
+.flow-step{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--cloud)}
+.flow-step .fs-n{width:28px;height:28px;border-radius:8px;background:var(--ink);color:var(--brand);display:grid;place-items:center;font-weight:800;font-size:14px;flex-shrink:0}
+.flow-step b{display:block;font-size:14px;color:var(--ink)}
+.flow-step span{font-size:12.5px;color:var(--slate)}
+.flow-step.result{background:var(--brand-tint);border-color:var(--brand-soft)}
+.flow-step.result .fs-n{background:var(--brand);color:var(--ink)}

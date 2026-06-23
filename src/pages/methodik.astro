@@ -62,16 +62,13 @@ const jsonLd = [
     <div class="reveal" style="transition-delay:.12s">
       <div class="panel">
         <div class="ph"><span class="t">spendings · berechnungslogik</span></div>
-        <table>
-          <thead><tr><th>Eingang</th><th>Quelle</th><th style="text-align:right">→ Ergebnis</th></tr></thead>
-          <tbody>
-            <tr><td>Erfasste Anzeigen</td><td>Fachmedien</td><td class="tnum">Motiv-Anzahl</td></tr>
-            <tr><td>Mediadaten</td><td>Verlage</td><td class="tnum">Preisbasis</td></tr>
-            <tr><td>Kategorie / ATC</td><td>BrandFacts</td><td class="tnum">Zuordnung</td></tr>
-            <tr><td>Kombination</td><td>—</td><td class="tnum up">Werbespendings</td></tr>
-          </tbody>
-        </table>
-        <div class="cap">// vereinfachte darstellung der berechnung</div>
+        <div class="flow">
+          <div class="flow-step"><span class="fs-n">1</span><div><b>Erfasste Anzeigen</b><span>aus den abgedeckten Fachmedien</span></div></div>
+          <div class="flow-step"><span class="fs-n">2</span><div><b>Mediadaten der Verlage</b><span>als Preisbasis</span></div></div>
+          <div class="flow-step"><span class="fs-n">3</span><div><b>Kategorie- &amp; ATC-Zuordnung</b><span>in BrandFacts</span></div></div>
+          <div class="flow-step result"><span class="fs-n">→</span><div><b>Werbespendings</b><span>vergleichbar gemacht</span></div></div>
+        </div>
+        <div class="cap">// vereinfachte Darstellung der Berechnung</div>
       </div>
     </div>
     <div class="reveal">
@@ -95,21 +92,6 @@ const jsonLd = [
       <div class="icard"><div class="glow"></div><div class="ic-h"><span class="tg">Umfang</span><h4>Beobachtbare Werbung</h4></div><div class="ic-b"><p style="color:#C2C6E8;font-size:14.5px">Erfasst wird, was in den abgedeckten Fachmedien und Newslettern öffentlich erscheint — nicht jede denkbare Werbeform.</p></div></div>
       <div class="icard"><div class="glow"></div><div class="ic-h"><span class="tg">Spendings</span><h4>Modellierte Werte</h4></div><div class="ic-b"><p style="color:#C2C6E8;font-size:14.5px">Spendings sind über Verlags-Mediadaten hochgerechnet und damit Annäherungen, keine internen Ist-Zahlen.</p></div></div>
       <div class="icard"><div class="glow"></div><div class="ic-h"><span class="tg">Aktualität</span><h4>Rhythmus je Branche</h4></div><div class="ic-b"><p style="color:#C2C6E8;font-size:14.5px">Der Aktualisierungsrhythmus unterscheidet sich je Bereich; im Rx-Bereich erfolgt die Erfassung täglich.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faqsec feat">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="ey"><span class="ix">(05)</span> FAQ</div>
-      <h2>Fragen zur Methodik</h2>
-    </div>
-    <div class="faq reveal">
-      <details open><summary>Welche Werbeformen werden erfasst?<span class="pm">▾</span></summary><div class="a">Klassische Anzeigen, bezahlte PR, Advertorials und Sonderveröffentlichungen aus Fachzeitschriften sowie Werbung in Verlags-Newslettern — über Print und Digital.</div></details>
-      <details><summary>Wie werden Spendings berechnet?<span class="pm">▾</span></summary><div class="a">Über die Mediadaten der Verlage in Kombination mit den erfassten Anzeigen. Es handelt sich um modellierte Annäherungen, nicht um interne Ist-Ausgaben.</div></details>
-      <details><summary>Wie oft werden die Daten aktualisiert?<span class="pm">▾</span></summary><div class="a">Der Rhythmus unterscheidet sich je Branche. Im Rx-Bereich erfolgt die Erfassung täglich; den genauen Stand zeigen wir in der Demo.</div></details>
     </div>
   </div>
 </section>

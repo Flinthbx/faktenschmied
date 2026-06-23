@@ -56,17 +56,19 @@ const jsonLd = [
     </div>
     <div class="reveal" style="transition-delay:.12s">
       <div class="panel">
-        <div class="ph"><span class="t">rx · share of voice · indikation</span><span class="seg"><b class="on">Print</b><b>Digital</b></span></div>
-        <table>
-          <thead><tr><th>Anbieter</th><th>Werbedruck</th><th style="text-align:right">Anteil</th><th style="text-align:right">Δ&nbsp;QoQ</th></tr></thead>
-          <tbody>
-            <tr><td>Anbieter A</td><td><span class="tbar"><span style="width:88%"></span></span></td><td class="tnum">41&nbsp;%</td><td class="tnum up">▲&nbsp;5</td></tr>
-            <tr><td>Anbieter B</td><td><span class="tbar"><span style="width:64%"></span></span></td><td class="tnum">29&nbsp;%</td><td class="tnum dn">▼&nbsp;3</td></tr>
-            <tr><td>Anbieter C</td><td><span class="tbar"><span style="width:42%"></span></span></td><td class="tnum">17&nbsp;%</td><td class="tnum up">▲&nbsp;2</td></tr>
-            <tr><td>Übrige</td><td><span class="tbar"><span style="width:28%"></span></span></td><td class="tnum">13&nbsp;%</td><td class="tnum">—</td></tr>
-          </tbody>
-        </table>
-        <div class="cap">// anonymisiertes beispiel · eine indikation</div>
+        <div class="ph"><span class="t">rx · share of voice · zeitverlauf</span><span class="seg"><b class="on">Print</b><b>Digital</b></span></div>
+        <div class="schem">
+          <div class="schem-plot">
+            <div class="schem-grp"><span class="sb b" style="height:44%"></span><span class="sb a" style="height:58%"></span></div>
+            <div class="schem-grp"><span class="sb b" style="height:52%"></span><span class="sb a" style="height:50%"></span></div>
+            <div class="schem-grp"><span class="sb b" style="height:48%"></span><span class="sb a" style="height:66%"></span></div>
+            <div class="schem-grp"><span class="sb b" style="height:60%"></span><span class="sb a" style="height:76%"></span></div>
+            <div class="schem-grp"><span class="sb b" style="height:54%"></span><span class="sb a" style="height:88%"></span></div>
+            <div class="schem-grp"><span class="sb b" style="height:66%"></span><span class="sb a" style="height:96%"></span></div>
+          </div>
+          <div class="schem-foot"><span class="schem-leg"><i class="a"></i>Ihre Marke</span><span class="schem-leg"><i class="b"></i>Wettbewerb</span><span class="schem-time">Zeitverlauf →</span></div>
+        </div>
+        <div class="cap">// schematische Darstellung · eine Indikation</div>
       </div>
     </div>
   </div>
@@ -80,10 +82,10 @@ const jsonLd = [
       <h2>Jede relevante Werbeform im Rx-Markt</h2>
     </div>
     <div class="bento reveal cols-2">
-      <div class="cell"><div class="ix">01</div><div class="ic">▦</div><h4>Klassische Werbeanzeigen</h4><p>Print-Anzeigen aus über 700 Fachzeitschriften — vollständig erfasst und kategorisiert.</p></div>
-      <div class="cell"><div class="ix">02</div><div class="ic">◰</div><h4>Bezahlte PR &amp; Advertorials</h4><p>Redaktionell anmutende Werbeformen sichtbar machen, die sonst unter dem Radar bleiben.</p></div>
-      <div class="cell"><div class="ix">03</div><div class="ic">✦</div><h4>Sonderveröffentlichungen</h4><p>Specials und Sonderformate als Teil der Wettbewerbsbeobachtung.</p></div>
-      <div class="cell"><div class="ix">04</div><div class="ic">✉</div><h4>Verlags-Newsletter</h4><p>Mehr als 540 pharmazeutische und medizinische Newsletter im digitalen Monitoring.</p></div>
+      <div class="cell"><div class="ix">01</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586z"/></svg></div><h4>Klassische Werbeanzeigen</h4><p>Print-Anzeigen aus über 700 Fachzeitschriften — vollständig erfasst und kategorisiert.</p></div>
+      <div class="cell"><div class="ix">02</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1.8 2.6 .6 4.6 0 5.6 .9-.4 1.8-1.6 2-2.6 1.8 1.8 3 4 3 6.4a5 5 0 0 1-10 0c0-2 1-3.8 2.4-5.2C11 7 11.7 4.6 12 3z"/></svg></div><h4>Bezahlte PR &amp; Advertorials</h4><p>Redaktionell anmutende Werbeformen sichtbar machen, die sonst unter dem Radar bleiben.</p></div>
+      <div class="cell"><div class="ix">03</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M4.5 7h12a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><path d="M4.5 7.4 2 8.6l2.5 1.2z"/><path d="M16.5 7.2h2.3l-1 2.6h-1.3z"/><path d="M9 10h6l-1.2 5h-3.6z"/><path d="M6 15h9a1 1 0 0 1 1 1v1.3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V16a1 1 0 0 1 1-1z"/></svg></div><h4>Sonderveröffentlichungen</h4><p>Specials und Sonderformate als Teil der Wettbewerbsbeobachtung.</p></div>
+      <div class="cell"><div class="ix">04</div><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20v-7a5 5 0 0 1 10 0v7"/><path d="M5.5 20H8M16 20h2.5"/><circle cx="8.2" cy="11" r=".6"/><circle cx="8.5" cy="14.5" r=".6"/><circle cx="15.8" cy="11" r=".6"/><circle cx="15.5" cy="14.5" r=".6"/></svg></div><h4>Verlags-Newsletter</h4><p>Mehr als 540 pharmazeutische und medizinische Newsletter im digitalen Monitoring.</p></div>
     </div>
   </div>
 </section>
@@ -93,17 +95,17 @@ const jsonLd = [
   <div class="wrap split rev top">
     <div class="reveal" style="transition-delay:.12s">
       <div class="panel">
-        <div class="ph"><span class="t">brandfacts · personalisierte datenbank</span></div>
-        <table>
-          <thead><tr><th>ATC-Ebene</th><th>Indikation</th><th style="text-align:right">Motive</th></tr></thead>
-          <tbody>
-            <tr><td>A10 — Diabetes</td><td>Typ 2</td><td class="tnum">142</td></tr>
-            <tr><td>C09 — Kardio</td><td>Hypertonie</td><td class="tnum">98</td></tr>
-            <tr><td>R03 — Respiratorisch</td><td>Asthma</td><td class="tnum">76</td></tr>
-            <tr><td>N02 — Analgetika</td><td>Schmerz</td><td class="tnum">54</td></tr>
-          </tbody>
-        </table>
-        <div class="cap">// beispielhafte atc-/indikationsstruktur</div>
+        <div class="ph"><span class="t">brandfacts · filter nach atc &amp; indikation</span></div>
+        <div class="chips">
+          <span class="fchip"><b>A10</b> Diabetes</span>
+          <span class="fchip"><b>C09</b> Kardiologie</span>
+          <span class="fchip"><b>R03</b> Respiratorisch</span>
+          <span class="fchip"><b>N02</b> Analgetika</span>
+          <span class="fchip"><b>L01</b> Onkologie</span>
+          <span class="fchip"><b>J07</b> Impfstoffe</span>
+          <span class="fchip on">+ Ihre Indikation</span>
+        </div>
+        <div class="cap">// frei kombinierbar — Sie erhalten genau Ihre Datenbasis</div>
       </div>
     </div>
     <div class="reveal">
@@ -126,22 +128,6 @@ const jsonLd = [
       <a class="ucrow" href="/#usecases"><div class="ix">01</div><div><h4>Wettbewerbsanalyse</h4><p>ATC-basiert sehen, wer in welcher Indikation wie stark wirbt — und mit welcher Botschaft.</p></div><div class="go">→</div></a>
       <a class="ucrow" href="/#usecases"><div class="ix">02</div><div><h4>Mediaplanung</h4><p>Budgets und Kanäle anhand realer Wettbewerbsaktivität in Fachmedien und Newslettern planen.</p></div><div class="go">→</div></a>
       <a class="ucrow" href="/#usecases"><div class="ix">03</div><div><h4>Kampagnenentwicklung</h4><p>Im Rx-Bereich sind gezielte, kreative Kampagnen ein Muss — entwickeln Sie unique Anzeigen auf Datenbasis.</p></div><div class="go">→</div></a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faqsec">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="ey"><span class="ix">(05)</span> FAQ</div>
-      <h2>Fragen zum Rx-Werbemonitoring</h2>
-    </div>
-    <div class="faq reveal">
-      <details open><summary>Wie viele Quellen werden im Rx-Bereich erfasst?<span class="pm">▾</span></summary><div class="a">Täglich mehr als 700 Fachzeitschriften aus dem D-A-CH-Raum sowie mehr als 540 pharmazeutische und medizinische Verlags-Newsletter.</div></details>
-      <details><summary>Werden Anzeigen nach ATC zugeordnet?<span class="pm">▾</span></summary><div class="a">Ja. Alle analysierten Werbeanzeigen — analog und digital — werden den entsprechenden ATC-Codes zugeordnet. Zusätzlich können Sie nach Indikationen filtern.</div></details>
-      <details><summary>Welche Werbeformen sind enthalten?<span class="pm">▾</span></summary><div class="a">Klassische Werbeanzeigen, bezahlte PR, Advertorials und Sonderveröffentlichungen aus dem Print-Bereich sowie Anzeigen in Verlags-Newslettern.</div></details>
-      <details><summary>Wie schnell sehe ich Veränderungen im Markt?<span class="pm">▾</span></summary><div class="a">Durch die tägliche Erfassung erkennen Sie Verschiebungen im Werbedruck frühzeitig und können entsprechend reagieren.</div></details>
     </div>
   </div>
 </section>
