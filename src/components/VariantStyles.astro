@@ -6,7 +6,7 @@
 .vh-micro{font-family:var(--mono);font-size:12px;letter-spacing:.04em;display:flex;align-items:center;gap:10px;margin-top:24px}
 .vh-micro .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:pulse 2.4s infinite}
 
-/* V1 — Vollbild-Bühne */
+/* V1 — Vollbild-Buehne */
 .vh1{position:relative;min-height:90vh;display:flex;align-items:center;background:var(--navy-deep);color:#fff;overflow:hidden;padding:150px 0 90px}
 .vh1 .bg{position:absolute;inset:0}
 .vh1 .bg img{width:100%;height:100%;object-fit:cover;object-position:64% center}
@@ -32,8 +32,8 @@
 .vh2 .side .s{color:var(--slate);font-size:14px;margin-top:10px}
 @media(max-width:920px){.vh2 .grid{grid-template-columns:1fr;gap:30px}.vh2 .kick{display:none}}
 
-/* V3 — Zentriert + Bildstreifen */
-.vh3{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden;padding:158px 0 0}
+/* V3 — Zentriert + Bildgalerie */
+.vh3{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden;padding:158px 0 104px}
 .vh3 .glow{position:absolute;left:50%;top:-18%;transform:translateX(-50%);width:72%;height:80%;background:radial-gradient(circle,rgba(239,120,0,.22),transparent 60%);filter:blur(34px);pointer-events:none}
 .vh3 .top{position:relative;text-align:center;max-width:880px;margin:0 auto;padding:0 28px 58px}
 .vh3 .ey{justify-content:center}
@@ -41,10 +41,14 @@
 .vh3 .sub{color:#C7CAE6;font-size:18px;line-height:1.6;margin:24px auto 32px;max-width:600px}
 .vh3 .acts{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
 .vh3 .vh-micro{justify-content:center;color:#9CA0C6}
-.vh3 .strip{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;height:290px;margin-top:40px}
-.vh3 .strip img{width:100%;height:100%;object-fit:cover;filter:saturate(1.04)}
-.vh3 .strip .ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(12,14,36,.6),rgba(12,14,36,0) 42%);pointer-events:none}
-@media(max-width:760px){.vh3 .strip{grid-template-columns:1fr 1fr;height:200px}.vh3 .strip img:last-child{display:none}}
+.vh3 .vstrip{position:relative;z-index:1;max-width:var(--maxw);margin:30px auto 0;padding:0 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vh3 .vstrip figure{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 36px 70px -34px rgba(0,0,0,.75)}
+.vh3 .vstrip img{width:100%;height:100%;object-fit:cover;filter:saturate(1.04)}
+.vh3 .vstrip figure::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,14,36,.34),transparent 46%);pointer-events:none}
+.vh3 .vstrip figure:nth-child(1){transform:translateY(14px)}
+.vh3 .vstrip figure:nth-child(2){transform:translateY(-14px)}
+.vh3 .vstrip figure:nth-child(3){transform:translateY(14px)}
+@media(max-width:760px){.vh3 .vstrip{grid-template-columns:repeat(2,1fr);gap:14px}.vh3 .vstrip figure{aspect-ratio:1/1;transform:none}.vh3 .vstrip figure:nth-child(3){display:none}}
 
 /* V4 — Produkt / Daten-Panel */
 .vh4{position:relative;background:var(--navy-deep);color:#fff;padding:160px 0 96px;overflow:hidden}
@@ -54,6 +58,7 @@
 .vh4 .sub{color:#C7CAE6;font-size:18px;line-height:1.6;margin:24px 0 32px;max-width:520px}
 .vh4 .acts{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .vh4 .vh-micro{color:#9CA0C6}
+.vh4 .glass{position:relative;z-index:1}
 @media(max-width:920px){.vh4 .wrap{grid-template-columns:1fr;gap:46px}}
 
 /* V5 — Split mit Orange-Block */
@@ -69,7 +74,7 @@
 .vh5 .shot .badge{position:absolute;z-index:2;left:-16px;bottom:28px;background:var(--ink);color:#fff;border-radius:13px;padding:13px 17px;font-family:var(--mono);font-size:12px;letter-spacing:.03em;box-shadow:0 20px 40px -12px rgba(0,0,0,.4)}
 @media(max-width:920px){.vh5 .wrap{grid-template-columns:1fr;gap:48px}.vh5 .shot{margin:0 auto}}
 
-/* Varianten-Übersicht */
+/* Varianten-Uebersicht */
 .vov{background:var(--navy-deep);color:#fff;min-height:100vh;padding:130px 0 90px}
 .vov .head{max-width:760px;margin:0 auto 54px;text-align:center}
 .vov .head h1{color:#fff;font-size:clamp(2.2rem,4.4vw,3.2rem)}

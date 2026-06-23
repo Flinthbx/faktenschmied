@@ -6,9 +6,9 @@ import FontSwitcher from '../../components/FontSwitcher.astro';
 const variants = [
   { n: '01', href: '/varianten/v1', t: 'Vollbild-Bühne', d: 'Cinematisch: das Schmiede-Foto füllt den ganzen Hero, Text auf dunklem Verlauf. Maximale Wirkung & Premium-Look.', cls: 'p1', img: '/img/forge-home.webp' },
   { n: '02', href: '/varianten/v2', t: 'Editorial / typografisch', d: 'Hell und ruhig wie ein Fachmagazin. Dominante Schrift mit Serif-Akzent, kein großes Foto. Seriös & klar.', cls: 'p2', img: '' },
-  { n: '03', href: '/varianten/v3', t: 'Zentriert + Bildstreifen', d: 'Klare Mitte mit viel Ruhe, darunter ein Schmiede-Bildstreifen. Modern, SaaS-artig.', cls: 'p3', img: '/img/forge-rx.webp' },
-  { n: '04', href: '/varianten/v4', t: 'Produkt / Daten-Panel', d: 'Text links, interaktiv wirkendes Daten-Dashboard rechts. Betont das Tool selbst — gut für eine technische Zielgruppe.', cls: 'p4', img: '' },
-  { n: '05', href: '/varianten/v5', t: 'Heller Split + Orange-Block', d: 'Heller Hero, Foto rechts mit Orange-Akzentblock und Badge. Freundlich, markant, nah am aktuellen Aufbau.', cls: 'p5', img: '/img/forge-jennifer.webp' },
+  { n: '03', href: '/varianten/v3', t: 'Zentriert + Bildgalerie', d: 'Klare Mitte mit viel Ruhe, darunter eine Galerie aus Schmiede-Bildern. Modern, SaaS-artig. Mit Glut-Effekt.', cls: 'p3', img: '/img/forge-rx.webp' },
+  { n: '04', href: '/varianten/v4', t: 'Produkt / Daten-Panel', d: 'Text links, interaktiv wirkendes Daten-Dashboard rechts. Mit rotierendem Daten-Ring und 3D-Tilt.', cls: 'p4', img: '' },
+  { n: '05', href: '/varianten/v5', t: 'Heller Split + Orange-Block', d: 'Heller Hero, Foto rechts mit Orange-Akzentblock und 3D-Tilt. Freundlich, markant, nah am aktuellen Aufbau.', cls: 'p5', img: '/img/forge-jennifer.webp' },
 ];
 ---
 <Base title="Startseiten-Varianten | FaktenSchmied" description="Fünf Startseiten-Varianten zur Auswahl." path="/varianten" active="">
@@ -18,7 +18,7 @@ const variants = [
       <div class="head reveal">
         <div class="ey on-dark" style="justify-content:center">Interne Vorschau</div>
         <h1 style="margin-top:16px">Fünf Startseiten zur Auswahl</h1>
-        <p>Jede Variante zeigt die komplette Startseite — nur der Hero (der obere Bereich) unterscheidet sich im Design. Klicken Sie sich durch und entscheiden Sie, welche bleiben soll. Über die Leiste unten wechseln Sie jederzeit.</p>
+        <p>Jede Variante zeigt die komplette Startseite — nur der Hero (der obere Bereich) unterscheidet sich im Design. Klicken Sie sich durch und entscheiden Sie, welche bleiben soll. Über die Leiste unten wechseln Sie jederzeit, oben rechts lässt sich zusätzlich die Schriftart umschalten.</p>
       </div>
       <div class="grid">
         {variants.map((v) => (

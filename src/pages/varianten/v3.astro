@@ -6,7 +6,7 @@ import VariantStyles from '../../components/VariantStyles.astro';
 import FontSwitcher from '../../components/FontSwitcher.astro';
 import FxEmber from '../../components/FxEmber.astro';
 ---
-<Base title="Variante 3 · Zentriert | FaktenSchmied" description="Startseiten-Variante 3 — zentrierte Bühne mit Bildstreifen." path="/varianten/v3" active="">
+<Base title="Variante 3 · Zentriert | FaktenSchmied" description="Startseiten-Variante 3 — zentrierte Bühne mit Bildgalerie." path="/varianten/v3" active="">
   <VariantStyles /><FontSwitcher />
   <section class="vh3">
     <FxEmber />
@@ -21,11 +21,10 @@ import FxEmber from '../../components/FxEmber.astro';
       </div>
       <div class="vh-micro reveal" style="transition-delay:.32s"><span class="dot"></span>Kostenloses Teams-Meeting · Bedarf klären · unverbindlich</div>
     </div>
-    <div class="strip reveal">
-      <div class="ov"></div>
-      <img src="/img/forge-rx.webp" alt="" />
-      <img src="/img/forge-jennifer.webp" alt="" />
-      <img src="/img/forge-dental.webp" alt="" />
+    <div class="vstrip reveal">
+      <figure><img src="/img/forge-rx.webp" alt="FaktenSchmied — geschmiedeter Stab wird geprüft" /></figure>
+      <figure><img src="/img/forge-jennifer.webp" alt="FaktenSchmied — am Amboss" /></figure>
+      <figure><img src="/img/forge-dental.webp" alt="FaktenSchmied — Blick in die Schmiede" /></figure>
     </div>
   </section>
   <HomeBody />
