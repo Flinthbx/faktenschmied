@@ -632,15 +632,15 @@ body.home .hero h1{color:var(--ink)}
 body.home .hero .sub{color:var(--graphite)}
 body.home .hero .micro{color:var(--slate)}
 
-/* anvil illustration — statisch, flach in die Seite "eingelassen": kein Hover/Tilt,
-   kein Schlagschatten; Navy-Form wird an Ober-, Links- und Unterkante in den Beige-Grund gefedert */
-.hero-art{position:relative}
-.hero-art img{width:100%;height:auto;display:block;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 13%),linear-gradient(90deg,transparent 0,#000 15%),linear-gradient(0deg,transparent 0,#000 9%);
-  -webkit-mask-composite:source-in;
-  mask-image:linear-gradient(180deg,transparent 0,#000 13%),linear-gradient(90deg,transparent 0,#000 15%),linear-gradient(0deg,transparent 0,#000 9%);
-  mask-composite:intersect}
+/* anvil illustration — statisch, flach in die Seite eingelassen, ohne Hover/Schatten;
+   cremefarbener Bildgrund ist freigestellt, der Amboss sitzt in der Navy-Zone */
+.hero-art{position:relative;z-index:1}
+.hero-art img{width:100%;height:auto;display:block}
 
-/* top bar legible over the cream hero (closed menu, not scrolled) */
-body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled){color:var(--ink)}
-body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled) .menu-hamburger-icon{border-color:var(--line-2)}
+/* Navy-Zone rechts: bewusst gesetzte Navy-Fläche, in die das Blau des Ambosses übergeht.
+   Linke Kante weich gefedert, blutet nach rechts/oben/unten an die Hero-Ränder aus. */
+body.home .hero .wrap{position:relative;z-index:1}
+body.home .hero::after{content:"";position:absolute;inset:0 0 0 auto;width:46%;background:#13264E;z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 27%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 27%)}
+/* Menü-Umschalter (oben rechts) liegt jetzt auf der Navy-Zone → heller Text (Standard). Logo links ist orange und bleibt auf Beige lesbar. */
