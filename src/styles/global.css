@@ -4,8 +4,10 @@
    Orange nie als kleiner Text auf Weiß → WCAG 2.2 AA.
    ============================================================= */
 :root{
-  --paper:#FFFFFF;--cloud:#F6F7F9;--mist:#ECEEF2;--line:#E2E5EA;--line-2:#D2D7DE;
-  --slate:#5A6473;--graphite:#2A3340;--ink:#15183B;--navy:#15183B;--navy-2:#1C2150;--navy-deep:#0C0E24;
+  --paper:#FFFFFF;--cloud:#F6F7F9;--mist:#ECEEF2;
+  /* Linien navy-getönt: Trennlinien & Card-Ränder nehmen den Navy-Ton auf (statt Kühlgrau) */
+  --line:#D5D5DC;--line-2:#B9B9C4;
+  --slate:#5A6473;--graphite:#2A3340;--ink:#15183B;--navy:#15183B;--color-navy:#15183B;--navy-2:#1C2150;--navy-deep:#0C0E24;
   --brand:#EF7800;--brand-strong:#D26D08;--brand-alt:#F07805;--brand-soft:#FCEBD8;--brand-tint:#FFF7EF;
   --success:#1F7A4D;--danger:#B23A3A;
   --cream:#FAF4E4;--cream-2:#F3ECD7;--cream-line:#E7DEC6;
@@ -133,15 +135,15 @@ section{padding:118px 0}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero .mesh{animation:none}.ticker .run{animation:none}.micro .dot{animation:none}}
 
-/* proof */
-.proof{border-top:1px solid var(--cream-line);border-bottom:1px solid var(--cream-line);background:transparent}
+/* proof — Navy Color-Block (heller Beige-Text, orange Zahlen-Akzente) */
+.proof{border-top:none;border-bottom:none;background:var(--navy)}
 .proof .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.proof .it{padding:52px 30px;border-left:1px solid var(--cream-line)}
+.proof .it{padding:52px 30px;border-left:1px solid rgba(255,255,255,.12)}
 .proof .it:first-child{border-left:none;padding-left:0}
-.proof .n{font-size:clamp(2.4rem,4vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+.proof .n{font-size:clamp(2.4rem,4vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--cream)}
 .proof .n .u{color:var(--brand)}
-.proof .l{font-family:var(--mono);font-size:12px;color:var(--slate);margin-top:12px;letter-spacing:.03em}
-@media(max-width:820px){.proof .wrap{grid-template-columns:1fr 1fr}.proof .it{border-left:none;border-top:1px solid var(--cream-line);padding:34px 0}.proof .it:nth-child(-n+2){border-top:none}.proof .it:nth-child(odd){padding-right:24px}}
+.proof .l{font-family:var(--mono);font-size:12px;color:rgba(250,244,228,.64);margin-top:12px;letter-spacing:.03em}
+@media(max-width:820px){.proof .wrap{grid-template-columns:1fr 1fr}.proof .it{border-left:none;border-top:1px solid rgba(255,255,255,.12);padding:34px 0}.proof .it:nth-child(-n+2){border-top:none}.proof .it:nth-child(odd){padding-right:24px}}
 
 /* split */
 .split{display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center}
@@ -250,7 +252,7 @@ tbody tr{transition:background .2s}tbody tr:hover{background:var(--brand-tint)}
 .demo .split{gap:64px;align-items:start}
 .demo .lead .exp{margin-top:30px;display:grid;gap:18px}
 .demo .lead .exp .li{display:flex;gap:15px;align-items:flex-start}
-.demo .lead .exp .li .b{width:30px;height:30px;border-radius:9px;background:var(--brand-soft);color:var(--ink);display:grid;place-items:center;font-size:14px;flex-shrink:0;margin-top:2px;font-weight:700}
+.demo .lead .exp .li .b{width:30px;height:30px;border-radius:9px;background:var(--navy);color:var(--cream);display:grid;place-items:center;font-size:14px;flex-shrink:0;margin-top:2px;font-weight:700}
 .demo .lead .exp .li b{display:block;font-size:15px}
 .demo .lead .exp .li span{font-size:14px;color:var(--slate)}
 .form{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:38px;box-shadow:0 40px 80px -40px rgba(20,24,59,.3)}
