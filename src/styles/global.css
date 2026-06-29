@@ -10,7 +10,7 @@
   --slate:#5A6473;--graphite:#2A3340;--ink:#15183B;--navy:#15183B;--color-navy:#15183B;--navy-2:#1C2150;--navy-deep:#0C0E24;
   --brand:#EF7800;--brand-strong:#D26D08;--brand-alt:#F07805;--brand-soft:#FCEBD8;--brand-tint:#FFF7EF;
   --success:#1F7A4D;--danger:#B23A3A;
-  --cream:#FAF4E4;--cream-2:#F3ECD7;--cream-line:#E7DEC6;
+  --cream:#F7F2DF;--cream-2:#F1EAD3;--cream-line:#E5DCC4;
   --viz-1:#15183B;--viz-2:#33407E;--viz-3:#6F79B4;--viz-4:#EF7800;--viz-5:#F4A83D;
   --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --mono:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
@@ -632,22 +632,11 @@ body.home .hero h1{color:var(--ink)}
 body.home .hero .sub{color:var(--graphite)}
 body.home .hero .micro{color:var(--slate)}
 
-/* anvil illustration — statisch, flach in die Seite eingelassen, ohne Hover/Schatten;
-   cremefarbener Bildgrund ist freigestellt, der Amboss sitzt in der Navy-Zone */
-.hero-art{position:relative;z-index:1}
+/* anvil illustration — statisch, flach auf dem Beige-Grund (kein Hover, kein Schatten);
+   der Bildhintergrund entspricht exakt --cream, sodass die Illustration nahtlos in die Seite übergeht */
+.hero-art{position:relative}
 .hero-art img{width:100%;height:auto;display:block}
 
-/* Navy-Zone rechts: bewusst gesetzte Navy-Fläche, in die das Blau des Ambosses übergeht.
-   Linke Kante weich gefedert, blutet nach rechts/oben/unten an die Hero-Ränder aus. */
-body.home .hero .wrap{position:relative;z-index:1}
-body.home .hero::after{content:"";position:absolute;inset:0 0 0 auto;width:46%;background:#13264E;z-index:0;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 27%);
-  mask-image:linear-gradient(90deg,transparent 0,#000 27%)}
-/* Menü-Umschalter (oben rechts) liegt jetzt auf der Navy-Zone → heller Text (Standard). Logo links ist orange und bleibt auf Beige lesbar. */
-/* Mobil (einspaltig): vollflächiges Panel würde den Text überlagern → Illustration bekommt eigenen Navy-Grund, Umschalter wieder dunkel auf Beige */
-@media(max-width:920px){
-  body.home .hero::after{display:none}
-  body.home .hero-art{background:#13264E;border-radius:18px;padding:14px}
-  body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled){color:var(--ink)}
-  body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled) .menu-hamburger-icon{border-color:var(--line-2)}
-}
+/* top bar lesbar über dem hellen Hero (geschlossenes Menü, nicht gescrollt) */
+body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled){color:var(--ink)}
+body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled) .menu-hamburger-icon{border-color:var(--line-2)}
