@@ -632,12 +632,14 @@ body.home .hero h1{color:var(--ink)}
 body.home .hero .sub{color:var(--graphite)}
 body.home .hero .micro{color:var(--slate)}
 
-/* anvil illustration sits directly on cream (replaces framed photo on home) */
-.hero-art{position:relative;transition:transform .2s var(--ease)}
+/* anvil illustration — statisch, flach in die Seite "eingelassen": kein Hover/Tilt,
+   kein Schlagschatten; Navy-Form wird an Ober-, Links- und Unterkante in den Beige-Grund gefedert */
+.hero-art{position:relative}
 .hero-art img{width:100%;height:auto;display:block;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);
-  mask-image:linear-gradient(90deg,transparent 0,#000 14%);
-  filter:drop-shadow(0 30px 50px rgba(20,24,59,.18))}
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 13%),linear-gradient(90deg,transparent 0,#000 15%),linear-gradient(0deg,transparent 0,#000 9%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(180deg,transparent 0,#000 13%),linear-gradient(90deg,transparent 0,#000 15%),linear-gradient(0deg,transparent 0,#000 9%);
+  mask-composite:intersect}
 
 /* top bar legible over the cream hero (closed menu, not scrolled) */
 body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled){color:var(--ink)}
