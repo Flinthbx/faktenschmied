@@ -51,7 +51,7 @@ const nav = [
     <script type="application/ld+json" set:html={JSON.stringify(obj)} />
   ))}
 </head>
-<body>
+<body class={path === '/' ? 'home' : undefined}>
   <div id="prog"></div>
 
   <nav class="site-menu" id="siteMenu" aria-label="Hauptnavigation">
