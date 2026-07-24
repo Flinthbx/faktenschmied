@@ -483,8 +483,9 @@ html.no-scroll,body.no-scroll{overflow:hidden}
 .menu-content-wrapper{position:relative;flex:3;display:grid;grid-template-rows:1fr auto;gap:32px;padding:120px 6vw 44px}
 .menu-content-main{align-self:center;display:flex;gap:5vw;align-items:flex-end}
 .menu-col{display:flex;flex-direction:column;gap:.6rem}
-.menu-col-main{flex:3}.menu-col-sub{flex:2}
-.menu-link a{display:inline-block;font-family:var(--sans);font-size:clamp(2.1rem,4.6vw,3.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;color:#fff;text-decoration:none;transition:color .3s}
+.menu-col-main{flex:3;gap:.2rem}.menu-col-sub{flex:2}
+/* line-height >= 1.22, damit Unterlaengen (g, y) nicht von den GSAP-Zeilenmasken abgeschnitten werden */
+.menu-link a{display:inline-block;font-family:var(--sans);font-size:clamp(2.1rem,4.6vw,3.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.22;color:#fff;text-decoration:none;transition:color .3s}
 .menu-link a:hover,.menu-link a[aria-current="page"]{color:var(--brand)}
 .menu-tag a{display:inline-block;font-family:var(--mono);font-size:.92rem;letter-spacing:.02em;color:#9FA4CB;text-decoration:none;transition:color .3s}
 .menu-tag a:hover{color:var(--brand)}
