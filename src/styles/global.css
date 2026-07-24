@@ -625,6 +625,7 @@ html:not(.intro-on) .intro{display:none}
 
 /* Menü-Sublabel (Branchen unter BrandFacts) */
 .menu-sublabel{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6B70A0;margin-bottom:4px}
+.menu-col-sub .menu-sublabel ~ .menu-sublabel{margin-top:26px}
 
 /* ===== Homepage cream hero (matches reference image) ===== */
 body.home .hero{background:var(--cream)}
