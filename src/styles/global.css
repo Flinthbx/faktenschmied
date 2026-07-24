@@ -445,10 +445,11 @@ nav.main a[aria-current="page"]::after{width:100%}
    ============================================================= */
 html.no-scroll,body.no-scroll{overflow:hidden}
 
-.site-menu{position:fixed;top:0;left:0;width:100vw;height:100svh;overflow:hidden;pointer-events:none;z-index:90}
+/* 100% statt 100vw: 100vw ignoriert die Scrollbar und erzeugt sonst horizontales Scrollen */
+.site-menu{position:fixed;top:0;left:0;width:100%;height:100svh;overflow:hidden;pointer-events:none;z-index:90}
 
 /* --- top bar --- */
-.menu-bar{position:fixed;top:0;left:0;width:100vw;display:flex;align-items:center;justify-content:space-between;pointer-events:auto;z-index:92;padding:18px 28px;color:#fff;transition:background .4s,border-color .4s,box-shadow .4s,color .4s;border-bottom:1px solid transparent}
+.menu-bar{position:fixed;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;pointer-events:auto;z-index:92;padding:18px 28px;color:#fff;transition:background .4s,border-color .4s,box-shadow .4s,color .4s;border-bottom:1px solid transparent}
 .menu-bar.scrolled{background:rgba(255,255,255,.82);backdrop-filter:saturate(1.4) blur(14px);border-color:var(--line);box-shadow:0 1px 24px rgba(20,24,59,.05);color:var(--ink)}
 .site-menu.is-open .menu-bar{background:transparent;border-color:transparent;box-shadow:none;color:#fff}
 .menu-bar .logo{display:flex;align-items:center}
@@ -476,7 +477,7 @@ html.no-scroll,body.no-scroll{overflow:hidden}
 .site-menu.is-open .menu-hamburger-icon span:nth-child(2){transform:translateY(0) rotate(-45deg)}
 
 /* --- overlay --- */
-.menu-overlay{position:fixed;top:0;left:0;width:100vw;height:100svh;overflow:hidden;z-index:91;background:var(--navy-deep);color:#fff;clip-path:polygon(0% 0%,100% 0%,100% 0%,0% 0%);will-change:clip-path}
+.menu-overlay{position:fixed;top:0;left:0;width:100%;height:100svh;overflow:hidden;z-index:91;background:var(--navy-deep);color:#fff;clip-path:polygon(0% 0%,100% 0%,100% 0%,0% 0%);will-change:clip-path}
 .menu-overlay-content{position:absolute;inset:0;display:flex;pointer-events:auto;transform:translateY(-50%);will-change:transform}
 .menu-media-wrapper{flex:2;overflow:hidden;opacity:0;will-change:opacity}
 .menu-media-wrapper img{width:100%;height:100%;object-fit:cover;opacity:.32;filter:grayscale(.2)}
@@ -660,4 +661,117 @@ body.home .hero > .wrap{position:relative;z-index:1}
 @media(max-width:920px){
   body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled){color:var(--ink)}
   body.home .site-menu:not(.is-open) .menu-bar:not(.scrolled) .menu-hamburger-icon{border-color:var(--line-2)}
+}
+
+/* =============================================================
+   MOBIL & TABLET — Feinschliff
+   Bewusst am Ende der Datei: gleiche Spezifitaet wie die Regeln
+   oben, spaetere Deklaration gewinnt. Reihenfolge der Bloecke:
+   Tablet (<=1024) -> Phone quer/klein (<=820) -> Phone (<=560).
+   ============================================================= */
+
+/* ---------- Tablet ---------- */
+@media(max-width:1024px){
+  section{padding:92px 0}
+  .final{padding:0 0 92px}
+  .sec-head{margin-bottom:48px}
+  .cta{padding:76px 32px}
+  footer.site{padding:72px 0 32px}
+  .split{gap:56px}
+  .qbox{padding:34px}
+}
+
+/* ---------- Phone & kleines Tablet ---------- */
+@media(max-width:820px){
+  /* vertikaler Rhythmus: Desktop-Abstaende wirken auf kleinen
+     Geraeten wie Leerlauf zwischen den Inhalten */
+  section{padding:72px 0}
+  .final{padding:0 0 72px}
+  .sec-head{margin-bottom:36px}
+  .hero{padding:132px 0 64px}
+  .hero.interior{padding:126px 0 56px}
+  .cta{padding:58px 24px;border-radius:20px}
+  footer.site{padding:60px 0 28px}
+  footer .legal{margin-top:44px;padding-top:22px}
+  footer ul{gap:15px}
+
+  /* Fliesstext eine Stufe kleiner, sonst wirken die Spalten gedraengt */
+  .hero .sub{font-size:16.5px;margin:22px 0 30px}
+  .sec-head p{font-size:16.5px;margin-top:14px}
+  .split p.big{font-size:17px;margin:18px 0}
+  .cta p{font-size:16.5px;margin:18px auto 30px}
+  .prose{font-size:16px;line-height:1.72}
+  .legal-doc{font-size:15px}
+  .qbox{padding:28px 22px}
+  .qbox .q{font-size:20px}
+  .qbox .who{margin-top:22px}
+
+  /* Formular: unter 16px zoomt iOS beim Antippen des Feldes rein */
+  .form{padding:26px 20px;border-radius:16px}
+  .fld input,.fld select,.fld textarea,.fld label{font-size:16px}
+  .grid2{grid-template-columns:1fr}
+
+  /* Touch-Flaechen */
+  .faq summary{padding:22px 0;font-size:16.5px;gap:16px}
+  .menu-tag a{padding:2px 0}
+
+  /* lange Adressen duerfen umbrechen statt die Karte zu sprengen */
+  .tcard .tb .tc a{overflow-wrap:anywhere}
+}
+
+/* ---------- Phone ---------- */
+@media(max-width:560px){
+  section{padding:58px 0}
+  .final{padding:0 0 58px}
+  .wrap{padding:0 20px}
+  .sec-head{margin-bottom:30px}
+  .hero{padding:120px 0 54px}
+  .hero.interior{padding:114px 0 48px}
+  .cta{padding:46px 20px}
+  .menu-bar{padding:14px 20px}
+
+  /* Karten-Innenabstaende: 32-38px fressen auf 390px Breite den Inhalt auf */
+  .cell{padding:28px 22px}
+  .step{padding:24px 20px}
+  .tile{padding:26px 22px}
+  .tile .n{font-size:2.2rem}
+  .icard .ic-h{padding:22px 20px 16px}
+  .icard .ic-b,.icard .ic-stat{padding-left:20px;padding-right:20px}
+  .icard .ic-f{padding:0 20px 22px}
+  .panel .ph,.schem,.mixbar,.panel .chips,.panel .flow{padding-left:16px;padding-right:16px}
+
+  /* Bild-Overlays: auf kleinen Bildern verdeckt der Text sonst das Motiv */
+  .forge-band .cap{padding:18px}
+  .forge-band .cap .t{font-size:18px}
+  .forge-band .cap .s{font-size:11px;margin-top:6px}
+  .qforge .q-ov{padding:18px}
+  .qforge .q-ov .q{font-size:17px}
+  .forge-frame .cap{padding:16px;font-size:11px}
+
+  /* CTA-Buttons volle Breite — daumenfreundlicher als zwei halbe */
+  .cta .acts .btn,.hero .acts .btn{width:100%;justify-content:center}
+}
+
+/* zwei Kacheln nebeneinander bleiben bis 560px sinnvoll lesbar */
+.tiles.tiles-2{grid-template-columns:1fr 1fr}
+@media(max-width:560px){.tiles.tiles-2{grid-template-columns:1fr}}
+
+/* ---------- Menue-Overlay auf Touch-Geraeten ---------- */
+@media(max-width:900px){
+  /* gestapelt braucht das Overlay mehr Hoehe als vorhanden ist —
+     scrollbar machen, sonst sind CTA und Kontaktdaten unerreichbar */
+  .menu-content-wrapper{padding:92px 24px 28px;gap:24px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  .menu-content-main{align-self:start;gap:1.8rem}
+  .menu-link a{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .menu-col-sub{gap:.55rem}
+  .menu-cta{margin-top:16px}
+  .menu-cta .btn{width:100%;justify-content:center}
+  .menu-footer{padding-top:18px}
+}
+
+/* niedrige Geraete (Handy quer, kleine Phones): Links weiter verkleinern */
+@media(max-width:900px) and (max-height:700px){
+  .menu-content-wrapper{padding-top:80px}
+  .menu-link a{font-size:1.65rem}
+  .menu-content-main{gap:1.2rem}
 }
